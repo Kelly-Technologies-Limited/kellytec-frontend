@@ -1,3 +1,7 @@
+## 2026-10-11 — Canonical repository names
+
+- Update shared UI generated-source attribution to kellytec-frontend. Preserve the kellytec.io domain, asset URLs and kellytec-ui distribution identity.
+
 ## 2026-10-09 — Shared UI 0.1.3 release
 
 - Support explicit heading lines and the existing record-header typography in shared tables.

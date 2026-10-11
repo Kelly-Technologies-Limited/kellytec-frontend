@@ -101,7 +101,7 @@ def _extract_chrome_css(css_text: str) -> str:
     blocks = _matching_blocks(css_without_comments)
     body = "\n\n".join(blocks).strip()
     body = body.replace("--font-mono", "--brand-font-mono").replace("--font-sans", "--brand-font-sans")
-    return "/* Generated from frontend/src/styles/. Run scripts/sync_frontend_chrome.py. */\n" + body + "\n"
+    return "/* Generated from kellytec-frontend/src/styles/. Run scripts/sync_frontend_chrome.py. */\n" + body + "\n"
 
 
 def _matching_blocks(css_text: str) -> list[str]:
