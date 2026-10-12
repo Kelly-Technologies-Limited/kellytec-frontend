@@ -1,13 +1,29 @@
-from pathlib import Path
 import ast
 import hashlib
 import json
 import re
 import sys
+from importlib import metadata
+from pathlib import Path
 
-from kellytec_ui.assets import ROOT, design_system_css, shared_ui_script
-from kellytec_ui.components.login import render_login
-from kellytec_ui.components.toolbar import monitor_toolbar
+from kellytec_design_system.assets import ROOT, design_system_css, shared_ui_script
+from kellytec_design_system.components.login import render_login
+from kellytec_design_system.components.toolbar import monitor_toolbar
+from kellytec_design_system.version import design_system_version
+
+
+def test_distribution_identity_and_runtime_only_files() -> None:
+    distribution = next(
+        item for item in metadata.distributions(path=[str(ROOT.parent)])
+        if item.metadata["Name"] == "kellytec-design-system"
+    )
+    assert distribution.version == design_system_version
+    for member in distribution.files:
+        path = Path(str(member))
+        assert not {"kellytec_ui", "tests", "build"}.intersection(path.parts)
+        assert path.name != "setup.py"
+    assert (ROOT / "static/logo.svg").is_file()
+    assert (ROOT / "static/logo-light.svg").is_file()
 
 
 def test_package_resources_and_font_hashes():
@@ -27,7 +43,7 @@ def test_shared_python_has_no_application_dependencies():
     for path in ROOT.rglob("*.py"):
         for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
             names = [n.name for n in node.names] if isinstance(node, ast.Import) else [node.module] if isinstance(node, ast.ImportFrom) and node.module and not node.level else []
-            assert all(name.split(".")[0] in sys.stdlib_module_names | {"kellytec_ui"} for name in names), path
+            assert all(name.split(".")[0] in sys.stdlib_module_names | {"kellytec_design_system"} for name in names), path
 
 
 def test_toolbar_preserves_monitor_and_supports_identity_actions():
@@ -60,11 +76,11 @@ def test_login_supports_provider_form_without_password_or_auth_logic():
 
 
 def test_brand_is_generated_from_frontend_sources():
-    frontend = Path(__file__).resolve().parents[3]
+    frontend = Path(__file__).resolve().parents[2]
     sys.path.insert(0, str(frontend / "scripts"))
     from sync_frontend_chrome import build_frontend_chrome
     chrome = build_frontend_chrome(frontend)
     assert (ROOT / "generated/frontend_header.html").read_text(encoding="utf-8").strip() == chrome.header
     assert (ROOT / "generated/frontend_footer.html").read_text(encoding="utf-8").strip() == chrome.footer
     assert (ROOT / "generated/frontend_chrome.css").read_text(encoding="utf-8") == chrome.css
-    assert (ROOT / "static/favicon.svg").read_text(encoding="utf-8") == (frontend / "shared/assets/favicon.svg").read_text(encoding="utf-8")
+    assert (ROOT / "static/favicon.svg").read_text(encoding="utf-8") == (frontend / "kellytec-design-system/static/favicon.svg").read_text(encoding="utf-8")

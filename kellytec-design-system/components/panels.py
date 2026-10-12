@@ -2,7 +2,7 @@
 
 from html import escape
 
-from kellytec_ui.contracts.tab import MonitorPanel
+from kellytec_design_system.contracts.tab import MonitorPanel
 
 
 def monitor_notices() -> str:

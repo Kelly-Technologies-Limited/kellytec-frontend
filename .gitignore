@@ -4,6 +4,6 @@ __pycache__/
 .venv*/
 .tmp*/
 .pytest_cache/
-shared/ui/build/
-shared/ui/dist/
+kellytec-design-system/build/
+kellytec-design-system/dist/
 dist/

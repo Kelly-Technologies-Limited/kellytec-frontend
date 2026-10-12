@@ -1,11 +1,10 @@
 """DST labels are an explicit caller choice; existing apps retain ET by default."""
 import json
-from pathlib import Path
 import subprocess
 
 import pytest
-
-from kellytec_ui.contracts import display_value
+from kellytec_design_system.assets import ROOT
+from kellytec_design_system.contracts import display_value
 
 
 def test_timezone_option_is_typed_and_restricted_to_time_values():
@@ -16,7 +15,7 @@ def test_timezone_option_is_typed_and_restricted_to_time_values():
 
 
 def test_shared_browser_formatter_keeps_default_and_distinguishes_fall_back():
-    source = Path(__file__).parents[1] / "src/kellytec_ui/static/js/formatters/value.js"
+    source = ROOT / "static/js/formatters/value.js"
     script = "global.window = {MonitorUI: {EMPTY: '—'}};\n" + source.read_text()
     script += """
 const cases = [

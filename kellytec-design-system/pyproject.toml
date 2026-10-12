@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kellytec-design-system"
+dynamic = ["version"]
+description = "Kelly Technologies shared Page, Tab, Card and Cell presentation"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = {attr = "kellytec_design_system.version.design_system_version"}
+
+[tool.setuptools.package-data]
+kellytec_design_system = ["templates/*.html", "generated/*", "static/**/*.css", "static/**/*.js", "static/*.svg", "static/fonts/*"]

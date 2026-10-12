@@ -4,8 +4,8 @@ import json
 import subprocess
 
 import pytest
-from kellytec_ui.assets import ROOT
-from kellytec_ui.contracts import display_value
+from kellytec_design_system.assets import ROOT
+from kellytec_design_system.contracts import display_value
 
 
 def rendered(specs):

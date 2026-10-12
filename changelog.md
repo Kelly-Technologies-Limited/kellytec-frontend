@@ -1,5 +1,15 @@
 ## 2026-10-11 — Canonical repository names
 
+## 2026-10-12 - Standardize frontend product identities
+
+- Move the website to `kellytec-website` and the presentation package to flat
+  `kellytec-design-system`; map the latter to `kellytec_design_system` 0.2.0.
+- Give package versioning one source and keep build tooling/tests outside the
+  wheel. Preserve chrome generation and the public asset allowlist.
+- Update CI, documentation and resource owners. Local qualification: 56 tests
+  pass; all 16 public website files match the pre-refactor bytes. This is an
+  unpublished candidate; the website and package have not been deployed.
+
 - Update shared UI generated-source attribution to kellytec-frontend. Preserve the kellytec.io domain, asset URLs and kellytec-ui distribution identity.
 
 ## 2026-10-09 — Shared UI 0.1.3 release

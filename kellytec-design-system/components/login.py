@@ -3,7 +3,7 @@
 from functools import lru_cache
 from html import escape
 from string import Template
-from kellytec_ui.assets import ROOT
+from kellytec_design_system.assets import ROOT
 
 
 @lru_cache(maxsize=1)

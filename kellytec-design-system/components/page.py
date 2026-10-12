@@ -6,7 +6,7 @@ from functools import lru_cache
 from html import escape
 from pathlib import Path
 
-from kellytec_ui.contracts.page import MonitorPage
+from kellytec_design_system.contracts.page import MonitorPage
 
 from .panels import monitor_notices, monitor_panels
 from .tabs import monitor_tabs

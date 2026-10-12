@@ -1,7 +1,11 @@
-# Shared UI
+# kellytec-design-system
 
-`kellytec-ui==0.1.3` owns the Monitor presentation used by both Monitor apps
-and Kelly Technologies Research Platform. Runtime Python dependencies are standard library only.
+Source is directly in this product directory; there is no `python/` wrapper.
+`setup.py` maps it to `kellytec_design_system` and excludes the build entrypoint
+and tests from the wheel. `version.py` is the single version source.
+
+`kellytec-design-system==0.2.0` owns the Monitor presentation used by both Monitor apps
+and kellytec-research-platform. Runtime Python dependencies are standard library only.
 The package contains the original Page → Tab → Card → Cell contracts,
 renderers, CSS tokens, JavaScript, templates, generated brand and fonts.
 There is no application authentication, fetch loop or compute logic here.
@@ -10,18 +14,18 @@ Build from the frontend repository:
 
 ```sh
 python scripts/sync_frontend_chrome.py
-python -m build --wheel shared/ui
-python -m pip install --no-deps shared/ui/dist/kellytec_ui-0.1.3-py3-none-any.whl
-python -m pytest -q shared/ui/tests tests
+python -m build --wheel kellytec-design-system
+python -m pip install --no-deps kellytec-design-system/dist/kellytec_design_system-0.2.0-py3-none-any.whl
+python -m pytest -q kellytec-design-system/tests kellytec-website/tests
 ```
 
 Publish the reviewed, immutable wheel through the existing approved Python
 package repository before releasing Monitor. Monitor's two pinned requirements
 files feed its existing dependency download, vendor and offline Docker install
-steps. Research Platform bundles the same wheel. Consumers never read a sibling checkout.
+steps. kellytec-research-platform bundles the same wheel. Consumers never read a sibling checkout.
 Do not reuse a version for changed release bytes.
 
-Use `kellytec_ui.assets.ROOT` for installed favicon/static resources, and
+Use `kellytec_design_system.assets.ROOT` for installed favicon/static resources, and
 `design_system_css()` / `shared_ui_script()` for the canonical bundles.
 Use `data-ui="button"` for application actions outside the toolbar; it selects
 the same base and hover styles as Monitor toolbar buttons, with the shared
@@ -44,8 +48,8 @@ The logo is an SVG outline. English tool interfaces require no external fonts.
 `font_stylesheet()` embeds these resources so applications need no font route
 and can run offline. Other CJK text would require an explicit font subset update.
 
-Canonical logos and imagery live in `shared/assets/`. Brand generation reads
-that directory and the website's `src/chrome/` and `src/styles/` directly;
+Canonical logos and imagery live in `kellytec-design-system/static/`. Brand generation reads
+that directory and the website's `kellytec-website/chrome/` and `kellytec-website/styles/` directly;
 it does not require generated website output. Generated package resources
 remain bundled in the wheel, so consumers need no sibling asset directory.
 
@@ -55,7 +59,7 @@ workflow builds and tests both artifacts, then deploys only the public website o
 pushes to `main`. Pull requests never deploy. Pages uses GitHub Actions publishing,
 not the branch root. The separate wheel artifact still needs publication through
 the approved Python package repository before a consumer release; a website
-deployment does not update Monitor or Research Platform.
+deployment does not update Monitor or kellytec-research-platform.
 
 Version 0.1.2 adds explicit percentage precision. Percentage descriptors may
 opt into `fraction_digits` (integer 0–20); both minimum and maximum fraction

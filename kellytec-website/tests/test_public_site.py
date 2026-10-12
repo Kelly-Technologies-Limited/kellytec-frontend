@@ -5,7 +5,7 @@ from urllib.parse import urlsplit
 
 import pytest
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 from build_site import GENERATED_FILES, PUBLIC_FILES, build_public_site
 

@@ -8,7 +8,7 @@ import shutil
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
+SRC = ROOT / "kellytec-website"
 
 CHROME = SRC / "chrome"
 HOME = SRC / "pages" / "home"
@@ -18,15 +18,16 @@ GP = SRC / "pages" / "gp"
 GP_CARDS = GP / "cards"
 GP_TABS = GP / "tabs"
 REDIRECTS = SRC / "redirects"
-ASSETS = ROOT / "shared" / "assets"
+ASSETS = ROOT / "kellytec-design-system" / "static"
 
 # Public URLs stay stable; source locations are independent of served paths.
 PUBLIC_FILES = {
-    ".nojekyll": ROOT / ".nojekyll",
-    "CNAME": ROOT / "CNAME",
-    "palettes.html": ROOT / "palettes.html",
+    "assets/hero-bg.jpg": SRC / "assets" / "hero-bg.jpg",
+    ".nojekyll": SRC / ".nojekyll",
+    "CNAME": SRC / "CNAME",
+    "palettes.html": SRC / "palettes.html",
     **{f"assets/{name}": ASSETS / name for name in (
-        "favicon.svg", "hero-bg.jpg", "logo.svg", "logo-light.svg",
+        "favicon.svg", "logo.svg", "logo-light.svg",
     )},
     **{f"assets/scripts/{name}": SRC / "scripts" / name for name in (
         "header_scroll.js", "reveal_on_scroll.js", "page_reveal.js",
@@ -112,7 +113,7 @@ def render_header(
     *, asset_prefix: str, home_href: str, gp_current: bool, frontend_root: Path = ROOT
 ) -> str:
     return replace_all(
-        read(frontend_root / "src" / "chrome" / "header.html"),
+        read(frontend_root / "kellytec-website" / "chrome" / "header.html"),
         {
             "asset.prefix": asset_prefix,
             "navigation.home": home_href,

@@ -3,7 +3,7 @@
 import json
 import subprocess
 
-from kellytec_ui.assets import ROOT
+from kellytec_design_system.assets import ROOT
 
 
 def test_new_categories_append_without_changing_existing_styles():
@@ -27,6 +27,6 @@ def test_new_categories_append_without_changing_existing_styles():
 
 
 def test_series_asset_is_packaged_before_legend():
-    from kellytec_ui.assets import shared_ui_script
+    from kellytec_design_system.assets import shared_ui_script
     script = shared_ui_script()
     assert script.index("UI.chartSeriesStyle =") < script.index("UI.chartLegendItem =")

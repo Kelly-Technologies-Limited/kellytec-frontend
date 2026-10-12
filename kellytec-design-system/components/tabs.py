@@ -2,7 +2,7 @@
 
 from html import escape
 
-from kellytec_ui.contracts.tab import MonitorTab
+from kellytec_design_system.contracts.tab import MonitorTab
 
 
 def monitor_tabs(*, tabs: tuple[MonitorTab, ...], aria_label: str) -> str:

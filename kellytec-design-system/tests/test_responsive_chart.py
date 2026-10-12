@@ -2,7 +2,7 @@
 import json
 import subprocess
 
-from kellytec_ui.assets import ROOT
+from kellytec_design_system.assets import ROOT
 
 
 def test_hidden_reveal_resize_rebind_and_removal_do_not_leak_bindings():

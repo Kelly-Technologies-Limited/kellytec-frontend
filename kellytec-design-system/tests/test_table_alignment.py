@@ -3,7 +3,7 @@
 import json
 import subprocess
 
-from kellytec_ui.assets import ROOT, design_system_css
+from kellytec_design_system.assets import ROOT, design_system_css
 
 
 def test_numeric_column_and_multiple_basis_values_use_shared_structure():

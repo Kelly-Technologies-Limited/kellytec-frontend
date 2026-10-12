@@ -35,13 +35,13 @@ class FrontendChrome:
 
 def build_frontend_chrome(frontend_root: Path) -> FrontendChrome:
     styles_css = build_css(frontend_root)
-    logo_svg = _read_svg_text(frontend_root / "shared" / "assets" / "logo.svg").encode("utf-8")
+    logo_svg = _read_svg_text(frontend_root / "kellytec-design-system" / "static" / "logo.svg").encode("utf-8")
     homepage_href = _frontend_homepage_href(frontend_root)
 
     source_header = render_header(
         asset_prefix="", home_href="#top", gp_current=False, frontend_root=frontend_root
     )
-    footer = read(frontend_root / "src" / "chrome" / "footer.html")
+    footer = read(frontend_root / "kellytec-website" / "chrome" / "footer.html")
 
     logo_uri = "data:image/svg+xml;base64," + base64.b64encode(logo_svg).decode("ascii")
     header = _monitor_header(
@@ -56,17 +56,11 @@ def build_frontend_chrome(frontend_root: Path) -> FrontendChrome:
 
 def write_frontend_chrome(frontend_root: Path) -> None:
     chrome = build_frontend_chrome(frontend_root)
-    generated_dir = frontend_root / "shared" / "ui" / "src" / "kellytec_ui" / "generated"
-    static_dir = frontend_root / "shared" / "ui" / "src" / "kellytec_ui" / "static"
+    generated_dir = frontend_root / "kellytec-design-system" / "generated"
     generated_dir.mkdir(parents=True, exist_ok=True)
-    static_dir.mkdir(parents=True, exist_ok=True)
     (generated_dir / "frontend_header.html").write_text(chrome.header + "\n", encoding="utf-8")
     (generated_dir / "frontend_footer.html").write_text(chrome.footer + "\n", encoding="utf-8")
     (generated_dir / "frontend_chrome.css").write_text(chrome.css, encoding="utf-8")
-    (static_dir / "favicon.svg").write_text(
-        _read_svg_text(frontend_root / "shared" / "assets" / "favicon.svg"),
-        encoding="utf-8",
-    )
 
 
 def _read_svg_text(path: Path) -> str:
@@ -74,7 +68,7 @@ def _read_svg_text(path: Path) -> str:
 
 
 def _frontend_homepage_href(frontend_root: Path) -> str:
-    cname = frontend_root / "CNAME"
+    cname = frontend_root / "kellytec-website" / "CNAME"
     if cname.exists():
         domain = cname.read_text(encoding="utf-8").strip()
         if domain:
@@ -101,7 +95,7 @@ def _extract_chrome_css(css_text: str) -> str:
     blocks = _matching_blocks(css_without_comments)
     body = "\n\n".join(blocks).strip()
     body = body.replace("--font-mono", "--brand-font-mono").replace("--font-sans", "--brand-font-sans")
-    return "/* Generated from kellytec-frontend/src/styles/. Run scripts/sync_frontend_chrome.py. */\n" + body + "\n"
+    return "/* Generated from kellytec-frontend/kellytec-website/styles/. Run scripts/sync_frontend_chrome.py. */\n" + body + "\n"
 
 
 def _matching_blocks(css_text: str) -> list[str]:
