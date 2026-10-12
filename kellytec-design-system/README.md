@@ -30,6 +30,14 @@ Use `kellytec_design_system.assets.ROOT` for installed favicon/static resources,
 Use `data-ui="button"` for application actions outside the toolbar; it selects
 the same base and hover styles as Monitor toolbar buttons, with the shared
 native disabled and keyboard-focus behavior.
+
+Optional extensions preserve these defaults. Put data-ui-density="compact" on a
+container to make buttons, text inputs, selects and selection rows exactly 26px
+high; navigation tabs retain their existing size. The inset cell surface is
+enabled by data-ui-surface="inset" on a canonical cell. Progress controls can
+select healthy, critical or unknown through data-tone. Applications map their
+domain states to these tones and use the existing statusBadge for status bubbles.
+
 `MonitorPage.toolbar_actions_html=None` retains Monitor's existing status and
 Refresh controls; a trusted application HTML string replaces only those actions.
 `updated_initial` is escaped and can contain the current account/project text.

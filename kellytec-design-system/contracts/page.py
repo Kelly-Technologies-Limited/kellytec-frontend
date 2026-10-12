@@ -30,7 +30,11 @@ class MonitorPage:
                 raise ValueError(f"{name} must be an absolute application path")
         if not self.tabs:
             raise ValueError("monitor page requires tabs")
-        if tuple(tab.view for tab in self.tabs) != tuple(
+        if self.tabs[0].disabled:
+            raise ValueError("the initial tab must be enabled")
+        if len({tab.view for tab in self.tabs}) != len(self.tabs):
+            raise ValueError("tab views must be unique")
+        if tuple(tab.view for tab in self.tabs if not tab.disabled) != tuple(
             panel.view for panel in self.panels
         ):
             raise ValueError("monitor tabs and panels must have identical ordered views")

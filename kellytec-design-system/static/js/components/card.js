@@ -6,7 +6,8 @@
     const classes = "monitor-card" + (hideTitle ? " monitor-card-no-title" : "") +
       (extraClass ? " " + extraClass : "");
     return '<section class="' + classes + '" data-ui="card" data-card="' + UI.esc(id) + '">' +
-      (hideTitle ? "" : '<div class="monitor-card-head" data-ui="card-head"><h2 data-ui-type="card-title">' + UI.esc(card.title || "") + "</h2></div>") +
+      (hideTitle ? "" : '<div class="monitor-card-head" data-ui="card-head"><h2 data-ui-type="card-title">' + UI.esc(card.title || "") + "</h2>" +
+        (card.status ? '<span class="card-status" role="status">' + UI.esc(card.status) + '</span>' : '') + "</div>") +
       body + "</section>";
   };
 

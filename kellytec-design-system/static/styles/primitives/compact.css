@@ -1,0 +1,19 @@
+/* Opt-in density; existing Monitor controls and navigation retain their defaults. */
+[data-ui-density="compact"] :is([data-ui="button"], [data-ui="input"], [data-ui="select"], .selection-option) {
+  box-sizing: border-box;
+  height: 26px;
+  min-height: 26px;
+  padding: 0 8px;
+}
+[data-ui-density="compact"] [data-ui="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+[data-ui-density="compact"] .selection-tools > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+}

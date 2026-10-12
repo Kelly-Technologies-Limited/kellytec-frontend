@@ -1,0 +1,7 @@
+/* Optional bounded cell surface for forms and independently readable records. */
+.monitor-cell[data-ui-surface="inset"] {
+  padding: 12px;
+  border: var(--monitor-cell-rule);
+  border-radius: var(--monitor-radius);
+  background: var(--monitor-surface-control);
+}

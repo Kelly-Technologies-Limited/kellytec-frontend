@@ -1,0 +1,22 @@
+/* Compact selection and forms use the shared visual tokens. */
+[data-ui="selection"] { display:grid; gap:8px; }
+.selection-tools { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.selection-tools input[type="search"] { flex:1; min-width:140px; }
+.selection-options { display:grid; grid-template-columns:repeat(var(--selection-columns, 4),minmax(0,1fr)); align-content:start; max-height:240px; min-height:100px; overflow-y:auto; padding:8px; gap:4px 12px; background:var(--monitor-surface-raised); border:1px solid var(--monitor-border-field); border-radius:var(--monitor-radius-field); }
+.selection-option { display:flex; align-items:center; gap:5px; min-width:0; padding:3px; font:var(--monitor-type-input); }
+.selection-option span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.selection-option input { margin:0; accent-color:var(--monitor-accent); }
+.selection-count { font:var(--monitor-type-input); color:var(--monitor-ink); }
+.card-status { margin-left:auto; font:var(--monitor-type-input); border:1px solid var(--monitor-border-field); border-radius:var(--monitor-radius-field); padding:4px 8px; }
+[data-ui="form-row"] { display:flex; flex-wrap:wrap; align-items:end; gap:12px; }
+[data-ui="form-field"] { display:grid; gap:6px; flex:1; min-width:150px; }
+[data-ui="form-field"] label { font:var(--monitor-type-input); }
+[data-ui="date-range"] { display:grid; white-space:nowrap; gap:3px; }
+.selection-compact .selection-tools { display:none; }
+.selection-compact .selection-options { display:flex; flex-wrap:wrap; min-height:0; padding:0; border:0; background:transparent; }
+.selection-compact .selection-option { padding:8px 10px; border:1px solid var(--monitor-border-field); border-radius:var(--monitor-radius-field); background:var(--monitor-surface-control); }
+[data-ui="progress"] { appearance:none; height:6px; border:0; border-radius:var(--monitor-radius-pill); background:var(--monitor-surface-selected); accent-color:var(--monitor-accent); }
+[data-ui="progress"]::-webkit-progress-bar { background:var(--monitor-surface-selected); border-radius:var(--monitor-radius-pill); }
+[data-ui="progress"]::-webkit-progress-value { background:var(--monitor-accent); border-radius:var(--monitor-radius-pill); }
+[data-ui="progress"]::-moz-progress-bar { background:var(--monitor-accent); border-radius:var(--monitor-radius-pill); }
+@media(max-width:760px) { .selection-options { grid-template-columns:repeat(2,minmax(0,1fr)); } }

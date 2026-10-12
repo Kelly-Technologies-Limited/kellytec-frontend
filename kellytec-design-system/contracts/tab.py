@@ -16,11 +16,12 @@ class MonitorTab:
     icon: str
     badge: bool = False
     icon_status: str | None = None
+    disabled: bool = False
 
     def __post_init__(self) -> None:
         if not _valid_view(self.view):
             raise ValueError("monitor tab view is invalid")
-        if not self.label.strip() or not self.icon.strip():
+        if not self.disabled and (not self.label.strip() or not self.icon.strip()):
             raise ValueError("monitor tab label and icon are required")
         if self.icon_status not in {None, "active", "closed"}:
             raise ValueError("monitor tab icon status is invalid")

@@ -16,7 +16,9 @@ def monitor_tabs(*, tabs: tuple[MonitorTab, ...], aria_label: str) -> str:
         buttons.append(
             '<button class="tab" data-ui="tab" data-ui-type="tab-label" type="button" data-view="'
             + escape(tab.view, quote=True) + '" aria-selected="'
-            + ("true" if index == 0 else "false") + '">' + _tab_icon(tab)
+            + ("true" if index == 0 else "false") + '"'
+            + (' disabled aria-disabled="true" tabindex="-1"' if tab.disabled else '')
+            + '>' + (_tab_icon(tab) if tab.icon else '')
             + '<span class="tab-label">' + escape(tab.label) + "</span>" + badge + "</button>"
         )
     return (

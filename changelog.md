@@ -1,3 +1,10 @@
+## 2026-10-12 - Research composition primitives, candidate 0.3.0
+
+- Add opt-in 26px control density, inset cell surfaces and semantic progress tones in new primitive stylesheets; existing Monitor style files and default navigation sizes are unchanged.
+- Add disabled blank tab slots while retaining Monitor's existing tab defaults.
+- Provide shared searchable checkbox selection, compact strategy choices, card status, date ranges and progress styling. Preserve keyboard focus and scroll position during selection.
+- Verify the installed distribution with the existing 54 design-system tests; no website or cloud publication is included.
+
 ## 2026-10-12 - Publish design system 0.2.0 for coordinated consumers
 
 - Verify private publication through Cloud Build `41da59c7-086d-4c31-9ca2-6d91185d5233`; published wheel SHA-256 is `de3bdf40dfa5f2a6d9d196c620f97b6febfd333c5daf3c7b8db7b1c90f4ca958`.

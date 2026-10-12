@@ -1,0 +1,9 @@
+/* Explicit status tones extend the default progress primitive. */
+[data-ui="progress"][data-tone="healthy"] { --monitor-progress-color: var(--monitor-ok); }
+[data-ui="progress"][data-tone="critical"] { --monitor-progress-color: var(--monitor-bad); }
+[data-ui="progress"][data-tone="unknown"] { --monitor-progress-color: var(--monitor-unknown); }
+[data-ui="progress"][data-tone] { accent-color: var(--monitor-progress-color); }
+[data-ui="progress"][data-tone]::-webkit-progress-value { background: var(--monitor-progress-color); }
+[data-ui="progress"][data-tone]::-moz-progress-bar { background: var(--monitor-progress-color); }
+[data-ui="progress"][data-tone="critical"],
+[data-ui="progress"][data-tone="critical"]::-webkit-progress-bar { background: var(--monitor-bad-bg); }
