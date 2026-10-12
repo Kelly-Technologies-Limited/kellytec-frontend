@@ -1,3 +1,8 @@
+## 2026-10-12 - Publish design system 0.2.0 for coordinated consumers
+
+- Publish the renamed `kellytec-design-system==0.2.0` private package required by the current Monitor and Research Platform compositions.
+- Build the wheel and source distribution from the canonical product and pass all 56 website/design-system tests before publishing. Keep the public website's existing file allowlist and display contracts.
+
 ## 2026-10-11 — Canonical repository names
 
 ## 2026-10-12 - Standardize frontend product identities
