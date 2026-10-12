@@ -14,7 +14,7 @@ UI wheel, then deploys only the `dist/site` artifact to GitHub Pages at
 
 The repository's Pages publishing source is **GitHub Actions**, not a branch
 directory. Source/package files are excluded from the public website artifact.
-The 0.2.0 candidate renames the package and keeps the existing display contracts;
+The published 0.2.0 release renames the package and keeps the existing display contracts;
 see [its contract](kellytec-design-system/README.md).
 
 The shared UI wheel is uploaded as a separate Actions artifact; deploying the

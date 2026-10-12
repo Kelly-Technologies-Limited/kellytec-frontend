@@ -1,5 +1,6 @@
 ## 2026-10-12 - Publish design system 0.2.0 for coordinated consumers
 
+- Verify private publication through Cloud Build `41da59c7-086d-4c31-9ca2-6d91185d5233`; published wheel SHA-256 is `de3bdf40dfa5f2a6d9d196c620f97b6febfd333c5daf3c7b8db7b1c90f4ca958`.
 - Publish the renamed `kellytec-design-system==0.2.0` private package required by the current Monitor and Research Platform compositions.
 - Build the wheel and source distribution from the canonical product and pass all 56 website/design-system tests before publishing. Keep the public website's existing file allowlist and display contracts.
 
