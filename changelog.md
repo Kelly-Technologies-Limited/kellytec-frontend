@@ -1,5 +1,14 @@
 ## 2026-10-12 - Research composition primitives, candidate 0.3.0
 
+## 2026-10-13 - Use shared test profiles and grouped automation
+
+- Define repository test selections once in tests/profiles.toml and use the shared automation reader from local and Workflow entrypoints, preserving existing test arguments, exclusions and time budgets.
+- Adopt automation modules grouped by function; remove old imports and duplicate deployment test configuration without compatibility aliases. Preserve repository-owned build, environment preparation and deployment admission.
+
+## 2026-10-13 - Unify repository structure
+
+- Unify root navigation for product source, installation, tests, release/deployment and documentation.
+
 ## 2026-10-13 - Organize tests by product ownership
 
 - Consolidate existing tests under the repository root `tests/`, using canonical product names and engineering `workloads/`; update paths, imports and existing workflow selections without changing test assertions or product behavior.

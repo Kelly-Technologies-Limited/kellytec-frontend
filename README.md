@@ -1,5 +1,18 @@
 # kellytec-frontend
 
+## Repository navigation
+
+| Entry | Location or responsibility |
+| --- | --- |
+| Repository responsibility | Public website and shared presentation package. |
+| Products and source | [Design system](kellytec-design-system/); [Website](kellytec-website/) |
+| Installation | [Package setup](kellytec-design-system/README.md) |
+| Tests | [Tests](tests/README.md) |
+| Deployment and release | [Build and Pages workflow](.github/workflows/build-artifacts.yml) |
+| Documentation | [Design system reference](kellytec-design-system/README.md) |
+
+Directories are created only when needed. Source layouts retain their existing package and platform contracts.
+
 Owns **kellytec-website**, the static website for **Kelly Technologies Limited**
 (`kellytec.io`), and **kellytec-design-system**, the installable presentation package.
 

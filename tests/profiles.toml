@@ -1,0 +1,8 @@
+# Test selections only. Prepare the documented environment before execution.
+
+[suites.frontend]
+environment = "python"
+commands = [["python", "-m", "pytest", "-q", "tests/kellytec-website", "tests/kellytec-design-system", "tests/workloads/build"]]
+
+[profiles.build-artifacts]
+suites = ["frontend"]

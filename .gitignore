@@ -7,3 +7,5 @@ __pycache__/
 kellytec-design-system/build/
 kellytec-design-system/dist/
 dist/
+.automation/
+.automation-tools/
