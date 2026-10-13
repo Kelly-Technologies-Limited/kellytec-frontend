@@ -16,7 +16,7 @@ Build from the frontend repository:
 python scripts/sync_frontend_chrome.py
 python -m build --wheel kellytec-design-system
 python -m pip install --no-deps kellytec-design-system/dist/kellytec_design_system-0.2.0-py3-none-any.whl
-python -m pytest -q kellytec-design-system/tests kellytec-website/tests
+python -m pytest -q tests/kellytec-design-system tests/kellytec-website
 ```
 
 Publish the reviewed, immutable wheel through the existing approved Python

@@ -26,7 +26,7 @@ jobs:
       - run: python scripts/sync_frontend_chrome.py
       - run: python -m build --wheel kellytec-design-system
       - run: python -m pip install --no-deps kellytec-design-system/dist/*.whl
-      - run: python -m pytest -q kellytec-website/tests kellytec-design-system/tests
+      - run: python -m pytest -q tests/kellytec-website tests/kellytec-design-system tests/workloads/build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/site

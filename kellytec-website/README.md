@@ -8,5 +8,5 @@ From the repository root, run `python -B scripts/build_site.py` and preview with
 `python -m http.server --directory dist/site`. The public allowlist preserves
 existing URLs and excludes source, tests and Python packages.
 
-Run `python -B -m pytest kellytec-website/tests`. See the repository README for
+Run `python -B -m pytest tests/kellytec-website`. See the repository README for
 the separate design-system build and chrome generation workflow.

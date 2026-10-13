@@ -1,5 +1,11 @@
 ## 2026-10-12 - Research composition primitives, candidate 0.3.0
 
+## 2026-10-13 - Organize tests by product ownership
+
+- Consolidate existing tests under the repository root `tests/`, using canonical product names and engineering `workloads/`; update paths, imports and existing workflow selections without changing test assertions or product behavior.
+- Product rendering behavior lives under its product; distribution contents, resources and package boundaries live under workloads/build/kellytec-design-system. The build workflow selects all three existing test groups.
+- Use canonical product names in current documentation and release display; retain technical identifiers and immutable historical evidence.
+
 - Add opt-in 26px control density, inset cell surfaces and semantic progress tones in new primitive stylesheets; existing Monitor style files and default navigation sizes are unchanged.
 - Add disabled blank tab slots while retaining Monitor's existing tab defaults.
 - Provide shared searchable checkbox selection, compact strategy choices, card status, date ranges and progress styling. Preserve keyboard focus and scroll position during selection.
