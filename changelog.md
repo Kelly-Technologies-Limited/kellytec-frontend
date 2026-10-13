@@ -67,6 +67,10 @@
 
 # Changelog
 
+## 2026-10-13 - Clarify the test profile contract
+
+- Update the earlier test-layout note to reflect the approved shared profiles while retaining the no-new-CLI and unchanged-product-behavior boundaries.
+
 ## 2026-09-27
 
 - Normalize bundled font license whitespace and line endings, retain original source checksums, and verify packaged checksums consistently on Windows and Linux.

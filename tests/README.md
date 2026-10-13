@@ -39,6 +39,6 @@ Use the names **sample data** and **simulated data** for data assets.
 Product rendering behavior lives under its product; distribution contents, resources and package boundaries live under workloads/build/kellytec-design-system. The build workflow selects all three existing test groups.
 
 This refactor retains existing assertions, test inputs, parametrization, fixture
-lifetimes, skips and runtime boundaries. It introduces no CLI, test profiles or
-additional product behavior. Run the same repository-owned checks as its workflow
+lifetimes, skips and runtime boundaries. Shared profiles now centralize selection;
+there is no new CLI or product behavior. Run the same repository-owned checks as its workflow
 before committing; a collected suite is not evidence of a passing execution.
