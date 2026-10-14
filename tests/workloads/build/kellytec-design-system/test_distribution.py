@@ -9,7 +9,6 @@ from pathlib import Path
 from kellytec_design_system.assets import ROOT, design_system_css, shared_ui_script
 from kellytec_design_system.components.login import render_login
 from kellytec_design_system.components.toolbar import monitor_toolbar
-from kellytec_design_system.version import design_system_version
 
 
 def test_distribution_identity_and_runtime_only_files() -> None:
@@ -17,7 +16,7 @@ def test_distribution_identity_and_runtime_only_files() -> None:
         item for item in metadata.distributions(path=[str(ROOT.parent)])
         if item.metadata["Name"] == "kellytec-design-system"
     )
-    assert distribution.version == design_system_version
+    assert distribution.version == "0.0.0"  # Source SHA and wheel digest identify the artifact
     for member in distribution.files:
         path = Path(str(member))
         assert not {"kellytec_ui", "tests", "build"}.intersection(path.parts)
@@ -48,8 +47,8 @@ def test_shared_python_has_no_application_dependencies():
 
 def test_brand_is_generated_from_frontend_sources():
     frontend = Path(__file__).resolve().parents[4]
-    sys.path.insert(0, str(frontend / "scripts"))
-    from sync_frontend_chrome import build_frontend_chrome
+    sys.path.insert(0, str(frontend / ".github/automation/common/helpers"))
+    from brand_assets import build_frontend_chrome
     chrome = build_frontend_chrome(frontend)
     assert (ROOT / "generated/frontend_header.html").read_text(encoding="utf-8").strip() == chrome.header
     assert (ROOT / "generated/frontend_footer.html").read_text(encoding="utf-8").strip() == chrome.footer

@@ -18,7 +18,7 @@ Owns **kellytec-website**, the static website for **Kelly Technologies Limited**
 
 The [kellytec-design-system](kellytec-design-system/README.md) package is used
 by Monitor and kellytec-research-platform. Build its wheel independently of the public
-website. `python scripts/build_site.py` produces `dist/site` from an
+website. `python .github/automation/check-kellytec-website/scripts/build_website.py` produces `dist/site` from an
 explicit public-file allowlist. On every push to `main`,
 `.github/workflows/build-artifacts.yml` builds and tests the website and shared
 UI wheel, then deploys only the `dist/site` artifact to GitHub Pages at
@@ -113,7 +113,7 @@ build and preview the served files:
 
 ```bash
 cd kellytec-frontend
-python scripts/build_site.py
+python .github/automation/check-kellytec-website/scripts/build_website.py
 python -m http.server --directory dist/site
 ```
 
@@ -139,8 +139,8 @@ Website behavior lives in `kellytec-website/scripts/` and is copied to the serve
 
 ```text
 kellytec-website/palettes.html # palette study / retheming playground
-scripts/build_site.py       # builds allowlisted public artifact in dist/site/
-scripts/sync_frontend_chrome.py # generates UI brand resources from source
+.github/automation/check-kellytec-website/scripts/build_website.py       # builds allowlisted public artifact in dist/site/
+.github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py # generates UI brand resources from source
 kellytec-website/chrome/                 # document head, header, footer
 kellytec-website/pages/home/page.html    # home page shell and tab order
 kellytec-website/pages/home/tabs/        # current tab_*.html sections
@@ -161,7 +161,7 @@ kellytec-website/.nojekyll
 
 - Edit source fragments and shared assets, not generated files under `dist/`.
 - Generate UI brand resources directly from `kellytec-website/chrome/`, `kellytec-website/styles/`, and
-  `kellytec-design-system/static/` with `python scripts/sync_frontend_chrome.py`; no website
+  `kellytec-design-system/static/` with `python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py`; no website
   build is needed. The wheel carries those resources for installed consumers.
 - Keep `site-header` and `site-footer` shapes stable unless you also check
   Monitor chrome extraction.

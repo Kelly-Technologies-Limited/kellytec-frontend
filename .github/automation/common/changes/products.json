@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "repository": "Kelly-Technologies-Limited/kellytec-frontend",
+  "ignored": [
+    "plans/**",
+    "docs/**",
+    "README.md",
+    "CHANGELOG.md",
+    "changelog.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "products": {
+    "kellytec-website": [
+      "kellytec-website/**",
+      "tests/kellytec-website/**",
+      ".github/automation/check-kellytec-website/**",
+      ".github/automation/deploy-kellytec-website-to-github-pages/**",
+      ".github/workflows/check-kellytec-website.yml",
+      ".github/workflows/deploy-kellytec-website-to-github-pages.yml"
+    ],
+    "kellytec-design-system": [
+      "kellytec-design-system/**",
+      "tests/kellytec-design-system/**",
+      ".github/automation/check-and-build-kellytec-design-system/**",
+      ".github/workflows/check-and-build-kellytec-design-system.yml"
+    ]
+  },
+  "shared": [
+    {
+      "paths": [
+        "tests/profiles.toml",
+        "tests/workloads/**",
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements*.txt",
+        "scripts/**",
+        ".github/automation/common/changes/**",
+        ".github/automation/common/dependencies/**",
+        ".github/automation/common/helpers/**"
+      ],
+      "products": [
+        "kellytec-website",
+        "kellytec-design-system"
+      ]
+    },
+    {
+      "paths": [
+        "kellytec-website/chrome/**",
+        "kellytec-website/styles/**",
+        "kellytec-design-system/static/**"
+      ],
+      "products": [
+        "kellytec-website",
+        "kellytec-design-system"
+      ]
+    }
+  ]
+}

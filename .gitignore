@@ -9,3 +9,12 @@ kellytec-design-system/dist/
 dist/
 .automation/
 .automation-tools/
+
+# Repository-owned public product Action configuration
+!/.github/automation/**/config/*.json
+!/.github/automation/common/changes/*.json
+!/.github/automation/common/dependencies/engine.lock.json
+!/.github/automation/common/registry/*.json
+!/.github/automation/common/terraform/**/storage_iam.json
+
+!/.github/automation/common/dependencies/products.json

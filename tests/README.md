@@ -3,7 +3,7 @@
 ## Shared test profiles
 
 [`profiles.toml`](profiles.toml) owns the selections below. Workflow and local execution
-use `kellytec_automation.testing.profiles.run_profile`; there is no legacy JSON fallback.
+use `kellytec_automation.check.run_tests.run_profile`; there is no legacy JSON fallback.
 Run from the repository root after preparing the existing product dependencies,
 installed Engine wheel, immutable test-source checkout and required fixtures.
 The profile does not install dependencies, upload code or deploy resources.
@@ -12,14 +12,14 @@ The profile does not install dependencies, upload code or deploy resources.
 | --- | --- |
 | `build-artifacts` | `frontend` |
 
-Use the exact Platforms `tool_sha` from `.github/deploy/config.json`,
-`.github/release/config.json` or `.github/test-tools.json`, whichever this repository owns.
-Research uses the existing Registry `tools_sha`; Platforms uses this checkout.
-Expose that checkout on `PYTHONPATH` (the Workflow uses `.automation-tools/`).
+Use the qualified Automation source SHA from the product run snapshot at
+`.automation/<product>/snapshot.json`. Install that checkout from
+`.automation-tools/kellytec-automation/`; Platforms tests its candidate source.
+Installed Engine wheels and immutable Engine test checkouts remain separate inputs.
 For example, with that environment prepared:
 
 ```sh
-python -c "from pathlib import Path; from kellytec_automation.testing.profiles import run_profile; run_profile(Path.cwd(), 'build-artifacts')"
+python -c "from pathlib import Path; from kellytec_automation.check.run_tests import run_profile; run_profile(Path.cwd(), 'build-artifacts')"
 ```
 
 Consumer deployment entrypoints still prepare and verify the installed artifact and private

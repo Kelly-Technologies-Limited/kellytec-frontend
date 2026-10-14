@@ -1,0 +1,5 @@
+{
+  "artifact_name": "github-pages",
+  "directory": "dist/site",
+  "environment": "github-pages"
+}

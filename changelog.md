@@ -1,3 +1,10 @@
+## 2026-10-14 - Implement product Workflows and repository rename preparation
+
+- Separate website Check/Pages Deploy from Design System Check and Build. Store Workflow entries in .github/automation and share actual brand inputs explicitly.
+- Consume Design System by qualified source identity instead of a manually released version. Notify only direct product consumers; preserve immutable wheel/site artifacts and reuse them on retries.
+- Align product directories and package mapping with hyphenated product names; keep Python import names valid.
+- Local implementation and checks only; GitHub repository renames, remote qualification, IAM changes and deployments have not been performed.
+
 ## 2026-10-12 - Research composition primitives, candidate 0.3.0
 
 ## 2026-10-13 - Use shared test profiles and grouped automation
@@ -106,3 +113,7 @@
   launchpad `noindex, nofollow`.
 - Extended the static build around the existing page → tab → card → cell
   presentation model so both public pages share the same chrome and assets.
+
+## 2026-10-14 Automation behavior modules
+
+- Migrate workflow imports to the shared Check, Build, Publish, Release, Push and Deployment modules; declare product dependencies, Registry selections and operation configuration explicitly. Preserve qualified source/artifact identities and existing recovery and deployment gates.

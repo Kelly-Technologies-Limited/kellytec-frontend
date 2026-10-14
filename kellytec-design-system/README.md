@@ -13,7 +13,7 @@ There is no application authentication, fetch loop or compute logic here.
 Build from the frontend repository:
 
 ```sh
-python scripts/sync_frontend_chrome.py
+python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py
 python -m build --wheel kellytec-design-system
 python -m pip install --no-deps kellytec-design-system/dist/kellytec_design_system-0.2.0-py3-none-any.whl
 python -m pytest -q tests/kellytec-design-system tests/kellytec-website
@@ -61,7 +61,7 @@ that directory and the website's `kellytec-website/chrome/` and `kellytec-websit
 it does not require generated website output. Generated package resources
 remain bundled in the wheel, so consumers need no sibling asset directory.
 
-Website output is built independently by `scripts/build_site.py` into `dist/site/`.
+Website output is built independently by `.github/automation/check-kellytec-website/scripts/build_website.py` into `dist/site/`.
 The allowlist excludes Python, tests, wheel and build tooling. The GitHub Actions
 workflow builds and tests both artifacts, then deploys only the public website on
 pushes to `main`. Pull requests never deploy. Pages uses GitHub Actions publishing,

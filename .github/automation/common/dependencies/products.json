@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "repository": "Kelly-Technologies-Limited/kellytec-frontend",
+  "products": {
+    "kellytec-website": {
+      "dependencies": {
+        "automation": {
+          "repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "workflow": "check-kellytec-automation.yml",
+          "product": "kellytec-automation"
+        }
+      }
+    },
+    "kellytec-design-system": {
+      "dependencies": {
+        "automation": {
+          "repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "workflow": "check-kellytec-automation.yml",
+          "product": "kellytec-automation"
+        }
+      }
+    }
+  },
+  "update_dependencies": [
+    "automation"
+  ],
+  "update_author": {
+    "name": "kellytec-release[bot]",
+    "email": "kellytec-release[bot]@users.noreply.github.com"
+  }
+}

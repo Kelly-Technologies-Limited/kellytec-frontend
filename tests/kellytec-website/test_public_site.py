@@ -6,8 +6,8 @@ from urllib.parse import urlsplit
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "scripts"))
-from build_site import GENERATED_FILES, PUBLIC_FILES, build_public_site
+sys.path.insert(0, str(ROOT / ".github/automation/common/helpers"))
+from brand_assets import GENERATED_FILES, PUBLIC_FILES, build_public_site
 
 
 class LocalLinks(HTMLParser):

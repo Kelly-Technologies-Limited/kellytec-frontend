@@ -9,7 +9,6 @@ from pathlib import Path
 from kellytec_design_system.assets import ROOT, design_system_css, shared_ui_script
 from kellytec_design_system.components.login import render_login
 from kellytec_design_system.components.toolbar import monitor_toolbar
-from kellytec_design_system.version import design_system_version
 
 
 
