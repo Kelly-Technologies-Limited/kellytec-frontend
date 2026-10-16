@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kellytec-design-system"
-version = "0.0.0"
+version = "1.0.0"
 description = "Kelly Technologies shared Page, Tab, Card and Cell presentation"
 requires-python = ">=3.11"
 dependencies = []

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repository": "Kelly-Technologies-Limited/kellytec-frontend",
   "ignored": [
     "plans/**",
@@ -50,6 +50,18 @@
         "kellytec-website/chrome/**",
         "kellytec-website/styles/**",
         "kellytec-design-system/static/**"
+      ],
+      "products": [
+        "kellytec-website",
+        "kellytec-design-system"
+      ]
+    }
+  ],
+  "check_only": [
+    {
+      "paths": [
+        ".github/automation/common/dependencies/automation.lock.json",
+        ".github/automation/common/scripts/install_automation.py"
       ],
       "products": [
         "kellytec-website",

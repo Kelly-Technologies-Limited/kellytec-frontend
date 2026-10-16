@@ -1,3 +1,8 @@
+## 2026-10-16 - Version shared dependencies and adopt upgrades through PRs
+
+- Adopt a committed Automation wheel lock and PR-based shared-dependency updates; verify release identity before preparing allowlisted files, preserve human commits, and keep PR checks separate from main operations. Version Design System at 1.0.0; publish the qualified wheel before notifying direct consumers.
+- Local implementation only: initial real release locks, remote provisioning and production cutover require the documented first-release sequence. No package publication or deployment performed in this change.
+
 ## 2026-10-14 - Implement product Workflows and repository rename preparation
 
 - Separate website Check/Pages Deploy from Design System Check and Build. Store Workflow entries in .github/automation and share actual brand inputs explicitly.

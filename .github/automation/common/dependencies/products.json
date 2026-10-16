@@ -1,31 +1,62 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repository": "Kelly-Technologies-Limited/kellytec-frontend",
   "products": {
     "kellytec-website": {
       "dependencies": {
         "automation": {
-          "repository": "Kelly-Technologies-Limited/kellytec-platforms",
-          "workflow": "check-kellytec-automation.yml",
-          "product": "kellytec-automation"
+          "lock": ".github/automation/common/dependencies/automation.lock.json",
+          "product": "kellytec-automation",
+          "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "tag_prefix": "kellytec-automation-v",
+          "initial_version": "1.0.0",
+          "install": {
+            "distribution": "kellytec-automation",
+            "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+          },
+          "update": {
+            "initialize": true
+          }
         }
       }
     },
     "kellytec-design-system": {
       "dependencies": {
         "automation": {
-          "repository": "Kelly-Technologies-Limited/kellytec-platforms",
-          "workflow": "check-kellytec-automation.yml",
-          "product": "kellytec-automation"
+          "lock": ".github/automation/common/dependencies/automation.lock.json",
+          "product": "kellytec-automation",
+          "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "tag_prefix": "kellytec-automation-v",
+          "initial_version": "1.0.0",
+          "install": {
+            "distribution": "kellytec-automation",
+            "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+          },
+          "update": {
+            "initialize": true
+          }
         }
       }
     }
   },
-  "update_dependencies": [
-    "automation"
-  ],
   "update_author": {
     "name": "kellytec-release[bot]",
     "email": "kellytec-release[bot]@users.noreply.github.com"
+  },
+  "tools": {
+    "automation": {
+      "lock": ".github/automation/common/dependencies/automation.lock.json",
+      "product": "kellytec-automation",
+      "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+      "tag_prefix": "kellytec-automation-v",
+      "initial_version": "1.0.0",
+      "install": {
+        "distribution": "kellytec-automation",
+        "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+      },
+      "update": {
+        "initialize": true
+      }
+    }
   }
 }
