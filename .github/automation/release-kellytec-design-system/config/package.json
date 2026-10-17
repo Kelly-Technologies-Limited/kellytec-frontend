@@ -1,7 +1,7 @@
 {
   "product": "kellytec-design-system",
   "repository": "Kelly-Technologies-Limited/kellytec-frontend",
-  "pyproject": "kellytec-design-system/pyproject.toml",
+  "pyproject": "src/kellytec-design-system/pyproject.toml",
   "tag_prefix": "kellytec-design-system-v",
   "check_workflow": "check-and-build-kellytec-design-system.yml",
   "upload_url": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/",

@@ -17,7 +17,7 @@ from brand_assets import (  # noqa: E402
 
 if __name__ == "__main__":
     snapshot = read_json(ROOT / ".automation/kellytec-design-system/snapshot.json")
-    directory = ROOT / "kellytec-design-system/dist"
+    directory = ROOT / "src/kellytec-design-system/dist"
     if restore_run_artifact("design-system-wheel", directory):
         manifest = read_json(directory / "manifest.json")
         if manifest["snapshot_id"] != snapshot["snapshot_id"] or not manifest["files"]:
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         output("restored", "true")
         raise SystemExit(0)
     write_frontend_chrome(ROOT)
-    command([sys.executable, "-m", "build", "--wheel", "kellytec-design-system"], cwd=ROOT)
+    command([sys.executable, "-m", "build", "--wheel", "src/kellytec-design-system"], cwd=ROOT)
     write_json(
         directory / "manifest.json",
         {

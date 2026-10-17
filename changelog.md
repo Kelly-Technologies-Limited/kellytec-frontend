@@ -1,3 +1,8 @@
+## 2026-10-17 - Checkpoint product src layout
+
+- Move Design System and Website products under src/; update packaging, asset discovery, tests and workflow build paths.
+- Verify local packages and a clean Design System wheel build. This checkpoint does not publish packages or deploy the website.
+
 ## 2026-10-16 - Version shared dependencies and adopt upgrades through PRs
 
 - Adopt a committed Automation wheel lock and PR-based shared-dependency updates; verify release identity before preparing allowlisted files, preserve human commits, and keep PR checks separate from main operations. Version Design System at 1.0.0; publish the qualified wheel before notifying direct consumers.

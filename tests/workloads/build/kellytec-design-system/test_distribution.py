@@ -17,7 +17,7 @@ def test_distribution_identity_and_runtime_only_files() -> None:
     )
     frontend = Path(__file__).resolve().parents[4]
     declared = tomllib.loads(
-        (frontend / "kellytec-design-system/pyproject.toml").read_text(encoding="utf-8")
+        (frontend / "src/kellytec-design-system/pyproject.toml").read_text(encoding="utf-8")
     )
     assert distribution.version == declared["project"]["version"]
     for member in distribution.files:
@@ -71,5 +71,5 @@ def test_brand_is_generated_from_frontend_sources():
     ).strip() == chrome.footer
     assert (ROOT / "generated/frontend_chrome.css").read_text(encoding="utf-8") == chrome.css
     assert (ROOT / "static/favicon.svg").read_text(encoding="utf-8") == (
-        frontend / "kellytec-design-system/static/favicon.svg"
+        frontend / "src/kellytec-design-system/static/favicon.svg"
     ).read_text(encoding="utf-8")

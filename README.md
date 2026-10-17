@@ -5,18 +5,18 @@
 | Entry | Location or responsibility |
 | --- | --- |
 | Repository responsibility | Public website and shared presentation package. |
-| Products and source | [Design system](kellytec-design-system/); [Website](kellytec-website/) |
-| Installation | [Package setup](kellytec-design-system/README.md) |
+| Products and source | [Design system](src/kellytec-design-system/); [Website](src/kellytec-website/) |
+| Installation | [Package setup](src/kellytec-design-system/README.md) |
 | Tests | [Tests](tests/README.md) |
 | Deployment and release | [Build and Pages workflow](.github/workflows/build-artifacts.yml) |
-| Documentation | [Design system reference](kellytec-design-system/README.md) |
+| Documentation | [Design system reference](src/kellytec-design-system/README.md) |
 
 Directories are created only when needed. Source layouts retain their existing package and platform contracts.
 
 Owns **kellytec-website**, the static website for **Kelly Technologies Limited**
 (`kellytec.io`), and **kellytec-design-system**, the installable presentation package.
 
-The [kellytec-design-system](kellytec-design-system/README.md) package is used
+The [kellytec-design-system](src/kellytec-design-system/README.md) package is used
 by Monitor and kellytec-research-platform. Build its wheel independently of the public
 website. `python .github/automation/check-kellytec-website/scripts/build_website.py` produces `dist/site` from an
 explicit public-file allowlist. On every push to `main`,
@@ -28,15 +28,15 @@ UI wheel, then deploys only the `dist/site` artifact to GitHub Pages at
 The repository's Pages publishing source is **GitHub Actions**, not a branch
 directory. Source/package files are excluded from the public website artifact.
 The published 0.2.0 release renames the package and keeps the existing display contracts;
-see [its contract](kellytec-design-system/README.md).
+see [its contract](src/kellytec-design-system/README.md).
 
 The shared UI wheel is uploaded as a separate Actions artifact; deploying the
 website does not publish that wheel to a Python package repository or update
 Monitor or kellytec-research-platform automatically.
 
 The served site is still plain HTML/CSS/JS on GitHub Pages. The editable
-website source and exclusive imagery live under `kellytec-website/`, shared brand
-assets under `kellytec-design-system/static/`, and
+website source and exclusive imagery live under `src/kellytec-website/`, shared brand
+assets under `src/kellytec-design-system/static/`, and
 generated pages and runtime assets under `dist/site/` only.
 
 ## Mental model
@@ -108,7 +108,7 @@ exist yet.
 
 ## Build
 
-Edit website source under `kellytec-website/` or shared images under `kellytec-design-system/static/`, then
+Edit website source under `src/kellytec-website/` or shared images under `src/kellytec-design-system/static/`, then
 build and preview the served files:
 
 ```bash
@@ -127,13 +127,13 @@ public assets into `dist/site/`:
 
 Build artifacts are ignored by Git. There is no root `gp/` directory: GP Login
 is a useful public launchpad for the protected ALGO3 Operations and Data
-Availability monitors, with source in `kellytec-website/pages/gp/`. Its public URL remains
+Availability monitors, with source in `src/kellytec-website/pages/gp/`. Its public URL remains
 `/gp/`; `/gp/monitor/` still redirects there. The source directory layout does
 not change public URLs.
 
-Website behavior lives in `kellytec-website/scripts/` and is copied to the served
-`assets/scripts/` URLs. Shared images are copied from `kellytec-design-system/static/` to served
-`assets/` URLs. The generated stylesheet comes from `kellytec-website/styles/`.
+Website behavior lives in `src/kellytec-website/scripts/` and is copied to the served
+`assets/scripts/` URLs. Shared images are copied from `src/kellytec-design-system/static/` to served
+`assets/` URLs. The generated stylesheet comes from `src/kellytec-website/styles/`.
 
 ## Project structure
 
@@ -160,8 +160,8 @@ kellytec-website/.nojekyll
 ## Editing rules
 
 - Edit source fragments and shared assets, not generated files under `dist/`.
-- Generate UI brand resources directly from `kellytec-website/chrome/`, `kellytec-website/styles/`, and
-  `kellytec-design-system/static/` with `python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py`; no website
+- Generate UI brand resources directly from `src/kellytec-website/chrome/`, `src/kellytec-website/styles/`, and
+  `src/kellytec-design-system/static/` with `python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py`; no website
   build is needed. The wheel carries those resources for installed consumers.
 - Keep `site-header` and `site-footer` shapes stable unless you also check
   Monitor chrome extraction.

@@ -2,8 +2,8 @@
   "product": "kellytec-design-system",
   "inputs": [
     "kellytec-design-system",
-    "kellytec-website/chrome",
-    "kellytec-website/styles"
+    "src/kellytec-website/chrome",
+    "src/kellytec-website/styles"
   ],
   "consumers": [
     {

@@ -12,7 +12,7 @@
   ],
   "products": {
     "kellytec-website": [
-      "kellytec-website/**",
+      "src/kellytec-website/**",
       "tests/kellytec-website/**",
       ".github/automation/check-kellytec-website/**",
       ".github/automation/deploy-kellytec-website-to-github-pages/**",
@@ -20,7 +20,7 @@
       ".github/workflows/deploy-kellytec-website-to-github-pages.yml"
     ],
     "kellytec-design-system": [
-      "kellytec-design-system/**",
+      "src/kellytec-design-system/**",
       "tests/kellytec-design-system/**",
       ".github/automation/check-and-build-kellytec-design-system/**",
       ".github/workflows/check-and-build-kellytec-design-system.yml"
@@ -47,9 +47,9 @@
     },
     {
       "paths": [
-        "kellytec-website/chrome/**",
-        "kellytec-website/styles/**",
-        "kellytec-design-system/static/**"
+        "src/kellytec-website/chrome/**",
+        "src/kellytec-website/styles/**",
+        "src/kellytec-design-system/static/**"
       ],
       "products": [
         "kellytec-website",

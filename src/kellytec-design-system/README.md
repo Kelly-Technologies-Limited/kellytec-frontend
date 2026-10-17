@@ -56,8 +56,8 @@ The logo is an SVG outline. English tool interfaces require no external fonts.
 `font_stylesheet()` embeds these resources so applications need no font route
 and can run offline. Other CJK text would require an explicit font subset update.
 
-Canonical logos and imagery live in `kellytec-design-system/static/`. Brand generation reads
-that directory and the website's `kellytec-website/chrome/` and `kellytec-website/styles/` directly;
+Canonical logos and imagery live in `src/kellytec-design-system/static/`. Brand generation reads
+that directory and the website's `src/kellytec-website/chrome/` and `src/kellytec-website/styles/` directly;
 it does not require generated website output. Generated package resources
 remain bundled in the wheel, so consumers need no sibling asset directory.
 

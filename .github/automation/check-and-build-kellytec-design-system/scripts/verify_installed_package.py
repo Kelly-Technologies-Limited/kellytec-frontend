@@ -15,7 +15,7 @@ if __name__ == "__main__":
     snapshot = read_json(root / ".automation/kellytec-design-system/snapshot.json")
     if restore_qualification(root, snapshot):
         raise SystemExit(0)
-    wheels = list((root / "kellytec-design-system/dist").glob("*.whl"))
+    wheels = list((root / "src/kellytec-design-system/dist").glob("*.whl"))
     if len(wheels) != 1:
         raise ValueError("Expected exactly one design-system wheel")
     command(

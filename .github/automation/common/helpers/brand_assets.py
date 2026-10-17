@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
-SRC = ROOT / "kellytec-website"
+SRC = ROOT / "src/kellytec-website"
 
 CHROME = SRC / "chrome"
 HOME = SRC / "pages" / "home"
@@ -19,7 +19,7 @@ GP = SRC / "pages" / "gp"
 GP_CARDS = GP / "cards"
 GP_TABS = GP / "tabs"
 REDIRECTS = SRC / "redirects"
-ASSETS = ROOT / "kellytec-design-system" / "static"
+ASSETS = ROOT / "src/kellytec-design-system" / "static"
 
 # Public URLs stay stable; source locations are independent of served paths.
 PUBLIC_FILES = {
@@ -130,7 +130,7 @@ def render_header(
     *, asset_prefix: str, home_href: str, gp_current: bool, frontend_root: Path = ROOT
 ) -> str:
     return replace_all(
-        read(frontend_root / "kellytec-website" / "chrome" / "header.html"),
+        read(frontend_root / "src/kellytec-website" / "chrome" / "header.html"),
         {
             "asset.prefix": asset_prefix,
             "navigation.home": home_href,
@@ -244,14 +244,14 @@ class FrontendChrome:
 def build_frontend_chrome(frontend_root: Path) -> FrontendChrome:
     styles_css = build_css(frontend_root)
     logo_svg = _read_svg_text(
-        frontend_root / "kellytec-design-system" / "static" / "logo.svg"
+        frontend_root / "src/kellytec-design-system" / "static" / "logo.svg"
     ).encode("utf-8")
     homepage_href = _frontend_homepage_href(frontend_root)
 
     source_header = render_header(
         asset_prefix="", home_href="#top", gp_current=False, frontend_root=frontend_root
     )
-    footer = read(frontend_root / "kellytec-website" / "chrome" / "footer.html")
+    footer = read(frontend_root / "src/kellytec-website" / "chrome" / "footer.html")
 
     logo_uri = "data:image/svg+xml;base64," + base64.b64encode(logo_svg).decode("ascii")
     header = _monitor_header(
@@ -266,7 +266,7 @@ def build_frontend_chrome(frontend_root: Path) -> FrontendChrome:
 
 def write_frontend_chrome(frontend_root: Path) -> None:
     chrome = build_frontend_chrome(frontend_root)
-    generated_dir = frontend_root / "kellytec-design-system" / "generated"
+    generated_dir = frontend_root / "src/kellytec-design-system" / "generated"
     generated_dir.mkdir(parents=True, exist_ok=True)
     (generated_dir / "frontend_header.html").write_text(chrome.header + "\n", encoding="utf-8")
     (generated_dir / "frontend_footer.html").write_text(chrome.footer + "\n", encoding="utf-8")
@@ -278,7 +278,7 @@ def _read_svg_text(path: Path) -> str:
 
 
 def _frontend_homepage_href(frontend_root: Path) -> str:
-    cname = frontend_root / "kellytec-website" / "CNAME"
+    cname = frontend_root / "src/kellytec-website" / "CNAME"
     if cname.exists():
         domain = cname.read_text(encoding="utf-8").strip()
         if domain:
@@ -308,7 +308,7 @@ def _extract_chrome_css(css_text: str) -> str:
         "--font-sans", "--brand-font-sans"
     )
     return (
-        "/* Generated from kellytec-frontend/kellytec-website/styles/. Run scripts/sync_frontend_chrome.py. */\n"
+        "/* Generated from kellytec-frontend/src/kellytec-website/styles/. Run scripts/sync_frontend_chrome.py. */\n"
         + body
         + "\n"
     )
