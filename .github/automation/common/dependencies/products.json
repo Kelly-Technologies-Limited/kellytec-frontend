@@ -9,7 +9,7 @@
           "product": "kellytec-automation",
           "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
           "tag_prefix": "kellytec-automation-v",
-          "initial_version": "1.0.0",
+          "initial_version": "1.1.0",
           "install": {
             "distribution": "kellytec-automation",
             "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
@@ -27,7 +27,7 @@
           "product": "kellytec-automation",
           "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
           "tag_prefix": "kellytec-automation-v",
-          "initial_version": "1.0.0",
+          "initial_version": "1.1.0",
           "install": {
             "distribution": "kellytec-automation",
             "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
@@ -49,7 +49,7 @@
       "product": "kellytec-automation",
       "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
       "tag_prefix": "kellytec-automation-v",
-      "initial_version": "1.0.0",
+      "initial_version": "1.1.0",
       "install": {
         "distribution": "kellytec-automation",
         "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"

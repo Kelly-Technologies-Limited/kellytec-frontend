@@ -1,3 +1,8 @@
+## 2026-10-18 - Checkpoint durable qualification storage
+
+- Persist Design System and Website qualification bundles in GCS; restore release/deployment inputs without redundant verified Actions copies.
+- Retain temporary workflow artifacts for seven days and align the initial Automation declaration with 1.1.0. Actions remain disabled; package and website publication remain pending.
+
 ## 2026-10-17 - Checkpoint product src layout
 
 - Move Design System and Website products under src/; update packaging, asset discovery, tests and workflow build paths.

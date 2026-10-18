@@ -62,6 +62,7 @@ jobs:
         path: .automation/dependency-request.json
         include-hidden-files: true
         if-no-files-found: error
+        retention-days: 7
     if: ${{ github.ref == 'refs/heads/main' && github.repository == 'Kelly-Technologies-Limited/kellytec-frontend'
       && (github.event_name == 'workflow_dispatch' || github.event.client_payload.product == 'kellytec-automation')
       }}
@@ -116,6 +117,7 @@ jobs:
         path: .automation/dependency-update
         include-hidden-files: true
         if-no-files-found: error
+        retention-days: 7
     needs: verify_dependency_release
     outputs:
       status: ${{ steps.prepare.outputs.status }}

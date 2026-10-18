@@ -64,6 +64,7 @@ jobs:
       source_sha: ${{ steps.resolve.outputs.source_sha }}
       automation_sha: ${{ steps.resolve.outputs.automation_sha }}
       snapshot_id: ${{ steps.resolve.outputs.snapshot_id }}
+      qualified_restored: ${{ steps.resolve.outputs.qualified_restored }}
     steps:
     - uses: actions/checkout@v4
       with:
@@ -104,7 +105,7 @@ jobs:
         path: .automation/kellytec-website/snapshot.json
         include-hidden-files: true
         if-no-files-found: error
-        retention-days: 90
+        retention-days: 7
       if: ${{ steps.resolve.outputs.restored != 'true' }}
   check_website:
     runs-on: ubuntu-latest
@@ -146,6 +147,7 @@ jobs:
         path: .automation/kellytec-website
     - run: python -m pip install pytest build
     - run: python .github/automation/check-kellytec-website/scripts/check_website.py
+    if: ${{ needs.resolve_source_and_dependencies.outputs.qualified_restored != 'true' }}
   build_website:
     runs-on: ubuntu-latest
     needs:
@@ -194,7 +196,68 @@ jobs:
         path: .automation/qualified/kellytec-website
         include-hidden-files: true
         if-no-files-found: error
-        retention-days: 90
+        retention-days: 7
       if: ${{ steps.artifact.outputs.restored != 'true' }}
+    if: ${{ needs.resolve_source_and_dependencies.outputs.qualified_restored != 'true' }}
+  persist_qualification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs:
+    - detect_product_changes
+    - resolve_source_and_dependencies
+    - check_website
+    - build_website
+    if: ${{ always() && !cancelled() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
+      && github.ref == 'refs/heads/main' && contains(fromJSON('["push","workflow_dispatch","repository_dispatch"]'),
+      github.event_name) && needs.resolve_source_and_dependencies.result == 'success' && (needs.build_website.result
+      == 'success' || needs.resolve_source_and_dependencies.outputs.qualified_restored == 'true') }}
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+        ref: ${{ needs.resolve_source_and_dependencies.outputs.source_sha }}
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - uses: actions/create-github-app-token@v2
+      id: tools_app
+      with:
+        app-id: ${{ vars.AUTOMATION_APP_ID }}
+        private-key: ${{ secrets.AUTOMATION_APP_PRIVATE_KEY }}
+        owner: Kelly-Technologies-Limited
+        repositories: |-
+          kellytec-platforms
+          kellytec-frontend
+          kellytec-engines
+        permission-contents: read
+        permission-actions: read
+    - uses: google-github-actions/auth@v2
+      with:
+        workload_identity_provider: ${{ vars.PACKAGE_READ_PROVIDER }}
+        service_account: ${{ vars.PACKAGE_READ_ACCOUNT }}
+    - uses: google-github-actions/setup-gcloud@v2
+    - run: python -m pip install keyrings.google-artifactregistry-auth==1.1.2
+    - name: Install accepted Automation release
+      id: bootstrap
+      run: python .github/automation/common/scripts/install_automation.py
+    - uses: actions/download-artifact@v4
+      if: ${{ needs.resolve_source_and_dependencies.outputs.qualified_restored != 'true' }}
+      with:
+        name: qualified-kellytec-website
+        path: .
+    - uses: google-github-actions/auth@v2
+      with:
+        workload_identity_provider: ${{ vars.QUALIFICATION_PUBLISH_PROVIDER }}
+        service_account: ${{ vars.QUALIFICATION_PUBLISH_ACCOUNT }}
+    - name: Persist original qualification
+      run: python -m kellytec_automation.common.artifacts.persist_qualification --product kellytec-website
+      env:
+        GH_TOKEN: ${{ github.token }}
 env:
   GH_TOKEN: ${{ github.token }}
+  AUTOMATION_BUCKET: ${{ vars.AUTOMATION_BUCKET }}

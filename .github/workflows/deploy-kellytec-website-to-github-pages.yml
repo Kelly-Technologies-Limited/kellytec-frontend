@@ -56,16 +56,6 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: python .github/automation/common/scripts/verify_qualified_artifacts.py --product kellytec-website
-    - uses: actions/upload-artifact@v4
-      with:
-        name: verified-kellytec-website
-        path: |-
-          dist/site
-          .automation/kellytec-website
-        include-hidden-files: true
-        if-no-files-found: error
-        retention-days: 90
-      if: ${{ steps.verify.outputs.available == 'true' && steps.verify.outputs.verified_restored != 'true' }}
   deploy_website:
     runs-on: ubuntu-latest
     needs: verify_qualified_artifacts
@@ -108,10 +98,9 @@ jobs:
     - name: Install accepted Automation release
       id: bootstrap
       run: python .github/automation/common/scripts/install_automation.py
-    - uses: actions/download-artifact@v4
-      with:
-        name: verified-kellytec-website
-        path: .
+    - name: Restore original qualified artifacts
+      run: python -m kellytec_automation.common.artifacts.verify_qualified_artifacts --require-available --product
+        kellytec-website
     - id: prepare
       run: python .github/automation/deploy-kellytec-website-to-github-pages/scripts/deploy_website.py
     - uses: actions/configure-pages@v5
@@ -132,4 +121,6 @@ jobs:
         path: .automation/kellytec-website/deployment.json
         include-hidden-files: true
         if-no-files-found: error
-        retention-days: 90
+        retention-days: 7
+env:
+  AUTOMATION_BUCKET: ${{ vars.AUTOMATION_BUCKET }}
