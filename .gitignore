@@ -9,6 +9,7 @@ kellytec-design-system/dist/
 dist/
 .automation/
 .automation-tools/
+/gha-creds-*.json
 
 # Repository-owned public product Action configuration
 !/.github/automation/**/config/*.json

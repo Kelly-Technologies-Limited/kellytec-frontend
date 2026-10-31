@@ -1,3 +1,8 @@
+## 2026-10-31 - Ignore temporary workflow authentication files
+
+- Exclude root-level Google Actions credential files from dependency-update preparation so the strict declared-file guard can produce a reviewable upgrade PR.
+- Preserve accepted dependency locks and update allowlists. Validate the actual preparation path with clean, unexpected-file and ignored-auth-file cases.
+
 ## 2026-10-31 - Adopt the independent Automation publisher
 
 - Resolve Automation 1.1.1 from `Kelly-Technologies-Limited/kellytec-automation` and its dedicated Artifact Registry; align explicit initialization and read-only GitHub App access.
