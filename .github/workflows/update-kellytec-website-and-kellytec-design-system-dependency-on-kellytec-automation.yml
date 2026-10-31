@@ -64,51 +64,6 @@ jobs:
         include-hidden-files: true
         if-no-files-found: error
         retention-days: 7
-    if: ${{ github.ref == 'refs/heads/main' && github.repository == 'Kelly-Technologies-Limited/kellytec-frontend'
-      && (github.event_name == 'workflow_dispatch' || github.event.client_payload.product == 'kellytec-automation')
-      }}
-    outputs:
-      artifact: verified-dependency-request-${{ github.run_attempt }}
-  prepare_dependency_update:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        ref: ${{ github.sha }}
-        fetch-depth: 0
-        persist-credentials: false
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    - uses: actions/create-github-app-token@v2
-      id: reader_app
-      with:
-        app-id: ${{ vars.AUTOMATION_APP_ID }}
-        private-key: ${{ secrets.AUTOMATION_APP_PRIVATE_KEY }}
-        owner: Kelly-Technologies-Limited
-        repositories: |-
-          kellytec-engines
-          kellytec-frontend
-          kellytec-platforms
-          kellytec-automation
-        permission-contents: read
-        permission-actions: read
-        permission-pull-requests: read
-    - run: echo "GH_TOKEN=${{ steps.reader_app.outputs.token }}" >> "$GITHUB_ENV"
-    - uses: google-github-actions/auth@v2
-      with:
-        workload_identity_provider: ${{ vars.PACKAGE_READ_PROVIDER }}
-        service_account: ${{ vars.PACKAGE_READ_ACCOUNT }}
-    - uses: google-github-actions/setup-gcloud@v2
-    - run: python -m pip install keyrings.google-artifactregistry-auth==1.1.2
-    - name: Install accepted Automation release
-      id: bootstrap
-      run: python .github/automation/common/scripts/install_automation.py --bootstrap-version 1.1.1
-    - uses: actions/download-artifact@v4
-      with:
-        name: ${{ needs.verify_dependency_release.outputs.artifact }}
-        path: .automation
     - run: gh auth setup-git
     - run: python .github/automation/update-kellytec-website-and-kellytec-design-system-dependency-on-kellytec-automation/scripts/prepare_dependency_update.py
       id: prepare
@@ -120,10 +75,14 @@ jobs:
         include-hidden-files: true
         if-no-files-found: error
         retention-days: 7
-    needs: verify_dependency_release
+    if: ${{ github.ref == 'refs/heads/main' && github.repository == 'Kelly-Technologies-Limited/kellytec-frontend'
+      && (github.event_name == 'workflow_dispatch' || github.event.client_payload.product == 'kellytec-automation')
+      }}
     outputs:
+      artifact: verified-dependency-request-${{ github.run_attempt }}
       status: ${{ steps.prepare.outputs.status }}
-      artifact: prepared-dependency-update-${{ github.run_attempt }}
+      prepared_artifact: prepared-dependency-update-${{ github.run_attempt }}
+    name: Verify release and prepare update (read-only)
   update_dependency:
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -166,7 +125,7 @@ jobs:
         path: .automation
     - uses: actions/download-artifact@v4
       with:
-        name: ${{ needs.prepare_dependency_update.outputs.artifact }}
+        name: ${{ needs.verify_dependency_release.outputs.prepared_artifact }}
         path: .automation/dependency-update
     - uses: actions/create-github-app-token@v2
       id: writer_app
@@ -185,5 +144,4 @@ jobs:
         DEPENDENCY_WRITE_TOKEN: ${{ steps.writer_app.outputs.token }}
     needs:
     - verify_dependency_release
-    - prepare_dependency_update
-    if: ${{ needs.prepare_dependency_update.outputs.status == 'prepared' }}
+    if: ${{ needs.verify_dependency_release.outputs.status == 'prepared' }}

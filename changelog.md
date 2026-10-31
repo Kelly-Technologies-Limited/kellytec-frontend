@@ -1,3 +1,9 @@
+## 2026-10-31 - Reduce repeated CI work and harden release checks
+
+- Combine read-only release verification and dependency preparation in one job; retain the separate writer and archive the verified request before executing generators.
+- Cancel superseded pull-request checks while retaining main-branch checks and existing delivery gates.
+- Candidate branch validation is local; hosted checks, merging and any formal release remain separate and pending available Actions budget.
+
 ## 2026-10-31 - Ignore temporary workflow authentication files
 
 - Exclude root-level Google Actions credential files from dependency-update preparation so the strict declared-file guard can produce a reviewable upgrade PR.
