@@ -145,3 +145,7 @@
 ## 2026-10-14 Automation behavior modules
 
 - Migrate workflow imports to the shared Check, Build, Publish, Release, Push and Deployment modules; declare product dependencies, Registry selections and operation configuration explicitly. Preserve qualified source/artifact identities and existing recovery and deployment gates.
+
+## Update kellytec-automation 1.1.2
+
+- Align the accepted dependency and generated contracts with source 4b3c8e3040e0359b665b923308d649625933d223; review and merge this upgrade before main uses it.
