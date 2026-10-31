@@ -42,6 +42,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2
@@ -84,6 +85,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2
@@ -130,6 +132,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2
@@ -172,6 +175,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2
@@ -223,6 +227,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2
@@ -290,6 +295,7 @@ jobs:
           kellytec-platforms
           kellytec-frontend
           kellytec-engines
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - uses: google-github-actions/auth@v2

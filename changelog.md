@@ -1,3 +1,11 @@
+## 2026-10-31 - Adopt the independent Automation publisher
+
+- Resolve Automation 1.1.1 from `Kelly-Technologies-Limited/kellytec-automation` and its dedicated Artifact Registry; align explicit initialization and read-only GitHub App access.
+- Preserve runtime dependency identities and existing product delivery gates; the migration is qualified separately from downstream releases and deployments.
+- Publish the first Design System 1.0.0 release to the shared package registry in the independent Automation project; keep its existing product version and publisher.
+- Validate Design System Python source under `src/kellytec-design-system` and reject empty source scans before first publication.
+- Local validation: all 15 Python source files checked, empty and invalid-source scans rejected, and 56 installed-wheel frontend tests passed with consistent dependencies.
+
 ## 2026-10-18 - Checkpoint durable qualification storage
 
 - Persist Design System and Website qualification bundles in GCS; restore release/deployment inputs without redundant verified Actions copies.

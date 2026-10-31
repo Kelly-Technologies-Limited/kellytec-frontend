@@ -37,6 +37,7 @@ jobs:
         repositories: |-
           kellytec-frontend
           kellytec-platforms
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - run: echo "GH_TOKEN=${{ steps.reader_app.outputs.token }}" >> "$GITHUB_ENV"
@@ -98,6 +99,7 @@ jobs:
         repositories: |-
           kellytec-frontend
           kellytec-platforms
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - run: echo "GH_TOKEN=${{ steps.reader_app.outputs.token }}" >> "$GITHUB_ENV"
@@ -151,6 +153,7 @@ jobs:
         repositories: |-
           kellytec-frontend
           kellytec-platforms
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - run: echo "GH_TOKEN=${{ steps.reader_app.outputs.token }}" >> "$GITHUB_ENV"
@@ -204,6 +207,7 @@ jobs:
         repositories: |-
           kellytec-frontend
           kellytec-platforms
+          kellytec-automation
         permission-contents: read
         permission-actions: read
     - run: echo "GH_TOKEN=${{ steps.reader_app.outputs.token }}" >> "$GITHUB_ENV"

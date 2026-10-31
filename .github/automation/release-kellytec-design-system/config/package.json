@@ -4,9 +4,9 @@
   "pyproject": "src/kellytec-design-system/pyproject.toml",
   "tag_prefix": "kellytec-design-system-v",
   "check_workflow": "check-and-build-kellytec-design-system.yml",
-  "upload_url": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/",
+  "upload_url": "https://us-east1-python.pkg.dev/kellytec-automation/python-packages/",
   "registry": {
-    "project": "kellytec-platforms",
+    "project": "kellytec-automation",
     "location": "us-east1",
     "repository": "python-packages",
     "package": "kellytec-design-system"

@@ -7,12 +7,12 @@
         "automation": {
           "lock": ".github/automation/common/dependencies/automation.lock.json",
           "product": "kellytec-automation",
-          "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "source_repository": "Kelly-Technologies-Limited/kellytec-automation",
           "tag_prefix": "kellytec-automation-v",
-          "initial_version": "1.1.0",
+          "initial_version": "1.1.1",
           "install": {
             "distribution": "kellytec-automation",
-            "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+            "index": "https://us-east1-python.pkg.dev/kellytec-automation/python-packages/simple/"
           },
           "update": {
             "initialize": true
@@ -25,12 +25,12 @@
         "automation": {
           "lock": ".github/automation/common/dependencies/automation.lock.json",
           "product": "kellytec-automation",
-          "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+          "source_repository": "Kelly-Technologies-Limited/kellytec-automation",
           "tag_prefix": "kellytec-automation-v",
-          "initial_version": "1.1.0",
+          "initial_version": "1.1.1",
           "install": {
             "distribution": "kellytec-automation",
-            "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+            "index": "https://us-east1-python.pkg.dev/kellytec-automation/python-packages/simple/"
           },
           "update": {
             "initialize": true
@@ -47,12 +47,12 @@
     "automation": {
       "lock": ".github/automation/common/dependencies/automation.lock.json",
       "product": "kellytec-automation",
-      "source_repository": "Kelly-Technologies-Limited/kellytec-platforms",
+      "source_repository": "Kelly-Technologies-Limited/kellytec-automation",
       "tag_prefix": "kellytec-automation-v",
-      "initial_version": "1.1.0",
+      "initial_version": "1.1.1",
       "install": {
         "distribution": "kellytec-automation",
-        "index": "https://us-east1-python.pkg.dev/kellytec-platforms/python-packages/simple/"
+        "index": "https://us-east1-python.pkg.dev/kellytec-automation/python-packages/simple/"
       },
       "update": {
         "initialize": true
