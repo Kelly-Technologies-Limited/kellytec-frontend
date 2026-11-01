@@ -18,7 +18,6 @@ TABS = HOME / "tabs"
 GP = SRC / "pages" / "gp"
 GP_CARDS = GP / "cards"
 GP_TABS = GP / "tabs"
-REDIRECTS = SRC / "redirects"
 ASSETS = ROOT / "src/kellytec-design-system" / "static"
 
 # Public URLs stay stable; source locations are independent of served paths.
@@ -49,7 +48,6 @@ PUBLIC_FILES = {
 GENERATED_FILES = (
     "index.html",
     "gp/index.html",
-    "gp/monitor/index.html",
     "assets/styles.css",
 )
 
@@ -85,8 +83,8 @@ TAB_FILES = {
 
 GP_CARD_FILES = {
     "intro": "card_intro.html",
-    "operations": "card_operations.html",
-    "data_availability": "card_data_availability.html",
+    "data_platform": "card_data_platform.html",
+    "research_platform": "card_research_platform.html",
     "security_note": "card_security_note.html",
 }
 
@@ -169,7 +167,7 @@ def render_gp_page() -> str:
     page_values = {
         "chrome.document_head": render_document_head(
             title="GP Login | Kelly Technologies",
-            description="Authorized access to Kelly Technologies monitoring systems.",
+            description="Authorized access to Kelly Technologies Data Platform and Research Platform.",
             asset_prefix="../",
             noindex=True,
         ),
@@ -215,7 +213,6 @@ def build_public_site(destination: Path) -> None:
     for name, contents in {
         "index.html": render_home_page(),
         "gp/index.html": render_gp_page(),
-        "gp/monitor/index.html": read(REDIRECTS / "gp_monitor.html"),
         "assets/styles.css": build_css(),
     }.items():
         (destination / name).write_text(contents, encoding="utf-8", newline="\n")

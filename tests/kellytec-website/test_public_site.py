@@ -28,8 +28,8 @@ def test_public_artifact_preserves_pages_and_excludes_source(tmp_path):
     destination = tmp_path / "site"
     build_public_site(destination)
     assert {p.relative_to(destination).as_posix() for p in destination.rglob("*") if p.is_file()} == set(PUBLIC_FILES) | set(GENERATED_FILES)
-    # Check served URLs after the source move, including the legacy GP route.
-    for name in ("index.html", "gp/index.html", "gp/monitor/index.html"):
+    # Check every served internal link in the public pages.
+    for name in ("index.html", "gp/index.html"):
         page = destination / name
         links = LocalLinks()
         links.feed(page.read_text(encoding="utf-8"))
@@ -46,3 +46,18 @@ def test_public_artifact_rejects_stale_private_files(tmp_path):
     with pytest.raises(ValueError, match="outside the public allowlist"):
         build_public_site(tmp_path)
     assert (tmp_path / "factor.py").read_text() == "private"
+
+
+def test_platform_launchpad_and_investor_entry_have_no_project_routes(tmp_path):
+    build_public_site(tmp_path)
+    gp = (tmp_path / "gp/index.html").read_text()
+    home = (tmp_path / "index.html").read_text()
+    for href in ("https://data.kellytec.io", "https://research.kellytec.io"):
+        assert f'href="{href}"' in gp
+    for title in ("Data<br>Platform", "Research<br>Platform", "数据<br>平台", "研究<br>平台"):
+        assert title in gp
+    for page in (home, gp):
+        assert 'href="https://investor.kellytec.io"' in page
+        assert "monitor.kellytec.io" not in page
+        assert "aria-disabled" not in page
+    assert not (tmp_path / "gp/monitor").exists()

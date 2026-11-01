@@ -1,3 +1,9 @@
+## 2026-11-01 - Link the company platforms from the website
+
+- Replace GP project monitor links with Data Platform and Research Platform, retaining the existing bilingual one-word-per-line card layout.
+- Point LP to Investor Platform and remove the old GP monitor compatibility route from the public artifact.
+- Cover the published link targets and absence of project monitor routes; publish only after the Data Platform endpoint is verified.
+
 ## 2026-11-01 - Prepare Design System 1.0.1 for Data Platform
 
 - Add shared Services rows and searchable dropdowns, with independent Services pixel/style comparisons and browser interaction coverage.
