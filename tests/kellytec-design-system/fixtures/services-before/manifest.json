@@ -1,0 +1,25 @@
+{
+  "purpose": "Immutable test-only pre-migration presentation reference; never imported by products",
+  "operations_revision": "72953820d45b1cb606d0d144dd62b8dffb5faaff",
+  "design_system_version": "1.0.0",
+  "design_system_revision": "3325219d251f80a20aea8100d929225d31e30e66",
+  "font_stylesheet_sha256": "4a7e289b36d41eaf5e81bd12c317ba39265d05cd9e2c1b0bb2ecbadcef4e8b42",
+  "files": {
+    "operations.js": {
+      "source": "src/algo3-monitor-operations/present/ui/cards/servers.js",
+      "sha256": "e29c0d71f411bffeac8767fbf420f7e3e34a1f97fb94700a5383be46156aecd5"
+    },
+    "operations.css": {
+      "source": "src/algo3-monitor-operations/present/ui/styles/operations.css",
+      "sha256": "39ff28854b04960d9ca82f727b2cb456433f7b7b0cb9e29c2d20d431914c229e"
+    },
+    "design-system.css": {
+      "source": "Installed kellytec-design-system 1.0.0 public bundle, fonts separate",
+      "sha256": "1c9430ef95a619bdd864030b3fc00bac238c79cfcf7984db115d6b8e89b3a7d3"
+    },
+    "design-system.js": {
+      "source": "Installed kellytec-design-system 1.0.0 public bundle, fonts separate",
+      "sha256": "bd60e73fd271980a85c94dd10c76209001610537082219bcbb0642bea55e8185"
+    }
+  }
+}

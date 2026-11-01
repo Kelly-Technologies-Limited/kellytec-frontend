@@ -57,6 +57,7 @@
   --monitor-surface-soft: var(--palette-surface-soft);
   --monitor-surface-summary: var(--palette-surface-summary);
   --monitor-surface-table: var(--palette-surface-table);
+  --monitor-surface-table-opaque: var(--palette-surface-table-opaque);
   --monitor-text-control: var(--palette-text-control);
   --monitor-text-primary: var(--palette-text-primary);
   --monitor-text-secondary: var(--palette-text-secondary);

@@ -1,3 +1,10 @@
+## 2026-11-01 - Prepare Design System 1.0.1 for Data Platform
+
+- Add shared Services rows and searchable dropdowns, with independent Services pixel/style comparisons and browser interaction coverage.
+- Support compact fixed-width data tables, opaque sticky headers and multiline column labels while preserving existing callers.
+- Require visual evidence for fresh and restored Design System qualifications; move the Data Platform consumer to Platforms and retain Operations as the monitor consumer.
+- Keep website entry-point cutover separate from this package release.
+
 ## 2026-10-31 - Reduce repeated CI work and harden release checks
 
 - Combine read-only release verification and dependency preparation in one job; retain the separate writer and archive the verified request before executing generators.

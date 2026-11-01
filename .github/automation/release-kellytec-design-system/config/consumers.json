@@ -8,11 +8,16 @@
   "consumers": [
     {
       "repository": "Kelly-Technologies-Limited/kellytec-platforms",
-      "products": ["kellytec-research-platform"]
+      "products": [
+        "kellytec-research-platform",
+        "kellytec-data-platform"
+      ]
     },
     {
       "repository": "Kelly-Technologies-Limited/project-algo3-monitors",
-      "products": ["algo3-monitor-operations", "algo3-monitor-data-availability"]
+      "products": [
+        "algo3-monitor-operations"
+      ]
     }
   ]
 }
