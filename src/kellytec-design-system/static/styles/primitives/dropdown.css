@@ -15,4 +15,4 @@
 .dropdown-empty { margin:0; padding:var(--monitor-space-2); color:var(--monitor-muted); font:var(--monitor-type-input); }
 
 .ui-popover { position:fixed; z-index:var(--monitor-layer-popover); box-sizing:border-box; overflow:auto; padding:var(--monitor-space-3); background:var(--monitor-surface-raised); border:1px solid var(--monitor-border-field); border-radius:var(--monitor-radius-field); box-shadow:var(--monitor-shadow); color:var(--monitor-ink); }
-.ui-popover [data-ui="dropdown"] .dropdown-popup { z-index:1; }
+.ui-popover [data-ui="dropdown"] .dropdown-popup { z-index:var(--monitor-layer-popover-content); }

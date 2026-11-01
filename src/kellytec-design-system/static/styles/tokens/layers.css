@@ -1,4 +1,8 @@
 :root {
+  --monitor-layer-table-cell: 1;
+  --monitor-layer-table-header: 2;
+  --monitor-layer-table-corner: 3;
+  --monitor-layer-popover-content: 1;
   --monitor-layer-sticky: 1;
   --monitor-layer-row-header: 2;
   --monitor-layer-focus: 3;
