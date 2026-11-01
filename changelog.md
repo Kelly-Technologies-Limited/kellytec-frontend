@@ -1,3 +1,9 @@
+## 2026-11-01 - Enforce shared layer ownership in Design System 1.0.2
+
+- Replace four literal table/dropdown stacking levels with semantic layer tokens, preserving the numeric values and visual stacking order.
+- Add an installed-stylesheet browser gate that rejects literal or undefined component layers before Design System publication; retain the Operations theme ownership gate unchanged.
+- This patch corrects a consumer-contract gap in 1.0.1; it does not alter the immutable 1.0.1 release or website cutover.
+
 ## 2026-11-01 - Prepare Design System 1.0.1 for Data Platform
 
 - Add shared Services rows and searchable dropdowns, with independent Services pixel/style comparisons and browser interaction coverage.
