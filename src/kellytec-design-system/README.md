@@ -2,10 +2,10 @@
 
 Source is directly in this product directory; there is no `python/` wrapper.
 `setup.py` maps it to `kellytec_design_system` and excludes the build entrypoint
-and tests from the wheel. `version.py` is the single version source.
+and tests from the wheel. `pyproject.toml` is the version source.
 
-`kellytec-design-system==0.2.0` owns the Monitor presentation used by both Monitor apps
-and kellytec-research-platform. Runtime Python dependencies are standard library only.
+`kellytec-design-system` owns the shared presentation used by Data Platform,
+Research Platform and Operations. Runtime Python dependencies are standard library only.
 The package contains the original Page → Tab → Card → Cell contracts,
 renderers, CSS tokens, JavaScript, templates, generated brand and fonts.
 There is no application authentication, fetch loop or compute logic here.
@@ -14,8 +14,8 @@ Build from the frontend repository:
 
 ```sh
 python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py
-python -m build --wheel kellytec-design-system
-python -m pip install --no-deps kellytec-design-system/dist/kellytec_design_system-0.2.0-py3-none-any.whl
+python -m build --wheel src/kellytec-design-system
+python -m pip install --no-deps src/kellytec-design-system/dist/kellytec_design_system-1.0.1-py3-none-any.whl
 python -m pytest -q tests/kellytec-design-system tests/kellytec-website
 ```
 
@@ -37,6 +37,31 @@ high; navigation tabs retain their existing size. The inset cell surface is
 enabled by data-ui-surface="inset" on a canonical cell. Progress controls can
 select healthy, critical or unknown through data-tone. Applications map their
 domain states to these tones and use the existing statusBadge for status bubbles.
+
+`UI.dropdown(root, {label, items, value, searchable, placeholder, disabled,
+onChange})` provides one single-select control for searchable and ordinary lists.
+Items are `{id, label, disabled?}` with unique string IDs (the empty ID is allowed
+for a choice such as All rows). Both modes use the shared select surface and a
+26px trigger within compact density. Applications should use this component when
+their choices need the same popup style; it uses no native select or datalist.
+The label can target `${root.id}-trigger`. Committed state is available through
+`controller.value()`, `root.dataset.value`, and the trigger's `value` property.
+Search is transient: opening always shows all options, typing never changes the
+selected ID, and a changed selection emits one bubbling host `change` event with
+`event.detail.value` and calls `onChange(value)` once. Escape, Tab, and clicking
+outside close without committing. Arrow keys and Enter select enabled choices.
+
+The returned controller supports `setValue(id, {emit:false})`,
+`replace(items, {value?, label?})`, `setDisabled(boolean)`, `close()`, and
+`destroy()`. Programmatic values and replacements do not emit by default;
+replacement retains a valid selected ID and otherwise clears it. An empty ID
+displays its item label when present, or the placeholder when absent. Destroy
+the controller when removing its host. Reinitializing the same host disposes its
+previous controller. Products own item catalogs, fetching, and domain behavior.
+The mandatory installed-wheel pytest run includes real-browser dropdown tests
+covering reselection, search isolation, keyboard/disabled behavior, popup/trigger
+consistency, long lists, empty IDs, and replacement/lifecycle behavior. Local
+runs can set `KELLYTEC_UI_BROWSER_PATH`; CI uses installed Playwright Chromium.
 
 `MonitorPage.toolbar_actions_html=None` retains Monitor's existing status and
 Refresh controls; a trusted application HTML string replaces only those actions.
@@ -101,6 +126,28 @@ the first four categories. Use the same descriptor with `chartSeriesFill`,
 namespaces must be unique for each mounted chart. Card bindings continue to own
 chart-text scaling and accessible tooltip cleanup.
 
+The 1.0.1 candidate adds `UI.serviceTable(rows)` for the identical Services / Status /
+Updated At / Reason presentation used by Operations and Data Platform. Each row is
+`{name, status, tone, updatedAt: {short, full}, reason}`; every value is plain text
+and escaped. The caller owns status interpretation, missing-value labels and time
+formatting. The renderer does not fetch data or know about jobs, runtimes or factors.
+The shared `.monitor-workloads`, `.monitor-workload-section` and
+`.monitor-workload-head` classes provide the existing section layout; applications
+choose section titles and whether an empty section has content. Applications must
+not override the service row typography or column geometry.
+
+`tests/kellytec-design-system/check_service_parity.py` compares the installed
+candidate to an immutable, test-only Operations reference at five viewport widths.
+It compares computed styles, geometry and rendered PNG bytes in the same browser;
+it cannot record or accept a replacement reference. See the fixture README for
+provenance and the local command. This candidate must be formally released before
+consumer release locks can bind version 1.0.1.
+
+The Check and Build workflow invokes that browser comparison after installing the
+built wheel. `services-ui-v1` qualification retains the report and images, binds
+them to the source snapshot and wheel SHA-256, and rejects restored qualifications
+without this evidence. A normal check never rewrites the historical reference.
+
 Dynamic series start with the website brand purple (`--palette-brand-accent`,
 available in the shared palette without the website chrome) and the existing
 chart blue, followed by chart green and amber. They have separate `series-*`
@@ -113,3 +160,12 @@ only the plot host. Shared card bindings refresh text and keyboard tooltips
 after redraws. A renderer's `bind` may return a cleanup function; `bindCard`
 disposes it before rebinding or removing that card. Hidden plots wait until
 they have a positive width.
+
+Interactive tables can opt into `keepHeaders`, `stickyHeader`, `stickyFirst`,
+`className` and `scrollClass`. Header descriptors accept `action: {key, label,
+active}` and `sort: "asc" | "desc"`; actions remain usable for zero matching rows.
+`UI.popover(anchor, content, {label, width, onClose})` portals an interactive surface
+to the document body, fits it inside the viewport and dismisses on Escape or
+outside pointer interaction. Its `close()` and `reposition()` methods let the
+consumer end the lifecycle or adjust after asynchronous content arrives. The
+consumer retains all filtering and query semantics.

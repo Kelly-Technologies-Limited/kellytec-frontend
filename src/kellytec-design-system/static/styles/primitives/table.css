@@ -62,3 +62,21 @@
       min-width: 0;
       overflow-wrap: anywhere;
     }
+
+/* Optional table interaction primitives; static tables retain their existing layout. */
+.table-header-content { display:flex; gap:var(--monitor-space-1); align-items:center; justify-content:space-between; }
+.monitor-table-header-label { display:block; min-width:0; }
+.monitor-table-header-label .monitor-table-header-line { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+[data-ui="table"][data-ui-table-density="compact"] :is(th,td) { padding:6px 4px; }
+[data-ui="table"][data-ui-table-density="compact"] .monitor-table-header-line { overflow:visible; text-overflow:clip; }
+[data-ui="table"][data-ui-table-density="compact"] .table-header-action .monitor-table-header-line:first-child { padding-right:12px; }
+[data-ui="table"][data-ui-table-density="compact"] .table-header-indicator { position:absolute; top:0; right:0; width:10px; text-align:center; }
+[data-ui="table"][data-ui-column-layout="fixed"] { table-layout:fixed; }
+[data-ui="table"][data-sticky-header="true"] { border-collapse:separate; border-spacing:0; }
+.table-header-action { display:inline-flex; align-items:center; justify-content:center; flex:0 0 24px; min-height:24px; border:1px solid transparent; border-radius:var(--monitor-radius-field); background:transparent; color:inherit; cursor:pointer; font:var(--monitor-type-input); }
+[data-ui="table"][data-ui-table-density="compact"] .table-header-action { display:block; position:relative; box-sizing:border-box; width:100%; padding:0; font:inherit; text-align:left; text-transform:inherit; letter-spacing:inherit; }
+.table-header-action:hover,.table-header-action[aria-expanded="true"] { background:var(--monitor-surface-hover); border-color:var(--monitor-border-field); }
+.table-header-action[data-active="true"] { background:var(--monitor-surface-selected); color:var(--monitor-ink); border-color:var(--monitor-border-field); }
+[data-ui="table"][data-sticky-header="true"] th { position:sticky; top:0; z-index:2; background:var(--monitor-surface-table-opaque); }
+[data-ui="table"][data-sticky-first="true"] :is(th,td):first-child { position:sticky; left:0; z-index:1; background:var(--monitor-surface-raised); }
+[data-ui="table"][data-sticky-first="true"] th:first-child { z-index:3; background:var(--monitor-surface-table-opaque); }

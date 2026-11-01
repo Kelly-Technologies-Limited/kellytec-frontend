@@ -27,3 +27,23 @@ def test_numeric_column_and_multiple_basis_values_use_shared_structure():
     css = design_system_css()
     assert 'font-variant-numeric: tabular-nums' in css
     assert '[data-ui="table"] [data-ui-numeric="true"]' in css
+
+
+def test_interactive_empty_table_retains_headers_and_escaped_actions():
+    script='global.window={MonitorUI:{esc:v=>String(v).replaceAll("<","&lt;")}};'
+    script+='require('+json.dumps(str(ROOT/'static/js/components/table.js'))+');'
+    script+='console.log(window.MonitorUI.table([{label:"<value>",lines:["contract","underlying","<instrument type>"],action:{key:"<key>",label:"Filter value",active:true},sort:"desc"}],[],"No matches",{keepHeaders:true,stickyHeader:true,stickyFirst:true,density:"compact",columnWidths:[112]}));'
+    result=subprocess.check_output(['node','-e',script],text=True)
+    assert '<thead>' in result and 'No matches' in result
+    assert 'data-table-action="&lt;key>"' in result
+    assert 'aria-sort="descending"' in result
+    assert 'data-sticky-header="true"' in result
+
+    assert 'data-ui-column-layout="fixed" style="width:112px"' in result
+    assert '<colgroup><col style="width:112px"></colgroup>' in result
+    assert result.count('class="monitor-table-header-line"') == 3
+    assert '<span class="monitor-table-header-label">' in result
+    assert 'data-ui-table-density="compact"' in result
+    assert 'class="table-header-indicator"' in result
+    assert result.index('<button') < result.index('monitor-table-header-label') < result.index('</button>')
+    assert '&lt;instrument type>' in result and '<instrument type>' not in result

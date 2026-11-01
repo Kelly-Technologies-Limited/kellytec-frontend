@@ -74,6 +74,7 @@
   --palette-surface-soft: rgba(252, 252, 252, .72);
   --palette-surface-summary: rgba(32, 36, 44, .02);
   --palette-surface-table: rgba(32, 36, 44, .025);
+  --palette-surface-table-opaque: #f9fafa;
   --palette-text-control: #6b7280;
   --palette-text-primary: #20242c;
   --palette-text-secondary: #616773;

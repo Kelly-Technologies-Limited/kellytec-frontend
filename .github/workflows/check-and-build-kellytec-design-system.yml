@@ -101,6 +101,9 @@ jobs:
       env:
         GH_TOKEN: ${{ steps.tools_app.outputs.token }}
       run: python .github/automation/common/scripts/resolve_source_and_dependencies.py --product kellytec-design-system
+    - name: Verify restored Services visual qualification
+      if: ${{ steps.resolve.outputs.qualified_restored == 'true' }}
+      run: python .github/automation/check-and-build-kellytec-design-system/scripts/verify_restored_visual.py
     - uses: actions/upload-artifact@v4
       with:
         name: snapshot-kellytec-design-system
@@ -248,8 +251,21 @@ jobs:
       with:
         name: design-system-wheel
         path: src/kellytec-design-system/dist
+    - name: Install pinned browser verification environment
+      run: |
+        python -m pip install playwright==1.64.1
+        python -m playwright install --with-deps chromium
     - run: python .github/automation/check-and-build-kellytec-design-system/scripts/verify_installed_package.py
       id: artifact
+    - name: Retain Services visual comparison evidence
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: design-system-services-visual
+        path: .automation/design-system-ui
+        include-hidden-files: true
+        if-no-files-found: warn
+        retention-days: 7
     - uses: actions/upload-artifact@v4
       with:
         name: qualified-kellytec-design-system

@@ -38,6 +38,29 @@ Use the names **sample data** and **simulated data** for data assets.
 
 Product rendering behavior lives under its product; distribution contents, resources and package boundaries live under workloads/build/kellytec-design-system. The build workflow selects all three existing test groups.
 
+## Design System browser prerequisites
+
+The `frontend` suite includes mandatory real-browser dropdown tests. Prepare an
+isolated Python 3.12 environment with the built Design System wheel and the
+accepted Automation package and its dependencies before running the profile.
+Install the test tools and the browser used by the Design System build workflow:
+
+```sh
+python -m pip install pytest==9.0.2 playwright==1.64.1
+python -m playwright install --with-deps chromium
+python -m pytest -q tests/kellytec-design-system tests/workloads/build
+```
+
+For an explicit local Chrome run, set `KELLYTEC_UI_BROWSER_PATH` to its executable
+path before the pytest command. The browser version must be recorded with local
+evidence. Missing Playwright or Chromium fails these tests; they are not skipped.
+The tests exercise the installed wheel through clicks, search, keyboard input,
+and reselection, with browser network requests blocked. The separate Services
+parity check and its immutable reference are described in
+[`fixtures/services-before/README.md`](kellytec-design-system/fixtures/services-before/README.md).
+The website-only check selects `tests/kellytec-website` and does not require this
+browser setup.
+
 This refactor retains existing assertions, test inputs, parametrization, fixture
 lifetimes, skips and runtime boundaries. Shared profiles now centralize selection;
 there is no new CLI or product behavior. Run the same repository-owned checks as its workflow
