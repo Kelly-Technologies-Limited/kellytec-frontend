@@ -1,3 +1,9 @@
+## 2026-11-01 - Link the company platforms from the website
+
+- Replace GP project monitor links with Data Platform and Research Platform, retaining the existing bilingual one-word-per-line card layout.
+- Point LP to Investor Platform and remove the old GP monitor compatibility route from the public artifact.
+- Cover the published link targets and absence of project monitor routes; publish only after the Data Platform endpoint is verified.
+
 ## 2026-11-01 - Enforce shared layer ownership in Design System 1.0.2
 
 - Replace four literal table/dropdown stacking levels with semantic layer tokens, preserving the numeric values and visual stacking order.

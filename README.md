@@ -86,9 +86,9 @@ gp-login page
   access tab
     intro card
       eyebrow, title, description cells
-    operations card
+    data_platform card
       index, access, title, description, action cells
-    data_availability card
+    research_platform card
       index, access, title, description, action cells
     security_note card
       mark, notice, return cells
@@ -122,14 +122,13 @@ public assets into `dist/site/`:
 
 - `dist/site/index.html`
 - `dist/site/gp/index.html`
-- `dist/site/gp/monitor/index.html`
 - `dist/site/assets/styles.css`
 
-Build artifacts are ignored by Git. There is no root `gp/` directory: GP Login
-is a useful public launchpad for the protected ALGO3 Operations and Data
-Availability monitors, with source in `src/kellytec-website/pages/gp/`. Its public URL remains
-`/gp/`; `/gp/monitor/` still redirects there. The source directory layout does
-not change public URLs.
+Build artifacts are ignored by Git. GP Login at `/gp/` is the launchpad for
+Data Platform (`data.kellytec.io`) and Research Platform (`research.kellytec.io`),
+with source in `src/kellytec-website/pages/gp/`. LP links directly to
+`investor.kellytec.io`; the Investor product itself is a separate delivery.
+Project monitor launch links and the former GP compatibility route are removed.
 
 Website behavior lives in `src/kellytec-website/scripts/` and is copied to the served
 `assets/scripts/` URLs. Shared images are copied from `src/kellytec-design-system/static/` to served
