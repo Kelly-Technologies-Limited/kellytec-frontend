@@ -14,7 +14,7 @@ permissions:
   id-token: write
 concurrency:
   group: Check kellytec-website-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   detect_product_changes:
     runs-on: ubuntu-latest
