@@ -1,13 +1,13 @@
-"""Canonical shared monitor components."""
+"""Canonical shared components."""
 
-from kellytec_design_system.contracts import MonitorPanel, MonitorTab
+from kellytec_design_system.contract import TabPanel, Tab
 
-from .page import render_monitor_page
-from .panels import monitor_notices, monitor_panels
-from .tabs import monitor_tabs
-from .toolbar import monitor_toolbar
+from .page import render_page
+from .panels import render_notices, render_panels
+from .tabs import render_tabs
+from .toolbar import render_toolbar
 
 __all__ = [
-    "MonitorPanel", "MonitorTab", "monitor_notices", "monitor_panels",
-    "monitor_tabs", "monitor_toolbar", "render_monitor_page",
+    "TabPanel", "Tab", "render_notices", "render_panels",
+    "render_tabs", "render_toolbar", "render_page",
 ]

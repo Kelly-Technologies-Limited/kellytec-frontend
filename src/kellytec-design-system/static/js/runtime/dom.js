@@ -1,6 +1,6 @@
-/* Canonical DOM and renderer registry for every monitor. */
+/* Canonical DOM and renderer registry for every application. */
 (function (global) {
-  const UI = global.MonitorUI = global.MonitorUI || {};
+  const UI = global.UI = global.UI || {};
   const renderers = UI.renderers = UI.renderers || {};
 
   UI.EMPTY = "—";

@@ -22,9 +22,8 @@ def _styles() -> str:
 
 
 def render_login(
-    *, app_name: str, favicon: str, action: str, next_path: str, error: str = "",
-    instruction: str = "Enter the administrator password to continue.",
-    form_html: str | None = None, scripts_html: str = "", brand_logo: bool = False,
+    *, app_name: str, favicon: str, instruction: str, form_html: str,
+    error: str = "", scripts_html: str = "", brand_html: str = "",
 ) -> str:
     """Render login; form_html/scripts_html are trusted application markup.
 
@@ -35,8 +34,6 @@ def render_login(
         for key, value in {
             "app_name": app_name,
             "favicon": favicon,
-            "action": action,
-            "next_path": next_path,
         }.items()
     }
     values["error"] = (
@@ -45,18 +42,8 @@ def render_login(
     values["styles"] = _styles()
     values["instruction"] = escape(instruction)
     values["scripts_html"] = scripts_html
-    values["brand"] = '<p class="brand">Kelly Technologies</p>'
-    if brand_logo:
-        import re
-        header = (ROOT / "generated" / "frontend_header.html").read_text(encoding="utf-8")
-        values["brand"] = re.search(r'<a class="brand".*?</a>', header, re.S).group(0)
-    values["form_html"] = form_html if form_html is not None else (
-        '<form method="post" action="' + values["action"] + '">'
-        '<input type="hidden" name="next" value="' + values["next_path"] + '"/>'
-        '<label data-ui-type="login-label" for="password">Password</label>'
-        '<input id="password" name="password" type="password" autocomplete="current-password" autofocus required/>'
-        '<button type="submit">Open Monitor</button></form>'
-    )
+    values["brand"] = brand_html
+    values["form_html"] = form_html
     return Template(
         (ROOT / "templates" / "login.html").read_text(encoding="utf-8")
     ).substitute(values)

@@ -31,14 +31,14 @@ ROWS = [
     for name, state in zip(NAMES, STATES)
 ]
 OLD_RENDER = """rows => {
-  const renderer = window.MonitorUI.rendererFor({renderer:'servers'});
+  const renderer = window.UI.rendererFor({renderer:'servers'});
   const host = document.createElement('div');
   host.innerHTML = renderer.render({servers:[{project_id:'kellytec-data',
     workloads:{jobs:{rows}}}]}).html;
   return [...host.querySelectorAll('.monitor-workload-table, [data-ui="service-table"]')].at(-1).outerHTML;
 }"""
-NEW_RENDER = """rows => window.MonitorUI.serviceTable(rows.map(row => {
-  const full = row.status_at ? window.MonitorUI.value({kind:'datetime_et',value:row.status_at}) : '—';
+NEW_RENDER = """rows => window.UI.serviceTable(rows.map(row => {
+  const full = row.status_at ? window.UI.value({kind:'datetime_et',value:row.status_at}) : '—';
   const match = full.match(/(\\d{2}:\\d{2}:\\d{2}\\s+E[DS]?T)$/);
   return {name:row.name,status:row.status || '—',reason:row.reason,
     updatedAt:{short:match ? match[1] : full,full},
@@ -94,11 +94,15 @@ def main() -> None:
                     css += (REFERENCE / "operations.css").read_text()
                 elif mode == "operations":
                     css += args.operations_css.read_text()
-                page.set_content('<style>' + css + '</style><div id="fixture" class="monitor-cell" style="width:calc(100vw - 32px);max-width:700px;margin:16px"></div>')
+                cell_class = "monitor-cell" if mode == "reference" else "cell"
+                page.set_content('<style>' + css + f'</style><div id="fixture" class="{cell_class}" style="width:calc(100vw - 32px);max-width:700px;margin:16px"></div>')
                 page.add_script_tag(content=js)
                 if mode != "component":
                     page.add_script_tag(content=(REFERENCE / "operations.js").read_text() if mode == "reference" else args.operations_renderer.read_text())
-                html = page.evaluate(NEW_RENDER if mode == "component" else OLD_RENDER, ROWS)
+                renderer = NEW_RENDER if mode == "component" else OLD_RENDER
+                if mode == "reference":
+                    renderer = renderer.replace("window.UI", "window.MonitorUI")
+                html = page.evaluate(renderer, ROWS)
                 page.locator("#fixture").evaluate("(el,html) => el.innerHTML=html", html)
                 page.evaluate("document.fonts.ready")
                 image = page.locator("#fixture").screenshot(path=str(args.output / f"{mode}-{width}.png"))

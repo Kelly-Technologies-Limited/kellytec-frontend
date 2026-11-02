@@ -1,0 +1,23 @@
+<section class="services-access" data-tab="access" aria-labelledby="services-page-title">
+  <div class="container services-inner">
+    <header class="services-intro">
+      <p class="section-eyebrow" data-en="Authorized systems" data-zh="授权系统">授权系统</p>
+      <h1 class="services-title" id="services-page-title" data-en="Services" data-zh="服务">服务</h1>
+      <p class="services-description" data-en="Select a service." data-zh="请选择要使用的服务。">请选择要使用的服务。</p>
+    </header>
+    <div class="services-account"><span id="account-name"></span><button type="button" class="login-button" id="sign-out" data-en="Sign out" data-zh="退出登录" hidden>退出登录</button></div>
+    <div class="service-grid" aria-label="Services">
+      <div class="service-slot" data-service="data" aria-hidden="true"></div>
+      <div class="service-slot" data-service="research" aria-hidden="true"></div>
+      <div class="service-slot" data-service="investor" aria-hidden="true"></div>
+      <div class="service-slot" data-service="monitor" aria-hidden="true"></div>
+      <div class="service-slot" aria-hidden="true"></div>
+      <div class="service-slot" aria-hidden="true"></div>
+    </div>
+    <p class="services-error" id="access-status" role="status" aria-live="polite"></p>
+    <template id="service-data">{{card.data}}</template>
+    <template id="service-research">{{card.research}}</template>
+    <template id="service-investor">{{card.investor}}</template>
+    <template id="service-monitor">{{card.monitor}}</template>
+  </div>
+</section>

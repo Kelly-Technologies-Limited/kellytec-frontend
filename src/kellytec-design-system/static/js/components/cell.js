@@ -3,8 +3,8 @@
   UI.cell = function (body, options) {
     const config = options || {};
     const tag = config.tag === "article" ? "article" : "div";
-    const classes = ["monitor-cell"];
-    if (config.head) classes.push("monitor-cell-head");
+    const classes = ["cell"];
+    if (config.head) classes.push("cell-head");
     if (config.className) classes.push(config.className);
     const role = config.role ? ' role="' + UI.esc(config.role) + '"' : "";
     const title = config.title ? ' title="' + UI.esc(config.title) + '"' : "";
@@ -16,4 +16,4 @@
     return '<' + tag + ' class="' + classes.join(" ") + '" data-ui="cell"' + role + title + typography + attributes + '>' +
       (body == null ? "" : String(body)) + "</" + tag + ">";
   };
-})(window.MonitorUI);
+})(window.UI);

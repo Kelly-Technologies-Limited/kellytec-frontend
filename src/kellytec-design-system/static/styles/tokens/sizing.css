@@ -1,11 +1,11 @@
 :root {
-  --monitor-toolbar-min-height: 64px;
-  --monitor-tab-min-height: 34px;
-  --monitor-tab-padding: 8px 12px;
-  --monitor-table-row-min-height: 30px;
-  --monitor-table-header-min-height: 30px;
-  --monitor-table-list-max-height: 72vh;
-  --monitor-table-row-padding: 5px 8px;
-  --monitor-table-header-padding: 6px 8px;
-  --monitor-table-column-gap: 6px;
+  --toolbar-min-height: 64px;
+  --tab-min-height: 34px;
+  --tab-padding: 8px 12px;
+  --table-row-min-height: 30px;
+  --table-header-min-height: 30px;
+  --table-list-max-height: 72vh;
+  --table-row-padding: 5px 8px;
+  --table-header-padding: 6px 8px;
+  --table-column-gap: 6px;
 }

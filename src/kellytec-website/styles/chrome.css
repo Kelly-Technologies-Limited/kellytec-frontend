@@ -20,6 +20,7 @@
 .brand { display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--ink); }
 .brand-logo { display: block; height: 30px; width: auto; }
 .login-button {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,12 +37,6 @@
   letter-spacing: .04em;
   white-space: nowrap;
   transition: color .18s var(--ease), border-color .18s var(--ease), background-color .18s var(--ease);
-}
-.gp-login {
-  margin-left: auto;
-}
-.lp-login {
-  margin-left: .62rem;
 }
 .login-button:hover {
   color: var(--accent-deep);
@@ -117,12 +112,6 @@
     padding: .28rem .58rem;
     font-size: .72rem;
     letter-spacing: 0;
-  }
-  .gp-login {
-    margin-left: auto;
-  }
-  .lp-login {
-    margin-left: 0;
   }
   .lang-toggle {
     margin-left: 0;

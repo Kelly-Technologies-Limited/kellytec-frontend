@@ -1,14 +1,14 @@
 /* Login is usable before authentication: presenter embeds these shared tokens. */
 * { box-sizing: border-box; }
-.monitor-login { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; background: var(--monitor-panel); color: var(--monitor-login-ink); font: var(--monitor-type-login-body); }
-.monitor-login main { width: min(100%, 360px); }
-.monitor-login .brand-logo { width: 220px; max-width: 100%; height: auto; margin-bottom: 22px; }
-.monitor-login .brand { margin: 0 0 22px; font: var(--monitor-type-login-label); letter-spacing: var(--monitor-tracking-brand); text-transform: uppercase; color: var(--monitor-login-secondary); }
-.monitor-login h1 { margin: 0 0 8px; font: var(--monitor-type-login-title); }
-.monitor-login .hint { margin: 0 0 24px; color: var(--monitor-login-secondary); }
-.monitor-login form { display: grid; gap: 12px; }
-.monitor-login label { font: var(--monitor-type-login-label); letter-spacing: var(--monitor-tracking-uppercase); text-transform: uppercase; color: var(--monitor-login-secondary); }
-.monitor-login input, .monitor-login select { width: 100%; min-height: 44px; border: 1px solid var(--monitor-login-border); border-radius: var(--monitor-radius-login); padding: 10px 12px; color: var(--monitor-login-ink); background: var(--monitor-surface-raised); font: inherit; }
-.monitor-login button { min-height: 44px; border: 0; border-radius: var(--monitor-radius-login); background: var(--monitor-accent); color: var(--monitor-surface-raised); font: var(--monitor-type-login-button); cursor: pointer; }
-.monitor-login .error { margin: 0 0 14px; color: var(--monitor-login-error); font: var(--monitor-type-login-button); }
-.monitor-login :focus-visible { outline: 2px solid var(--monitor-accent); outline-offset: 3px; }
+.login { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; background: var(--panel); color: var(--login-ink); font: var(--type-login-body); }
+.login main { width: min(100%, 360px); }
+.login .brand-logo { width: 220px; max-width: 100%; height: auto; margin-bottom: 22px; }
+.login .brand { margin: 0 0 22px; font: var(--type-login-label); letter-spacing: var(--tracking-brand); text-transform: uppercase; color: var(--login-secondary); }
+.login h1 { margin: 0 0 8px; font: var(--type-login-title); }
+.login .hint { margin: 0 0 24px; color: var(--login-secondary); }
+.login form { display: grid; gap: 12px; }
+.login label { font: var(--type-login-label); letter-spacing: var(--tracking-uppercase); text-transform: uppercase; color: var(--login-secondary); }
+.login input, .login select { width: 100%; min-height: 44px; border: 1px solid var(--login-border); border-radius: var(--radius-login); padding: 10px 12px; color: var(--login-ink); background: var(--surface-raised); font: inherit; }
+.login button { min-height: 44px; border: 0; border-radius: var(--radius-login); background: var(--accent); color: var(--surface-raised); font: var(--type-login-button); cursor: pointer; }
+.login .error { margin: 0 0 14px; color: var(--login-error); font: var(--type-login-button); }
+.login :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

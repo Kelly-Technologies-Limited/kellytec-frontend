@@ -21,7 +21,7 @@
       const direction = [45, -45, 0][(style.pattern - 1) % 3];
       return '<pattern id="' + UI.esc(namespace) + '-series-' + style.index + '" patternUnits="userSpaceOnUse" width="' + spacing + '" height="' + spacing + '" patternTransform="rotate(' + direction + ')">' +
         '<rect width="' + spacing + '" height="' + spacing + '" fill="' + color + '"/>' +
-        '<line x1="0" y1="0" x2="0" y2="' + spacing + '" stroke="var(--monitor-surface-raised)" stroke-width="2"/></pattern>';
+        '<line x1="0" y1="0" x2="0" y2="' + spacing + '" stroke="var(--surface-raised)" stroke-width="2"/></pattern>';
     }).join('') + '</defs>';
   };
 
@@ -30,6 +30,6 @@
     if (!style.pattern) return 'background:' + color;
     const spacing = 4 + Math.floor((style.pattern - 1) / 3) * 2;
     const angle = [45, -45, 0][(style.pattern - 1) % 3];
-    return 'background:repeating-linear-gradient(' + angle + 'deg,var(--monitor-surface-raised) 0px,var(--monitor-surface-raised) 2px,' + color + ' 2px,' + color + ' ' + spacing + 'px)';
+    return 'background:repeating-linear-gradient(' + angle + 'deg,var(--surface-raised) 0px,var(--surface-raised) 2px,' + color + ' 2px,' + color + ' ' + spacing + 'px)';
   };
-})(window.MonitorUI);
+})(window.UI);

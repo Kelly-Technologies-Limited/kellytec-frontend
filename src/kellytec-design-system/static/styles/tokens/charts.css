@@ -1,36 +1,36 @@
 /* Chart semantics are independent of health/status even when initial values match. */
 :root {
-  --monitor-chart-extent-negative: var(--palette-chart-extent-negative);
-  --monitor-chart-extent-positive: var(--palette-chart-extent-positive);
-  --monitor-chart-grid-major: var(--palette-chart-grid-major);
-  --monitor-chart-grid-minor: var(--palette-chart-grid-minor);
-  --monitor-chart-histogram: var(--palette-chart-histogram);
-  --monitor-chart-hover: var(--palette-chart-hover);
-  --monitor-chart-inactive: var(--palette-chart-inactive);
-  --monitor-chart-initial: var(--palette-chart-initial);
-  --monitor-chart-price-down: var(--palette-chart-price-down);
-  --monitor-chart-price-up: var(--palette-chart-price-up);
-  --monitor-chart-reference: var(--palette-chart-reference);
-  --monitor-chart-reference-label: var(--palette-chart-reference-label);
-  --monitor-chart-signed-negative: var(--palette-chart-signed-negative);
-  --monitor-chart-signed-positive: var(--palette-chart-signed-positive);
-  --monitor-chart-zero: var(--palette-chart-zero);
-  --monitor-chart-halo: var(--monitor-surface-raised);
-  --monitor-chart-pnl: var(--monitor-text-primary);
-  --monitor-chart-categorical-1: var(--palette-status-positive);
-  --monitor-chart-categorical-2: var(--palette-accent);
-  --monitor-chart-categorical-3: var(--palette-status-critical);
-  --monitor-chart-categorical-4: var(--palette-status-warning);
-  --monitor-chart-series-1: var(--palette-brand-accent);
-  --monitor-chart-series-2: var(--palette-chart-signed-positive);
-  --monitor-chart-series-3: var(--palette-chart-price-up);
-  --monitor-chart-series-4: var(--palette-feedback-warning);
-  --monitor-chart-filled: var(--palette-accent);
-  --monitor-chart-canceled: var(--monitor-chart-inactive);
-  --monitor-chart-axis-width: 1px;
-  --monitor-chart-grid-width: 1px;
-  --monitor-chart-line-width: 2px;
-  --monitor-chart-point-halo-width: 1.2px;
+  --chart-extent-negative: var(--palette-chart-extent-negative);
+  --chart-extent-positive: var(--palette-chart-extent-positive);
+  --chart-grid-major: var(--palette-chart-grid-major);
+  --chart-grid-minor: var(--palette-chart-grid-minor);
+  --chart-histogram: var(--palette-chart-histogram);
+  --chart-hover: var(--palette-chart-hover);
+  --chart-inactive: var(--palette-chart-inactive);
+  --chart-initial: var(--palette-chart-initial);
+  --chart-price-down: var(--palette-chart-price-down);
+  --chart-price-up: var(--palette-chart-price-up);
+  --chart-reference: var(--palette-chart-reference);
+  --chart-reference-label: var(--palette-chart-reference-label);
+  --chart-signed-negative: var(--palette-chart-signed-negative);
+  --chart-signed-positive: var(--palette-chart-signed-positive);
+  --chart-zero: var(--palette-chart-zero);
+  --chart-halo: var(--surface-raised);
+  --chart-pnl: var(--text-primary);
+  --chart-categorical-1: var(--palette-status-positive);
+  --chart-categorical-2: var(--palette-accent);
+  --chart-categorical-3: var(--palette-status-critical);
+  --chart-categorical-4: var(--palette-status-warning);
+  --chart-series-1: var(--palette-brand-accent);
+  --chart-series-2: var(--palette-chart-signed-positive);
+  --chart-series-3: var(--palette-chart-price-up);
+  --chart-series-4: var(--palette-feedback-warning);
+  --chart-filled: var(--palette-accent);
+  --chart-canceled: var(--chart-inactive);
+  --chart-axis-width: 1px;
+  --chart-grid-width: 1px;
+  --chart-line-width: 2px;
+  --chart-point-halo-width: 1.2px;
 }
 
-:root { --monitor-chart-zero-subtle: var(--palette-chart-zero-subtle); }
+:root { --chart-zero-subtle: var(--palette-chart-zero-subtle); }

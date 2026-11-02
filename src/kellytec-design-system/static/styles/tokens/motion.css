@@ -1,7 +1,7 @@
 :root {
-  --monitor-motion-feedback: .16s;
-  --monitor-motion-spinner: .8s;
-  --monitor-motion-easing: ease;
+  --motion-feedback: .16s;
+  --motion-spinner: .8s;
+  --motion-easing: ease;
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

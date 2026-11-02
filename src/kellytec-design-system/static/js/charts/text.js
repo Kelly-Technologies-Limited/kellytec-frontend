@@ -24,4 +24,4 @@
     if (document.fonts) document.fonts.ready.then(function () { if (alive) update(); });
     return function () { alive = false; observer.disconnect(); };
   };
-})(window.MonitorUI);
+})(window.UI);

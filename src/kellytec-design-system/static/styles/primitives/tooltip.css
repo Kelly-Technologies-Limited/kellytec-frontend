@@ -1,2 +1,2 @@
-.monitor-tooltip { position: fixed; z-index: var(--monitor-layer-tooltip); pointer-events: none; padding: 10px 13px; max-width: min(360px, calc(100vw - 24px)); background: var(--monitor-tooltip-surface); color: var(--monitor-surface-raised); border-radius: var(--monitor-radius); white-space: pre-line; overflow-wrap: anywhere; box-shadow: 0 4px 18px var(--monitor-tooltip-shadow); }
-.monitor-tooltip[hidden] { display: none; }
+.tooltip { position: fixed; z-index: var(--layer-tooltip); pointer-events: none; padding: 10px 13px; max-width: min(360px, calc(100vw - 24px)); background: var(--tooltip-surface); color: var(--surface-raised); border-radius: var(--radius); white-space: pre-line; overflow-wrap: anywhere; box-shadow: 0 4px 18px var(--tooltip-shadow); }
+.tooltip[hidden] { display: none; }

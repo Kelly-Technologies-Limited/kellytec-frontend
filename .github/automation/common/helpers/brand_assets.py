@@ -15,9 +15,8 @@ CHROME = SRC / "chrome"
 HOME = SRC / "pages" / "home"
 CARDS = HOME / "cards"
 TABS = HOME / "tabs"
-GP = SRC / "pages" / "gp"
-GP_CARDS = GP / "cards"
-GP_TABS = GP / "tabs"
+SERVICES = SRC / "pages" / "services"
+LOGIN = SRC / "pages" / "login"
 ASSETS = ROOT / "src/kellytec-design-system" / "static"
 
 # Public URLs stay stable; source locations are independent of served paths.
@@ -42,12 +41,14 @@ PUBLIC_FILES = {
             "page_reveal.js",
             "language.js",
             "cards/card_volatility_surface.js",
+            "identity.js", "services.js",
         )
     },
 }
 GENERATED_FILES = (
     "index.html",
-    "gp/index.html",
+    "login/index.html",
+    "services/index.html",
     "assets/styles.css",
 )
 
@@ -59,7 +60,8 @@ CSS_SOURCES = (
     SRC / "styles" / "tabs" / "tab_strategies.css",
     SRC / "styles" / "tabs" / "tab_team.css",
     SRC / "styles" / "tabs" / "tab_contact.css",
-    SRC / "styles" / "pages" / "page_gp.css",
+    SRC / "styles" / "pages" / "page_login.css",
+    SRC / "styles" / "pages" / "page_services.css",
     SRC / "styles" / "effects.css",
 )
 
@@ -81,16 +83,6 @@ TAB_FILES = {
     "contact": "tab_contact.html",
 }
 
-GP_CARD_FILES = {
-    "intro": "card_intro.html",
-    "data_platform": "card_data_platform.html",
-    "research_platform": "card_research_platform.html",
-    "security_note": "card_security_note.html",
-}
-
-GP_TAB_FILES = {
-    "access": "tab_access.html",
-}
 
 
 def read(path: Path) -> str:
@@ -125,14 +117,14 @@ def render_document_head(
 
 
 def render_header(
-    *, asset_prefix: str, home_href: str, gp_current: bool, frontend_root: Path = ROOT
+    *, asset_prefix: str, home_href: str, login_current: bool, frontend_root: Path = ROOT
 ) -> str:
     return replace_all(
         read(frontend_root / "src/kellytec-website" / "chrome" / "header.html"),
         {
             "asset.prefix": asset_prefix,
             "navigation.home": home_href,
-            "navigation.gp_current": " is-current" if gp_current else "",
+            "navigation.login_current": " is-current" if login_current else "",
         },
     )
 
@@ -151,31 +143,36 @@ def render_home_page() -> str:
             noindex=False,
             preload='<link rel="preload" as="image" href="assets/hero-bg.jpg" fetchpriority="high" />',
         ),
-        "chrome.header": render_header(asset_prefix="", home_href="#top", gp_current=False),
+        "chrome.header": render_header(asset_prefix="", home_href="#top", login_current=False),
         "chrome.footer": read(CHROME / "footer.html"),
         **tabs,
     }
     return replace_all(read(HOME / "page.html"), page_values).rstrip() + "\n"
 
 
-def render_gp_page() -> str:
-    cards = {f"card.{name}": read(GP_CARDS / filename) for name, filename in GP_CARD_FILES.items()}
-    tabs = {
-        f"tab.{name}": replace_all(read(GP_TABS / filename), cards)
-        for name, filename in GP_TAB_FILES.items()
-    }
-    page_values = {
+def render_services_page() -> str:
+    cards = {f"card.{key}": read(SERVICES / "cards" / filename) for key, filename in {
+        "data": "card_data_platform.html", "research": "card_research_platform.html",
+        "investor": "card_investor.html", "monitor": "card_monitor.html",
+    }.items()}
+    access = replace_all(read(SERVICES / "tabs/tab_access.html"), cards)
+    return render_account_page(SERVICES, "Services", {"tab.access": access})
+
+
+def render_account_page(source: Path, title: str, content: dict[str, str]) -> str:
+    values = {
         "chrome.document_head": render_document_head(
-            title="GP Login | Kelly Technologies",
-            description="Authorized access to Kelly Technologies Data Platform and Research Platform.",
-            asset_prefix="../",
-            noindex=True,
+            title=title + " | Kelly Technologies", description="Company services and account access.",
+            asset_prefix="../", noindex=True,
         ),
-        "chrome.header": render_header(asset_prefix="../", home_href="/", gp_current=True),
-        "chrome.footer": read(CHROME / "footer.html"),
-        **tabs,
+        "chrome.header": render_header(asset_prefix="../", home_href="/", login_current=True),
+        "chrome.footer": read(CHROME / "footer.html"), **content,
     }
-    return replace_all(read(GP / "page.html"), page_values).rstrip() + "\n"
+    return replace_all(read(source / "page.html"), values).rstrip() + "\n"
+
+
+def render_login_page() -> str:
+    return render_account_page(LOGIN, "Login", {"card.google_login": read(LOGIN / "cards/card_google_login.html")})
 
 
 def build_css(frontend_root: Path = ROOT) -> str:
@@ -212,7 +209,8 @@ def build_public_site(destination: Path) -> None:
         shutil.copyfile(source, destination / name)
     for name, contents in {
         "index.html": render_home_page(),
-        "gp/index.html": render_gp_page(),
+        "login/index.html": render_login_page(),
+        "services/index.html": render_services_page(),
         "assets/styles.css": build_css(),
     }.items():
         (destination / name).write_text(contents, encoding="utf-8", newline="\n")
@@ -246,12 +244,12 @@ def build_frontend_chrome(frontend_root: Path) -> FrontendChrome:
     homepage_href = _frontend_homepage_href(frontend_root)
 
     source_header = render_header(
-        asset_prefix="", home_href="#top", gp_current=False, frontend_root=frontend_root
+        asset_prefix="", home_href="#top", login_current=False, frontend_root=frontend_root
     )
     footer = read(frontend_root / "src/kellytec-website" / "chrome" / "footer.html")
 
     logo_uri = "data:image/svg+xml;base64," + base64.b64encode(logo_svg).decode("ascii")
-    header = _monitor_header(
+    header = _application_header(
         source_header=source_header,
         homepage_href=homepage_href,
         logo_uri=logo_uri,
@@ -283,7 +281,7 @@ def _frontend_homepage_href(frontend_root: Path) -> str:
     return "/"
 
 
-def _monitor_header(*, source_header: str, homepage_href: str, logo_uri: str) -> str:
+def _application_header(*, source_header: str, homepage_href: str, logo_uri: str) -> str:
     brand_match = re.search(r'<a class="brand".*?</a>', source_header, flags=re.S)
     if not brand_match:
         raise ValueError("Could not find frontend brand link")

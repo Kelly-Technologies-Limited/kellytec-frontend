@@ -34,10 +34,10 @@ def page(browser):
     page.evaluate("""() => {
       window.events = []; window.callbacks = [];
       document.querySelector('#identity').addEventListener('change', e => events.push(e.detail.value));
-      window.kind = MonitorUI.dropdown(document.querySelector('#kind'), {
+      window.kind = UI.dropdown(document.querySelector('#kind'), {
         label: 'Data', items: [{id:'std',label:'Standardized'}, {id:'raw',label:'Raw'}], value:'std'
       });
-      window.identity = MonitorUI.dropdown(document.querySelector('#identity'), {
+      window.identity = UI.dropdown(document.querySelector('#identity'), {
         label: 'Data ID', searchable:true, items: [
           {id:'alpha',label:'Alpha prices'}, {id:'disabled',label:'Disabled prices',disabled:true},
           {id:'beta',label:'Beta trades'}, {id:'gamma',label:'Gamma book'}
@@ -151,7 +151,7 @@ def test_replace_updates_labels_preserves_valid_selection_and_lifecycle_does_not
     expect(page.get_by_role("combobox", name="FeedKey", exact=True)).to_have_attribute("aria-expanded", "false")
     page.evaluate("""() => {
       identity.destroy();
-      window.identity = MonitorUI.dropdown(document.querySelector('#identity'), {
+      window.identity = UI.dropdown(document.querySelector('#identity'), {
         label:'Data ID',searchable:true,items:[{id:'safe',label:'<img src=x onerror=alert(1)>'}]
       });
     }""")
@@ -183,12 +183,12 @@ def test_table_header_popover_escapes_scroll_clipping_and_cleans_up(page):
     page.evaluate("""() => {
       const scroll=document.createElement('div');
       scroll.style.cssText='overflow:hidden;width:180px;height:45px;position:fixed;right:8px;bottom:8px';
-      scroll.innerHTML=MonitorUI.table([{label:'Value',action:{key:'value',label:'Filter value'}}],[],'No matching rows',{keepHeaders:true});
+      scroll.innerHTML=UI.table([{label:'Value',action:{key:'value',label:'Filter value'}}],[],'No matching rows',{keepHeaders:true});
       document.body.append(scroll);
       const anchor=scroll.querySelector('[data-table-action]');
       anchor.onclick=()=>{
         const content=document.createElement('div');content.innerHTML='<label>Value<input data-ui="input"></label><button data-ui="button">Apply</button>';
-        window.surface=MonitorUI.popover(anchor,content,{label:'Value column',onClose:()=>window.popoverCloses=(window.popoverCloses||0)+1});
+        window.surface=UI.popover(anchor,content,{label:'Value column',onClose:()=>window.popoverCloses=(window.popoverCloses||0)+1});
       };
     }""")
     expect(page.get_by_role('columnheader',name='Value')).to_be_visible()

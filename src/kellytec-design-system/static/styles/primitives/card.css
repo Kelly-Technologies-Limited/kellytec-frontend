@@ -1,57 +1,57 @@
     .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .panel,
-    .monitor-card {
+    .card {
       min-width: 0;
-      border: var(--monitor-card-border);
-      border-radius: var(--monitor-radius);
-      background: var(--monitor-panel);
+      border: var(--card-border);
+      border-radius: var(--radius);
+      background: var(--panel);
       padding: 14px;
     }
-    .monitor-card {
-      margin-bottom: var(--monitor-card-gap);
-      box-shadow: 0 1px 0 var(--monitor-surface-highlight) inset;
+    .card {
+      margin-bottom: var(--card-gap);
+      box-shadow: 0 1px 0 var(--surface-highlight) inset;
     }
-    .monitor-card-grid > .monitor-card,
-    .monitor-card-grid > .monitor-card-slot > .monitor-card { margin-bottom: 0; }
+    .card-grid > .card,
+    .card-grid > .card-slot > .card { margin-bottom: 0; }
     /* Independently rendered cards still fill their shared grid row. */
-    .monitor-card-slot {
+    .card-slot {
       display: flex;
       flex-direction: column;
       min-width: 0;
     }
-    .monitor-card-slot > .monitor-card { flex: 1; }
-    .view > .monitor-card:last-child { margin-bottom: 0; }
-    .monitor-card-head {
+    .card-slot > .card { flex: 1; }
+    .view > .card:last-child { margin-bottom: 0; }
+    .card-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 8px;
       padding-bottom: 8px;
-      border-bottom: var(--monitor-card-title-rule);
+      border-bottom: var(--card-title-rule);
     }
-    .monitor-card-head h2 { margin: 0; }
-    .monitor-cell {
+    .card-head h2 { margin: 0; }
+    .cell {
       min-width: 0;
-      font: var(--monitor-cell-font);
+      font: var(--cell-font);
     }
-    .monitor-cell-head {
-      color: var(--monitor-faint);
-      font-size: var(--monitor-table-header-font-size);
-      font-weight: var(--monitor-table-header-font-weight);
+    .cell-head {
+      color: var(--faint);
+      font-size: var(--table-header-font-size);
+      font-weight: var(--table-header-font-weight);
       text-transform: uppercase;
     }
-    .monitor-card-grid {
+    .card-grid {
       display: grid;
-      gap: var(--monitor-card-gap);
-      margin-bottom: var(--monitor-card-gap);
+      gap: var(--card-gap);
+      margin-bottom: var(--card-gap);
     }
-    .monitor-card-grid-context {
+    .card-grid-context {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .monitor-card-grid-summary {
+    .card-grid-summary {
       grid-template-columns: minmax(220px, 360px);
     }
-    .monitor-card-muted {
-      background: var(--monitor-panel-soft);
+    .card-muted {
+      background: var(--panel-soft);
     }

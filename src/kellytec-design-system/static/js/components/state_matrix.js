@@ -45,7 +45,7 @@
       "--state-matrix-column-width:" + cssSize(config.columnWidth, "28px"),
       "--state-matrix-header-height:" + cssSize(config.headerHeight, "78px"),
       "--state-matrix-row-height:" + cssSize(config.rowHeight, "26px"),
-      "--state-matrix-grid-line:" + String(config.gridLine || "var(--monitor-matrix-grid)")
+      "--state-matrix-grid-line:" + String(config.gridLine || "var(--matrix-grid)")
     ].join(";") + ";";
     const head = '<div class="state-matrix-head" role="row">' +
       '<div class="state-matrix-corner" role="columnheader" aria-label="' +
@@ -149,4 +149,4 @@
     });
     if (config.restoreFocus) activate(active, true);
   };
-})(window.MonitorUI);
+})(window.UI);

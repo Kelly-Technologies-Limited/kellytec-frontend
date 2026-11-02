@@ -5,7 +5,7 @@
     const hits = Array.from(root.querySelectorAll('[data-ui-tooltip]'));
     if (!hits.length) return function () {};
     const tip = document.createElement('div');
-    tip.className = 'monitor-tooltip'; tip.id = 'monitor-tooltip-' + (++nextId);
+    tip.className = 'tooltip'; tip.id = 'tooltip-' + (++nextId);
     tip.setAttribute('role', 'tooltip'); tip.setAttribute('data-ui-type', 'tooltip');
     tip.hidden = true; root.appendChild(tip);
     const controller = new AbortController();
@@ -43,4 +43,4 @@
     listen(window, 'scroll', hide);
     return function () { hide(); controller.abort(); tip.remove(); };
   };
-})(window.MonitorUI);
+})(window.UI);

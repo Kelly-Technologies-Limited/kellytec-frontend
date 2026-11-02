@@ -26,7 +26,7 @@ def test_every_component_layer_uses_a_defined_semantic_token():
                 const visit = rules => Array.from(rules).forEach(rule => {
                     if (rule.style?.zIndex) {
                         const value = rule.style.zIndex;
-                        const token = value.match(/^var\((--monitor-layer-[a-z-]+)\)$/)?.[1];
+                        const token = value.match(/^var\((--layer-[a-z-]+)\)$/)?.[1];
                         result.push({selector: rule.selectorText, value, resolved: token
                             ? getComputedStyle(document.documentElement).getPropertyValue(token).trim()
                             : ''});
@@ -38,6 +38,6 @@ def test_every_component_layer_uses_a_defined_semantic_token():
             }""")
     assert layers, "The installed stylesheet must contain its component layer declarations"
     invalid = [row for row in layers if not re.fullmatch(
-        r"var\(--monitor-layer-[a-z-]+\)", row["value"],
+        r"var\(--layer-[a-z-]+\)", row["value"],
     ) or not re.fullmatch(r"-?\d+", row["resolved"])]
     assert invalid == [], f"Unowned or undefined component layers: {invalid}"

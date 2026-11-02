@@ -27,7 +27,7 @@ setup(
         *(
             f"{NAMESPACE}.{name}"
             for name in find_packages(
-                where=SOURCE, include=("contracts", "contracts.*", "components", "components.*")
+                where=SOURCE, include=("contract", "contract.*", "components", "components.*")
             )
         ),
     ],

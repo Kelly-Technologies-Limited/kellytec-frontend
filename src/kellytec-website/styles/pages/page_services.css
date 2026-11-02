@@ -1,10 +1,10 @@
-/* GP Login */
-.gp-page {
+/* Authenticated Services */
+.services-page {
   display: flex;
   flex-direction: column;
 }
 
-.gp-access {
+.services-access {
   flex: 1 0 auto;
   display: flex;
   align-items: center;
@@ -14,21 +14,21 @@
     var(--bg);
 }
 
-.gp-access-inner {
+.services-inner {
   width: 100%;
   min-width: 0;
 }
 
-.gp-intro {
+.services-intro {
   max-width: 46rem;
   margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
 }
 
-.gp-intro .section-eyebrow {
+.services-intro .section-eyebrow {
   margin-bottom: .7rem;
 }
 
-.gp-title {
+.services-title {
   max-width: 18ch;
   margin: 0;
   color: var(--ink);
@@ -40,7 +40,7 @@
   text-wrap: balance;
 }
 
-.gp-lede {
+.services-description {
   max-width: 38rem;
   margin: .8rem 0 0;
   color: var(--ink-soft);
@@ -49,14 +49,14 @@
   text-wrap: pretty;
 }
 
-.gp-system-grid {
+.service-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .85rem;
 }
 
-.gp-system-card {
-  min-height: 13rem;
+.service-card {
+  min-height: 12rem;
   display: flex;
   flex-direction: column;
   padding: clamp(1.25rem, 2.2vw, 1.6rem);
@@ -72,19 +72,19 @@
     transform .22s var(--ease);
 }
 
-.gp-system-card:hover {
+.service-card:hover {
   color: var(--ink);
   border-color: var(--line-strong);
   box-shadow: 0 20px 52px rgba(55,53,69,.08);
   transform: translateY(-3px);
 }
 
-.gp-system-card:focus-visible {
+.service-card:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
-.gp-system-card-head {
+.service-card-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,7 +92,7 @@
   margin-bottom: 1.35rem;
 }
 
-.gp-system-index {
+.service-index {
   color: var(--ink-muted);
   font-family: var(--font-mono);
   font-size: .74rem;
@@ -100,7 +100,7 @@
   letter-spacing: .12em;
 }
 
-.gp-access-badge {
+.service-badge {
   display: inline-flex;
   align-items: center;
   min-height: 1.55rem;
@@ -116,7 +116,7 @@
   text-transform: uppercase;
 }
 
-.gp-system-title {
+.service-title {
   max-width: 18ch;
   margin: 0;
   color: var(--ink);
@@ -128,7 +128,7 @@
   text-wrap: balance;
 }
 
-.gp-system-description {
+.service-description {
   max-width: 34rem;
   margin: .65rem 0 1.25rem;
   color: var(--ink-soft);
@@ -137,7 +137,7 @@
   text-wrap: pretty;
 }
 
-.gp-system-action {
+.service-action {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -152,7 +152,7 @@
   text-transform: uppercase;
 }
 
-.gp-system-arrow {
+.service-arrow {
   width: .9rem;
   height: .9rem;
   flex: 0 0 auto;
@@ -163,7 +163,7 @@
   stroke-width: 1.5;
 }
 
-.gp-security-note {
+.services-note {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
@@ -174,11 +174,11 @@
   line-height: 1.55;
 }
 
-.gp-security-note p {
+.services-note p {
   margin: 0;
 }
 
-.gp-security-mark {
+.services-mark {
   width: .48rem;
   height: .48rem;
   border-radius: 50%;
@@ -186,7 +186,7 @@
   box-shadow: 0 0 0 4px rgba(127,123,154,.1);
 }
 
-.gp-return-link {
+.services-return {
   color: var(--ink-soft);
   font-weight: 700;
   text-decoration: underline;
@@ -195,53 +195,60 @@
 }
 
 @media (max-width: 720px) {
-  .gp-access {
+  .services-access {
     align-items: flex-start;
     padding: 2.5rem 0 3rem;
   }
 
-  .gp-title {
+  .services-title {
     font-size: clamp(2.4rem, 12vw, 3.4rem);
   }
 
-  .gp-system-grid {
+  .service-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .gp-system-card {
+  .service-card {
     min-width: 0;
-    min-height: 13rem;
+    min-height: 12rem;
   }
 
-  .gp-system-title,
-  .gp-system-description {
+  .service-title,
+  .service-description {
     overflow-wrap: anywhere;
   }
 
-  .gp-system-card-head {
+  .service-card-head {
     margin-bottom: 1.35rem;
   }
 
-  .gp-security-note {
+  .services-note {
     grid-template-columns: auto minmax(0, 1fr);
     align-items: start;
   }
 
-  .gp-security-mark {
+  .services-mark {
     margin-top: .36rem;
   }
 
-  .gp-return-link {
+  .services-return {
     grid-column: 2;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gp-system-card {
+  .service-card {
     transition: none;
   }
 
-  .gp-system-card:hover {
+  .service-card:hover {
     transform: none;
   }
 }
+
+.service-slot { min-width: 0; min-height: 12rem; }
+.service-slot > .service-card { height: 100%; }
+.service-slot:empty { border: 1px solid var(--line); border-radius: 3px; background: color-mix(in oklab, var(--paper) 88%, transparent); }
+.services-account { display: flex; align-items: center; gap: 1rem; margin: 1.1rem 0; color: var(--ink-muted); font-size: .8rem; }
+.services-error { color: var(--ink-soft); min-height: 1.5em; margin: .8rem 0; }
+@media (min-width: 721px) and (max-width: 1000px) { .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

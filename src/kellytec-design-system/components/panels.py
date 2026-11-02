@@ -2,23 +2,23 @@
 
 from html import escape
 
-from kellytec_design_system.contracts.tab import MonitorPanel
+from kellytec_design_system.contract.tab_panel import TabPanel
 
 
-def monitor_notices() -> str:
+def render_notices() -> str:
     return (
-        '<div class="monitor-notices monitor-container" data-ui="notices">'
-        '<div class="monitor-global-message" data-ui-type="supporting" id="monitor-message" '
+        '<div class="notices page-container" data-ui="notices">'
+        '<div class="global-message" data-ui-type="supporting" id="message" '
         'role="status" aria-live="polite" hidden></div></div>'
     )
 
 
-def monitor_panels(panels: tuple[MonitorPanel, ...]) -> str:
+def render_panels(panels: tuple[TabPanel, ...]) -> str:
     if not panels:
-        raise ValueError("monitor page requires at least one panel")
+        raise ValueError("page requires at least one panel")
     views = [panel.view for panel in panels]
     if len(set(views)) != len(views):
-        raise ValueError("monitor panel views must be unique")
+        raise ValueError("panel views must be unique")
     sections = [
         '<section class="view" data-ui="panel" id="view-' + escape(panel.view, quote=True)
         + '" data-view-panel="' + escape(panel.view, quote=True) + '"'
@@ -26,9 +26,9 @@ def monitor_panels(panels: tuple[MonitorPanel, ...]) -> str:
         for index, panel in enumerate(panels)
     ]
     return (
-        '<main class="monitor-container monitor-page-body" data-ui="page-body">'
+        '<main class="page-container page-body" data-ui="page-body">'
         + "".join(sections) + "</main>"
     )
 
 
-__all__ = ["monitor_notices", "monitor_panels"]
+__all__ = ["render_notices", "render_panels"]

@@ -13,31 +13,31 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      background: var(--monitor-bg);
-      color: var(--monitor-ink);
-      font: var(--monitor-type-body);
-      letter-spacing: var(--monitor-tracking-none);
+      background: var(--bg);
+      color: var(--ink);
+      font: var(--type-body);
+      letter-spacing: var(--tracking-none);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
     .site-header .container,
     .site-footer .container {
-      max-width: var(--monitor-container);
-      padding-left: var(--monitor-pad);
-      padding-right: var(--monitor-pad);
+      max-width: var(--page-max-width);
+      padding-left: var(--page-padding);
+      padding-right: var(--page-padding);
     }
     .site-footer { margin-top: auto; }
-    .monitor-shell {
+    .page-shell {
       flex: 1 0 auto;
       width: 100%;
       padding: 18px 0 48px;
     }
-    .monitor-container {
+    .page-container {
       width: 100%;
-      max-width: var(--monitor-container);
+      max-width: var(--page-max-width);
       margin: 0 auto;
-      padding-left: var(--monitor-pad);
-      padding-right: var(--monitor-pad);
+      padding-left: var(--page-padding);
+      padding-right: var(--page-padding);
     }
     main { padding: 0; }
     .view[hidden] { display: none; }

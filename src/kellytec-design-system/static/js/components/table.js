@@ -21,16 +21,16 @@
         const label = heading && typeof heading === "object" ? heading.label : heading;
         const lines = heading && Array.isArray(heading.lines) ? heading.lines : null;
         const content = lines ? lines.map(function (line) {
-          return '<span class="monitor-table-header-line">' + UI.esc(line) + '</span>';
+          return '<span class="table-header-line">' + UI.esc(line) + '</span>';
         }).join(' ') : UI.esc(label);
         const action = heading && heading.action;
         const sort = heading && heading.sort;
         const ariaSort = sort ? ' aria-sort="' + (sort === 'asc' ? 'ascending' : 'descending') + '"' : '';
         const indicator = '<span class="table-header-indicator" aria-hidden="true">' + (sort === 'asc' ? '↑' : sort === 'desc' ? '↓' : '⌄') + '</span>';
         const button = action ? '<button type="button" class="table-header-action" data-table-action="' + UI.esc(action.key) + '" aria-label="' + UI.esc(action.label) + '" aria-haspopup="dialog" aria-expanded="false" data-active="' + !!action.active + '">' +
-          (compact ? '<span class="monitor-table-header-label">' + content + '</span>' + indicator : indicator) + '</button>' : '';
+          (compact ? '<span class="table-header-label">' + content + '</span>' + indicator : indicator) + '</button>' : '';
         const headingContent = !action ? content : compact ? button :
-          '<span class="table-header-content"><span class="monitor-table-header-label">' + content + '</span>' + button + '</span>';
+          '<span class="table-header-content"><span class="table-header-label">' + content + '</span>' + button + '</span>';
         return '<th data-ui-type="' + UI.esc(headerType) + '" title="' + UI.esc(label) + '"' +
           (compact ? ' aria-label="' + UI.esc(label) + '"' : '') + ariaSort +
           (numeric ? ' data-ui-numeric="true"' : '') + '>' + headingContent + '</th>';
@@ -43,9 +43,9 @@
 
   // Multiple measurements with distinct units share the same numeric anchor.
   UI.labelValues = function (items) {
-    return '<span class="monitor-label-values">' + items.map(function (item) {
-      return '<span class="monitor-label-value"><span data-ui-type="supporting">' + UI.esc(item.label || '') +
+    return '<span class="label-values">' + items.map(function (item) {
+      return '<span class="label-value"><span data-ui-type="supporting">' + UI.esc(item.label || '') +
         '</span><span data-ui-type="value">' + UI.esc(UI.value(item.value)) + '</span></span>';
     }).join('') + '</span>';
   };
-})(window.MonitorUI);
+})(window.UI);

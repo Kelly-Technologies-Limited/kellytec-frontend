@@ -1,140 +1,138 @@
 :root {
-  --monitor-font-ui: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --monitor-font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --monitor-font-serif: "Playfair Display", "Noto Serif SC", "Iowan Old Style", Georgia, serif;
-  --monitor-type-page-title: 600 15px/1.1 var(--monitor-font-ui);
-  --monitor-type-page-subtitle: 400 11px/1.45 var(--monitor-font-mono);
-  --monitor-type-tab-label: 600 12px/1 var(--monitor-font-ui);
-  --monitor-type-card-title: 700 13.5px/1.2 var(--monitor-font-ui);
-  --monitor-type-card-subtitle: 500 11px/1.35 var(--monitor-font-mono);
-  --monitor-type-status: 600 10px/1 var(--monitor-font-ui);
-  --monitor-type-body: 400 12.5px/1.45 var(--monitor-font-ui);
-  --monitor-type-label: 600 10px/1.2 var(--monitor-font-mono);
-  --monitor-type-section-title: var(--monitor-type-label);
-  --monitor-type-value: 600 13px/1.2 var(--monitor-font-mono);
-  --monitor-type-supporting: 400 11px/1.4 var(--monitor-font-mono);
-  --monitor-type-code: 400 11px/1.35 var(--monitor-font-mono);
-  --monitor-type-table-header: 600 9px/1.2 var(--monitor-font-mono);
-  --monitor-type-table-detail: 600 9px/1.2 var(--monitor-font-mono);
-  --monitor-type-table-cell: 600 11px/1.2 var(--monitor-font-mono);
-  --monitor-type-matrix: 400 10px/1.2 var(--monitor-font-mono);
-  --monitor-page-title-font: var(--monitor-type-page-title);
-  --monitor-page-title-letter-spacing: .08em;
-  --monitor-tab-font: var(--monitor-type-tab-label);
-  --monitor-tab-letter-spacing: .08em;
-  --monitor-card-title-font: var(--monitor-type-card-title);
-  --monitor-cell-font: var(--monitor-type-table-cell);
-  --monitor-table-row-font-size: 11px;
-  --monitor-table-row-line-height: 1.2;
-  --monitor-table-header-font-size: 9px;
-  --monitor-table-header-font-weight: 600;
-  --font-ui: var(--monitor-font-ui);
-  --font-mono: var(--monitor-font-mono);
+  --font-ui: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-serif: "Playfair Display", "Noto Serif SC", "Iowan Old Style", Georgia, serif;
+  --type-page-title: 600 15px/1.1 var(--font-ui);
+  --type-page-subtitle: 400 11px/1.45 var(--font-mono);
+  --type-tab-label: 600 12px/1 var(--font-ui);
+  --type-card-title: 700 13.5px/1.2 var(--font-ui);
+  --type-card-subtitle: 500 11px/1.35 var(--font-mono);
+  --type-status: 600 10px/1 var(--font-ui);
+  --type-body: 400 12.5px/1.45 var(--font-ui);
+  --type-label: 600 10px/1.2 var(--font-mono);
+  --type-section-title: var(--type-label);
+  --type-value: 600 13px/1.2 var(--font-mono);
+  --type-supporting: 400 11px/1.4 var(--font-mono);
+  --type-code: 400 11px/1.35 var(--font-mono);
+  --type-table-header: 600 9px/1.2 var(--font-mono);
+  --type-table-detail: 600 9px/1.2 var(--font-mono);
+  --type-table-cell: 600 11px/1.2 var(--font-mono);
+  --type-matrix: 400 10px/1.2 var(--font-mono);
+  --page-title-font: var(--type-page-title);
+  --page-title-letter-spacing: .08em;
+  --tab-font: var(--type-tab-label);
+  --tab-letter-spacing: .08em;
+  --card-title-font: var(--type-card-title);
+  --cell-font: var(--type-table-cell);
+  --table-row-font-size: 11px;
+  --table-row-line-height: 1.2;
+  --table-header-font-size: 9px;
+  --table-header-font-weight: 600;
 }
 
-[data-ui-type="page-title"] { font: var(--monitor-type-page-title); letter-spacing: .08em; }
-[data-ui-type="page-subtitle"] { font: var(--monitor-type-page-subtitle); }
-[data-ui-type="tab-label"] { font: var(--monitor-type-tab-label); letter-spacing: .08em; }
-[data-ui-type="card-title"] { font: var(--monitor-type-card-title); }
-[data-ui-type="card-subtitle"] { font: var(--monitor-type-card-subtitle); }
-[data-ui-type="section-title"] { font: var(--monitor-type-section-title); letter-spacing: .06em; }
-[data-ui-type="body"] { font: var(--monitor-type-body); }
-[data-ui-type="label"] { font: var(--monitor-type-label); letter-spacing: .06em; }
-[data-ui-type="value"] { font: var(--monitor-type-value); }
-[data-ui-type="supporting"] { font: var(--monitor-type-supporting); }
-[data-ui-type="code"] { font: var(--monitor-type-code); }
-[data-ui-type="table-header"] { font: var(--monitor-type-table-header); letter-spacing: .08em; }
-[data-ui-type="table-detail"] { font: var(--monitor-type-table-detail); }
-[data-ui-type="table-cell"] { font: var(--monitor-type-table-cell); }
-[data-ui-font="ui"] { font-family: var(--monitor-font-ui); }
-[data-ui-font="mono"] { font-family: var(--monitor-font-mono); }
-[data-ui-font="serif"] { font-family: var(--monitor-font-serif); }
+[data-ui-type="page-title"] { font: var(--type-page-title); letter-spacing: .08em; }
+[data-ui-type="page-subtitle"] { font: var(--type-page-subtitle); }
+[data-ui-type="tab-label"] { font: var(--type-tab-label); letter-spacing: .08em; }
+[data-ui-type="card-title"] { font: var(--type-card-title); }
+[data-ui-type="card-subtitle"] { font: var(--type-card-subtitle); }
+[data-ui-type="section-title"] { font: var(--type-section-title); letter-spacing: .06em; }
+[data-ui-type="body"] { font: var(--type-body); }
+[data-ui-type="label"] { font: var(--type-label); letter-spacing: .06em; }
+[data-ui-type="value"] { font: var(--type-value); }
+[data-ui-type="supporting"] { font: var(--type-supporting); }
+[data-ui-type="code"] { font: var(--type-code); }
+[data-ui-type="table-header"] { font: var(--type-table-header); letter-spacing: .08em; }
+[data-ui-type="table-detail"] { font: var(--type-table-detail); }
+[data-ui-type="table-cell"] { font: var(--type-table-cell); }
+[data-ui-font="ui"] { font-family: var(--font-ui); }
+[data-ui-font="mono"] { font-family: var(--font-mono); }
+[data-ui-font="serif"] { font-family: var(--font-serif); }
 
 
 /* Purpose catalog. Subheadings are reserved; no artificial DOM levels. */
 :root {
-  --monitor-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --monitor-tracking-none: 0;
-  --monitor-tracking-label: .06em;
-  --monitor-tracking-uppercase: .08em;
-  --monitor-tracking-brand: .14em;
-  --monitor-type-nav-label: var(--monitor-type-tab-label);
-  --monitor-type-card-heading: var(--monitor-type-label);
-  --monitor-type-card-subheading: var(--monitor-type-card-heading);
-  --monitor-type-card-description: var(--monitor-type-supporting);
-  --monitor-type-cell-title: 700 13px/1.2 var(--monitor-font-ui);
-  --monitor-type-cell-title-record: 700 13px/1.2 var(--monitor-font-mono);
-  --monitor-type-cell-heading: var(--monitor-type-label);
-  --monitor-type-cell-subheading: var(--monitor-type-cell-heading);
-  --monitor-type-cell-subtitle: var(--monitor-type-table-cell);
-  --monitor-type-field-label: var(--monitor-type-label);
-  --monitor-type-field-value: var(--monitor-type-value);
-  --monitor-type-metadata-value: var(--monitor-type-supporting);
-  --monitor-type-metadata-compact: var(--monitor-type-table-detail);
-  --monitor-type-table-content: var(--monitor-type-table-cell);
-  --monitor-type-table-header-dense: 600 10px/1.2 var(--monitor-font-mono);
-  --monitor-type-matrix-header: 600 10px/1.2 var(--monitor-font-mono);
-  --monitor-type-matrix-content: var(--monitor-type-matrix);
-  --monitor-type-chart-title: var(--monitor-type-cell-title);
-  --monitor-type-chart-title-compact: var(--monitor-type-table-content);
-  --monitor-type-chart-tick: var(--monitor-type-matrix-header);
-  --monitor-type-chart-axis: var(--monitor-type-matrix-header);
-  --monitor-type-chart-legend: var(--monitor-type-matrix-header);
-  --monitor-type-chart-readout: var(--monitor-type-table-content);
-  --monitor-type-chart-reference: var(--monitor-type-table-content);
-  --monitor-type-badge-status: var(--monitor-type-status);
-  --monitor-type-badge-compact: var(--monitor-type-table-detail);
-  --monitor-type-badge-count: 700 10px/1 var(--monitor-font-mono);
-  --monitor-type-badge-metric: var(--monitor-type-table-content);
-  --monitor-type-button: var(--monitor-type-tab-label);
-  --monitor-type-input: var(--monitor-type-supporting);
-  --monitor-type-feedback: 400 10.5px/1.45 var(--monitor-font-mono);
-  --monitor-type-empty-state: var(--monitor-type-body);
-  --monitor-type-tooltip: var(--monitor-type-supporting);
-  --monitor-type-brand-footer: .82rem/1.6 var(--monitor-font-ui);
-  --monitor-type-login-title: 700 28px/1.15 var(--monitor-font-system);
-  --monitor-type-login-body: 400 14px/1.5 var(--monitor-font-system);
-  --monitor-type-login-label: 700 12px/1.5 var(--monitor-font-system);
-  --monitor-type-login-button: 700 14px/1.5 var(--monitor-font-system);
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tracking-none: 0;
+  --tracking-label: .06em;
+  --tracking-uppercase: .08em;
+  --tracking-brand: .14em;
+  --type-nav-label: var(--type-tab-label);
+  --type-card-heading: var(--type-label);
+  --type-card-subheading: var(--type-card-heading);
+  --type-card-description: var(--type-supporting);
+  --type-cell-title: 700 13px/1.2 var(--font-ui);
+  --type-cell-title-record: 700 13px/1.2 var(--font-mono);
+  --type-cell-heading: var(--type-label);
+  --type-cell-subheading: var(--type-cell-heading);
+  --type-cell-subtitle: var(--type-table-cell);
+  --type-field-label: var(--type-label);
+  --type-field-value: var(--type-value);
+  --type-metadata-value: var(--type-supporting);
+  --type-metadata-compact: var(--type-table-detail);
+  --type-table-content: var(--type-table-cell);
+  --type-table-header-dense: 600 10px/1.2 var(--font-mono);
+  --type-matrix-header: 600 10px/1.2 var(--font-mono);
+  --type-matrix-content: var(--type-matrix);
+  --type-chart-title: var(--type-cell-title);
+  --type-chart-title-compact: var(--type-table-content);
+  --type-chart-tick: var(--type-matrix-header);
+  --type-chart-axis: var(--type-matrix-header);
+  --type-chart-legend: var(--type-matrix-header);
+  --type-chart-readout: var(--type-table-content);
+  --type-chart-reference: var(--type-table-content);
+  --type-badge-status: var(--type-status);
+  --type-badge-compact: var(--type-table-detail);
+  --type-badge-count: 700 10px/1 var(--font-mono);
+  --type-badge-metric: var(--type-table-content);
+  --type-button: var(--type-tab-label);
+  --type-input: var(--type-supporting);
+  --type-feedback: 400 10.5px/1.45 var(--font-mono);
+  --type-empty-state: var(--type-body);
+  --type-tooltip: var(--type-supporting);
+  --type-brand-footer: .82rem/1.6 var(--font-ui);
+  --type-login-title: 700 28px/1.15 var(--font-system);
+  --type-login-body: 400 14px/1.5 var(--font-system);
+  --type-login-label: 700 12px/1.5 var(--font-system);
+  --type-login-button: 700 14px/1.5 var(--font-system);
 }
-[data-ui-type="nav-label"] { font: var(--monitor-type-nav-label); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="card-heading"] { font: var(--monitor-type-card-heading); letter-spacing: var(--monitor-tracking-label); }
-[data-ui-type="card-subheading"] { font: var(--monitor-type-card-subheading); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="card-description"] { font: var(--monitor-type-card-description); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="cell-title"] { font: var(--monitor-type-cell-title); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="cell-title-record"] { font: var(--monitor-type-cell-title-record); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="cell-heading"] { font: var(--monitor-type-cell-heading); letter-spacing: var(--monitor-tracking-label); }
-[data-ui-type="cell-subheading"] { font: var(--monitor-type-cell-subheading); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="cell-subtitle"] { font: var(--monitor-type-cell-subtitle); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="field-label"] { font: var(--monitor-type-field-label); letter-spacing: var(--monitor-tracking-label); }
-[data-ui-type="field-value"] { font: var(--monitor-type-field-value); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="metadata-value"] { font: var(--monitor-type-metadata-value); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="metadata-compact"] { font: var(--monitor-type-metadata-compact); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="table-content"] { font: var(--monitor-type-table-content); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="table-header-dense"] { font: var(--monitor-type-table-header-dense); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="matrix-header"] { font: var(--monitor-type-matrix-header); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="matrix-content"] { font: var(--monitor-type-matrix-content); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-title"] { font: var(--monitor-type-chart-title); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-title-compact"] { font: var(--monitor-type-chart-title-compact); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-tick"] { font: var(--monitor-type-chart-tick); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-axis"] { font: var(--monitor-type-chart-axis); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-legend"] { font: var(--monitor-type-chart-legend); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-readout"] { font: var(--monitor-type-chart-readout); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="chart-reference"] { font: var(--monitor-type-chart-reference); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="badge-status"] { font: var(--monitor-type-badge-status); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="badge-compact"] { font: var(--monitor-type-badge-compact); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="badge-count"] { font: var(--monitor-type-badge-count); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="badge-metric"] { font: var(--monitor-type-badge-metric); letter-spacing: var(--monitor-tracking-none); font-variant-numeric: tabular-nums; }
-[data-ui-type="button"] { font: var(--monitor-type-button); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="input"] { font: var(--monitor-type-input); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="feedback"] { font: var(--monitor-type-feedback); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="empty-state"] { font: var(--monitor-type-empty-state); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="tooltip"] { font: var(--monitor-type-tooltip); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="brand-footer"] { font: var(--monitor-type-brand-footer); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="login-title"] { font: var(--monitor-type-login-title); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="login-body"] { font: var(--monitor-type-login-body); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="login-label"] { font: var(--monitor-type-login-label); letter-spacing: var(--monitor-tracking-none); }
-[data-ui-type="login-button"] { font: var(--monitor-type-login-button); letter-spacing: var(--monitor-tracking-none); }
+[data-ui-type="nav-label"] { font: var(--type-nav-label); letter-spacing: var(--tracking-none); }
+[data-ui-type="card-heading"] { font: var(--type-card-heading); letter-spacing: var(--tracking-label); }
+[data-ui-type="card-subheading"] { font: var(--type-card-subheading); letter-spacing: var(--tracking-none); }
+[data-ui-type="card-description"] { font: var(--type-card-description); letter-spacing: var(--tracking-none); }
+[data-ui-type="cell-title"] { font: var(--type-cell-title); letter-spacing: var(--tracking-none); }
+[data-ui-type="cell-title-record"] { font: var(--type-cell-title-record); letter-spacing: var(--tracking-none); }
+[data-ui-type="cell-heading"] { font: var(--type-cell-heading); letter-spacing: var(--tracking-label); }
+[data-ui-type="cell-subheading"] { font: var(--type-cell-subheading); letter-spacing: var(--tracking-none); }
+[data-ui-type="cell-subtitle"] { font: var(--type-cell-subtitle); letter-spacing: var(--tracking-none); }
+[data-ui-type="field-label"] { font: var(--type-field-label); letter-spacing: var(--tracking-label); }
+[data-ui-type="field-value"] { font: var(--type-field-value); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="metadata-value"] { font: var(--type-metadata-value); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="metadata-compact"] { font: var(--type-metadata-compact); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="table-content"] { font: var(--type-table-content); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="table-header-dense"] { font: var(--type-table-header-dense); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="matrix-header"] { font: var(--type-matrix-header); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="matrix-content"] { font: var(--type-matrix-content); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-title"] { font: var(--type-chart-title); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-title-compact"] { font: var(--type-chart-title-compact); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-tick"] { font: var(--type-chart-tick); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-axis"] { font: var(--type-chart-axis); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-legend"] { font: var(--type-chart-legend); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-readout"] { font: var(--type-chart-readout); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="chart-reference"] { font: var(--type-chart-reference); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="badge-status"] { font: var(--type-badge-status); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="badge-compact"] { font: var(--type-badge-compact); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="badge-count"] { font: var(--type-badge-count); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="badge-metric"] { font: var(--type-badge-metric); letter-spacing: var(--tracking-none); font-variant-numeric: tabular-nums; }
+[data-ui-type="button"] { font: var(--type-button); letter-spacing: var(--tracking-none); }
+[data-ui-type="input"] { font: var(--type-input); letter-spacing: var(--tracking-none); }
+[data-ui-type="feedback"] { font: var(--type-feedback); letter-spacing: var(--tracking-none); }
+[data-ui-type="empty-state"] { font: var(--type-empty-state); letter-spacing: var(--tracking-none); }
+[data-ui-type="tooltip"] { font: var(--type-tooltip); letter-spacing: var(--tracking-none); }
+[data-ui-type="brand-footer"] { font: var(--type-brand-footer); letter-spacing: var(--tracking-none); }
+[data-ui-type="login-title"] { font: var(--type-login-title); letter-spacing: var(--tracking-none); }
+[data-ui-type="login-body"] { font: var(--type-login-body); letter-spacing: var(--tracking-none); }
+[data-ui-type="login-label"] { font: var(--type-login-label); letter-spacing: var(--tracking-none); }
+[data-ui-type="login-button"] { font: var(--type-login-button); letter-spacing: var(--tracking-none); }
 
-:root { --monitor-type-table-header-record: var(--monitor-type-table-content); }
-[data-ui-type="table-header-record"] { font: var(--monitor-type-table-header-record); font-variant-numeric: tabular-nums; }
+:root { --type-table-header-record: var(--type-table-content); }
+[data-ui-type="table-header-record"] { font: var(--type-table-header-record); font-variant-numeric: tabular-nums; }

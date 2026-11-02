@@ -22,14 +22,14 @@ const root=new EventTarget();
 root.dataset={card:'example'};root.isConnected=true;
 root.querySelectorAll=()=>[host];
 global.document={body:{},querySelector:()=>root,querySelectorAll:()=>[root]};
-global.window={MonitorUI:{registerRenderer:()=>{},
+global.window={UI:{registerRenderer:()=>{},
   bindChartText:()=>{textBindings++;return()=>{textBindings--;};},
   bindTooltip:()=>{tipBindings++;return()=>{tipBindings--;};}
 }};
 '''
     script += "".join("require(" + json.dumps(str(base / path)) + ");" for path in ["charts/responsive.js", "components/card.js"])
     script += r'''
-const UI=window.MonitorUI;
+const UI=window.UI;
 UI.rendererFor=()=>({bind:()=>UI.bindResponsiveChart(root,'.plot',w=>{draws++;return 'width '+w;})});
 UI.bindCard({id:'example'});
 assert.equal(draws,0);assert.equal(textBindings,1);assert.equal(tipBindings,1);

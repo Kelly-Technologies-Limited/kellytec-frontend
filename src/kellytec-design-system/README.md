@@ -5,7 +5,7 @@ Source is directly in this product directory; there is no `python/` wrapper.
 and tests from the wheel. `pyproject.toml` is the version source.
 
 `kellytec-design-system` owns the shared presentation used by Data Platform,
-Research Platform and Operations. Runtime Python dependencies are standard library only.
+Research Platform, Investor Platform and Operations. Runtime Python dependencies are standard library only.
 The package contains the original Page → Tab → Card → Cell contracts,
 renderers, CSS tokens, JavaScript, templates, generated brand and fonts.
 There is no application authentication, fetch loop or compute logic here.
@@ -15,7 +15,7 @@ Build from the frontend repository:
 ```sh
 python .github/automation/check-and-build-kellytec-design-system/scripts/build_wheel.py
 python -m build --wheel src/kellytec-design-system
-python -m pip install --no-deps src/kellytec-design-system/dist/kellytec_design_system-1.0.1-py3-none-any.whl
+python -m pip install --no-deps src/kellytec-design-system/dist/kellytec_design_system-2.0.0-py3-none-any.whl
 python -m pytest -q tests/kellytec-design-system tests/kellytec-website
 ```
 
@@ -28,7 +28,7 @@ Do not reuse a version for changed release bytes.
 Use `kellytec_design_system.assets.ROOT` for installed favicon/static resources, and
 `design_system_css()` / `shared_ui_script()` for the canonical bundles.
 Use `data-ui="button"` for application actions outside the toolbar; it selects
-the same base and hover styles as Monitor toolbar buttons, with the shared
+the same base and hover styles as shared toolbar buttons, with the shared
 native disabled and keyboard-focus behavior.
 
 Optional extensions preserve these defaults. Put data-ui-density="compact" on a
@@ -63,15 +63,19 @@ covering reselection, search isolation, keyboard/disabled behavior, popup/trigge
 consistency, long lists, empty IDs, and replacement/lifecycle behavior. Local
 runs can set `KELLYTEC_UI_BROWSER_PATH`; CI uses installed Playwright Chromium.
 
-`MonitorPage.toolbar_actions_html=None` retains Monitor's existing status and
-Refresh controls; a trusted application HTML string replaces only those actions.
-`updated_initial` is escaped and can contain the current account/project text.
-`toolbar_aria_label` supplies its accessible label.
+`contract/` contains neutral `Page`, `Tab` and `TabPanel` declarations. A Page
+contains labels, ordered tabs/panels and toolbar text; it contains no HTML, asset
+paths, authentication, fetching or product-specific default actions. Products
+assemble HTML through `render_page(page, favicon_path=..., stylesheet_path=...,
+toolbar_actions_html=..., scripts_html=...)` in their own `render/` owner.
+`updated_initial` and plain text labels are escaped. Trusted HTML slots must be
+constructed and escaped by the caller. `render_login` requires explicit instruction
+and form HTML; it does not supply a password form or a login provider.
 
-`render_login` keeps the password form by default. Optional `instruction`,
-`form_html`, `scripts_html`, and `brand_logo=True` allow browser authorization
-without putting provider behavior inside shared UI. Apps must escape user values
-in trusted HTML slots; labels passed as plain text are escaped by the renderer.
+Version 2.0.0 removes the previous Monitor-prefixed contracts, functions, CSS
+classes/tokens and JavaScript global. The browser namespace is `window.UI`.
+Consumers update together; no forwarding imports, aliases or duplicate styles
+preserve the retired API. The package still owns the same controls and geometry.
 
 Fonts are downloaded production resources, not extracted from a test HAR.
 Their original URLs, SHA-256 values and OFL licenses are in `static/fonts`.
@@ -131,8 +135,8 @@ Updated At / Reason presentation used by Operations and Data Platform. Each row 
 `{name, status, tone, updatedAt: {short, full}, reason}`; every value is plain text
 and escaped. The caller owns status interpretation, missing-value labels and time
 formatting. The renderer does not fetch data or know about jobs, runtimes or factors.
-The shared `.monitor-workloads`, `.monitor-workload-section` and
-`.monitor-workload-head` classes provide the existing section layout; applications
+The shared `.workloads`, `.workload-section` and
+`.workload-head` classes provide the existing section layout; applications
 choose section titles and whether an empty section has content. Applications must
 not override the service row typography or column geometry.
 

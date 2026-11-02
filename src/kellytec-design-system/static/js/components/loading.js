@@ -1,8 +1,8 @@
-/* One request indicator for the whole monitor, including concurrent requests. */
+/* One request indicator for the whole page, including concurrent requests. */
 (function (UI) {
   let pending = 0;
   function sync() {
-    const indicator = document.getElementById("monitor-loading");
+    const indicator = document.getElementById("loading");
     if (indicator) indicator.setAttribute("aria-hidden", pending ? "false" : "true");
   }
   UI.withLoading = function (work) {
@@ -13,4 +13,4 @@
       sync();
     });
   };
-})(window.MonitorUI);
+})(window.UI);

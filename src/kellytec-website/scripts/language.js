@@ -21,12 +21,12 @@ function applyLang(lang) {
   });
   setYear();
   updateLanguageToggle(lang);
-  try { localStorage.setItem('kellytec-lang', lang); } catch (e) {}
+  try { localStorage.setItem('language', lang); } catch (e) {}
 }
 
 (function initLanguage() {
   const savedLang = (() => {
-    try { return localStorage.getItem('kellytec-lang'); } catch (e) { return null; }
+    try { return localStorage.getItem('language'); } catch (e) { return null; }
   })();
   const initialLang = savedLang || 'zh';
   applyLang(initialLang);

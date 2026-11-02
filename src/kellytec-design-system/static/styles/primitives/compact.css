@@ -1,4 +1,4 @@
-/* Opt-in density; existing Monitor controls and navigation retain their defaults. */
+/* Opt-in density; existing Page controls and navigation retain their defaults. */
 [data-ui-density="compact"] :is([data-ui="button"], [data-ui="input"], [data-ui="select"], .selection-option) {
   box-sizing: border-box;
   height: 26px;

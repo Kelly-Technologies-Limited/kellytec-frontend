@@ -207,7 +207,7 @@
     controller.setDisabled(options.disabled);
     return controller;
   };
-})(window.MonitorUI);
+})(window.UI);
 
 /* Anchored interactive surface outside scroll containers. Caller owns content. */
 (function(UI) {
@@ -245,4 +245,4 @@
     (root.querySelector('button,input,[tabindex="0"]') || root).focus({preventScroll:true});
     return controller;
   };
-})(window.MonitorUI);
+})(window.UI);

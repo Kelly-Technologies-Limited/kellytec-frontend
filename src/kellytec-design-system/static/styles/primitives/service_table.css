@@ -1,89 +1,89 @@
 /* Shared service presentation, preserving the original Operations geometry. */
-.monitor-workloads {
+.workloads {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   margin-top: 14px;
 }
-.monitor-workload-section { min-width: 0; }
-.monitor-workload-head {
+.workload-section { min-width: 0; }
+.workload-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 7px;
   padding-bottom: 7px;
-  border-bottom: 1px solid var(--monitor-divider);
+  border-bottom: 1px solid var(--divider);
 }
-.monitor-workload-head h3 {
+.workload-head h3 {
   margin: 0;
-  color: var(--monitor-faint);
+  color: var(--faint);
   text-transform: uppercase;
 }
-.monitor-workload-head > span {
-  color: var(--monitor-faint);
+.workload-head > span {
+  color: var(--faint);
   text-transform: uppercase;
 }
-.monitor-service-table {
+.service-table {
   min-width: 0;
   display: grid;
   gap: 4px;
 }
-.monitor-service-table-head,
-.monitor-service-row {
+.service-table-head,
+.service-row {
   min-width: 0;
   display: grid;
   grid-template-columns: minmax(216px, 1.8fr) 90px 86px minmax(42px, .42fr);
   gap: 6px;
   align-items: center;
 }
-.monitor-service-table-head {
-  color: var(--monitor-faint);
+.service-table-head {
+  color: var(--faint);
   text-transform: uppercase;
 }
-.monitor-service-table-head span {
+.service-table-head span {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.monitor-service-table-head span:nth-child(2),
-.monitor-service-table-head span:nth-child(3),
-.monitor-service-updated { text-align: center; }
-.monitor-service-row {
+.service-table-head span:nth-child(2),
+.service-table-head span:nth-child(3),
+.service-updated { text-align: center; }
+.service-row {
   min-height: 24px;
-  border: 1px solid var(--monitor-divider);
-  border-radius: var(--monitor-radius);
-  background: var(--monitor-surface-summary);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  background: var(--surface-summary);
   padding: 3px 0;
 }
-.monitor-service-name,
-.monitor-service-updated {
+.service-name,
+.service-updated {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.monitor-service-name { padding-left: 6px; }
-.monitor-service-updated { color: var(--monitor-muted); }
-.monitor-service-state {
+.service-name { padding-left: 6px; }
+.service-updated { color: var(--muted); }
+.service-state {
   min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-.monitor-service-reason {
+.service-reason {
   min-width: 0;
   overflow: hidden;
   padding-right: 4px;
-  color: var(--monitor-muted);
+  color: var(--muted);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 @media (max-width: 520px) {
-  .monitor-service-table-head,
-  .monitor-service-row {
+  .service-table-head,
+  .service-row {
     grid-template-columns: minmax(120px, 1.3fr) 92px minmax(82px, .68fr) minmax(0, .58fr);
     gap: 4px;
   }

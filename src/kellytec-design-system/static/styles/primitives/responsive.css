@@ -1,14 +1,14 @@
 @media (max-width: 900px) {
-  .monitor-shell { padding-top: 12px; }
-  .monitor-toolbar { align-items: flex-start; flex-direction: column; }
-  .monitor-actions { justify-content: flex-start; }
-  .monitor-card-grid-context,
-  .monitor-card-grid-summary,
+  .page-shell { padding-top: 12px; }
+  .toolbar { align-items: flex-start; flex-direction: column; }
+  .actions { justify-content: flex-start; }
+  .card-grid-context,
+  .card-grid-summary,
   .metric-grid,
-  .monitor-context-grid { grid-template-columns: 1fr; }
+  .context-grid { grid-template-columns: 1fr; }
 
-  .monitor-context-metric .monitor-metric-label-desktop { display: none; }
-  .monitor-context-metric .monitor-metric-label-mobile { display: block; }
+  .context-metric .metric-label-desktop { display: none; }
+  .context-metric .metric-label-mobile { display: block; }
 }
 
 @media (max-width: 520px) {

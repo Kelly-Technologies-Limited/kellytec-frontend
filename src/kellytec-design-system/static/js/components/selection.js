@@ -31,4 +31,4 @@
     render();
     return {values: () => [...selected], replace: function (next) { items = next; const ids = new Set(items.map(x => x.id)); [...selected].forEach(id => { if (!ids.has(id)) selected.delete(id); }); changed(); }};
   };
-})(window.MonitorUI);
+})(window.UI);

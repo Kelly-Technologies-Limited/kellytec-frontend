@@ -14,7 +14,7 @@
         changed = true;
       });
       // Replacing SVG nodes also replaces keyboard targets and text transforms.
-      if (changed) root.dispatchEvent(new Event('monitor-chart-layout'));
+      if (changed) root.dispatchEvent(new Event('chart-layout'));
     }
     const observer = new ResizeObserver(update);
     hosts.forEach(function (host) { observer.observe(host); });
@@ -26,4 +26,4 @@
     }
     return function () { observer.disconnect(); };
   };
-})(window.MonitorUI);
+})(window.UI);

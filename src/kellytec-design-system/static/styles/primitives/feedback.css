@@ -1,77 +1,77 @@
-    .monitor-card-placeholder {
+    .card-placeholder {
       min-height: 40px;
       display: flex;
       align-items: center;
-      color: var(--monitor-muted);
-      font: var(--monitor-type-supporting);
+      color: var(--muted);
+      font: var(--type-supporting);
     }
-    .monitor-card-loading {
-      background: var(--monitor-panel-soft);
+    .card-loading {
+      background: var(--panel-soft);
     }
-    .monitor-loading-placeholder {
+    .loading-placeholder {
       min-height: 72px;
       display: grid;
       align-content: center;
       gap: 12px;
     }
-    .monitor-loading-placeholder span {
+    .loading-placeholder span {
       height: 8px;
       width: 70%;
-      border-radius: var(--monitor-radius-control);
-      background: var(--monitor-line);
+      border-radius: var(--radius-control);
+      background: var(--line);
     }
-    .monitor-loading-placeholder span:last-child { width: 45%; }
-    .monitor-request-status {
+    .loading-placeholder span:last-child { width: 45%; }
+    .request-status {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--monitor-muted);
+      color: var(--muted);
     }
-    .monitor-request-status[aria-hidden="true"] {
+    .request-status[aria-hidden="true"] {
       visibility: hidden;
     }
-    .monitor-loading-spinner {
+    .loading-spinner {
       width: 16px;
       height: 16px;
       flex: 0 0 auto;
-      border: 2px solid var(--monitor-border-spinner);
-      border-top-color: var(--monitor-accent);
-      border-radius: var(--monitor-radius-pill);
-      animation: monitor-spin var(--monitor-motion-spinner) linear infinite;
+      border: 2px solid var(--border-spinner);
+      border-top-color: var(--accent);
+      border-radius: var(--radius-pill);
+      animation: spin var(--motion-spinner) linear infinite;
     }
-    .monitor-card-error-shell {
-      border-color: var(--monitor-status-critical-border-soft);
-      background: var(--monitor-bad-bg);
+    .card-error-shell {
+      border-color: var(--status-critical-border-soft);
+      background: var(--bad-bg);
     }
-    .monitor-card-error {
+    .card-error {
       min-height: 58px;
       display: flex;
       align-items: center;
-      color: var(--monitor-bad);
-      font: var(--monitor-type-supporting);
+      color: var(--bad);
+      font: var(--type-supporting);
     }
-    @keyframes monitor-spin {
+    @keyframes spin {
       to { transform: rotate(360deg); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .monitor-loading-spinner { animation: none; }
+      .loading-spinner { animation: none; }
     }
-    .monitor-global-message {
-      margin-bottom: var(--monitor-card-gap);
-      border: var(--monitor-card-border);
-      border-radius: var(--monitor-radius);
+    .global-message {
+      margin-bottom: var(--card-gap);
+      border: var(--card-border);
+      border-radius: var(--radius);
       padding: 9px 12px;
-      background: var(--monitor-panel);
-      color: var(--monitor-muted);
-      font: var(--monitor-type-feedback);
+      background: var(--panel);
+      color: var(--muted);
+      font: var(--type-feedback);
     }
-    .monitor-global-message.critical {
-      color: var(--monitor-bad);
-      border-color: var(--monitor-status-critical-border-soft);
-      background: var(--monitor-bad-bg);
+    .global-message.critical {
+      color: var(--bad);
+      border-color: var(--status-critical-border-soft);
+      background: var(--bad-bg);
     }
-    .monitor-global-message.warning {
-      color: var(--monitor-warn);
-      border-color: var(--monitor-status-warning-border-soft);
-      background: var(--monitor-warn-bg);
+    .global-message.warning {
+      color: var(--warn);
+      border-color: var(--status-warning-border-soft);
+      background: var(--warn-bg);
     }

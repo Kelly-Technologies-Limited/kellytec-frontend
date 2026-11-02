@@ -1,4 +1,4 @@
-[data-ui="input"], [data-ui="select"] { padding: 6px 8px; border: 1px solid var(--monitor-border-field); border-radius: var(--monitor-radius-field); background: var(--monitor-surface-raised); color: var(--monitor-ink); font: var(--monitor-type-input); }
-:where(button, input, select, .tab, [tabindex]):focus-visible { outline: 2px solid var(--monitor-accent); outline-offset: 3px; }
+[data-ui="input"], [data-ui="select"] { padding: 6px 8px; border: 1px solid var(--border-field); border-radius: var(--radius-field); background: var(--surface-raised); color: var(--ink); font: var(--type-input); }
+:where(button, input, select, .tab, [tabindex]):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 :where(button, input, select):disabled { opacity: .55; cursor: not-allowed; }
-[data-ui="input"][aria-invalid="true"] { border-color: var(--monitor-bad); }
+[data-ui="input"][aria-invalid="true"] { border-color: var(--bad); }

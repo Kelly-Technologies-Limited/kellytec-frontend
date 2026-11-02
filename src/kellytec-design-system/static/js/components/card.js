@@ -3,10 +3,10 @@
   UI.card = UI.renderCardShell = function (card, body, extraClass) {
     const id = card.id || "";
     const hideTitle = card.hide_title || card.hideTitle;
-    const classes = "monitor-card" + (hideTitle ? " monitor-card-no-title" : "") +
+    const classes = "card" + (hideTitle ? " card-no-title" : "") +
       (extraClass ? " " + extraClass : "");
     return '<section class="' + classes + '" data-ui="card" data-card="' + UI.esc(id) + '">' +
-      (hideTitle ? "" : '<div class="monitor-card-head" data-ui="card-head"><h2 data-ui-type="card-title">' + UI.esc(card.title || "") + "</h2>" +
+      (hideTitle ? "" : '<div class="card-head" data-ui="card-head"><h2 data-ui-type="card-title">' + UI.esc(card.title || "") + "</h2>" +
         (card.status ? '<span class="card-status" role="status">' + UI.esc(card.status) + '</span>' : '') + "</div>") +
       body + "</section>";
   };
@@ -22,17 +22,17 @@
   UI.loadingCard = function (title, id) {
     return UI.card(
       { id: id || "loading", title: title || "", hide_title: !title },
-      '<div class="monitor-loading-placeholder" aria-busy="true" aria-label="Loading content">' +
+      '<div class="loading-placeholder" aria-busy="true" aria-label="Loading content">' +
         '<span></span><span></span><span></span></div>',
-      "monitor-card-loading"
+      "card-loading"
     );
   };
 
   UI.errorCard = function (title, message, id) {
     return UI.card(
       { id: id || "error", title: title || "Unable to load" },
-      '<div class="monitor-card-error" data-ui-type="supporting">' + UI.esc(message || "Unable to load") + "</div>",
-      "monitor-card-error-shell"
+      '<div class="card-error" data-ui-type="supporting">' + UI.esc(message || "Unable to load") + "</div>",
+      "card-error-shell"
     );
   };
 
@@ -55,13 +55,13 @@
       tipCleanup = UI.bindTooltip(root);
     }
     function dispose() {
-      root.removeEventListener('monitor-chart-layout', bindShared);
+      root.removeEventListener('chart-layout', bindShared);
       if (typeof rendererCleanup === 'function') rendererCleanup();
       if (textCleanup) textCleanup();
       if (tipCleanup) tipCleanup();
       bindings.delete(root);
     }
-    root.addEventListener('monitor-chart-layout', bindShared);
+    root.addEventListener('chart-layout', bindShared);
     try {
       if (renderer && renderer.bind) rendererCleanup = renderer.bind(card || {}, context || {});
       bindShared();
@@ -83,4 +83,4 @@
       return '<div class="empty">No renderer for ' + UI.esc(card.renderer || card.kind || card.id || "card") + "</div>";
     }
   });
-})(window.MonitorUI);
+})(window.UI);

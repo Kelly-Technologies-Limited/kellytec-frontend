@@ -1,44 +1,44 @@
-    .monitor-toolbar {
+    .toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      min-height: var(--monitor-toolbar-min-height);
-      margin-bottom: var(--monitor-card-gap);
+      min-height: var(--toolbar-min-height);
+      margin-bottom: var(--card-gap);
       padding: 12px;
-      border: 1px solid var(--monitor-line);
-      border-radius: var(--monitor-radius);
-      background: var(--monitor-panel);
-      box-shadow: var(--monitor-shadow);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
     }
-    .monitor-toolbar.monitor-container {
-      width: calc(100% - var(--monitor-pad) - var(--monitor-pad));
-      max-width: calc(var(--monitor-container) - var(--monitor-pad) - var(--monitor-pad));
+    .toolbar.page-container {
+      width: calc(100% - var(--page-padding) - var(--page-padding));
+      max-width: calc(var(--page-max-width) - var(--page-padding) - var(--page-padding));
     }
     h1 {
       margin: 0;
-      font: var(--monitor-page-title-font);
-      letter-spacing: var(--monitor-page-title-letter-spacing);
+      font: var(--page-title-font);
+      letter-spacing: var(--page-title-letter-spacing);
       text-transform: uppercase;
     }
-    .monitor-page-title-line {
+    .page-title-line {
       display: block;
     }
     h2 {
       margin: 0 0 10px;
-      font: var(--monitor-card-title-font);
-      letter-spacing: var(--monitor-tracking-none);
+      font: var(--card-title-font);
+      letter-spacing: var(--tracking-none);
     }
     h3 {
       margin: 0 0 6px;
-      font: var(--monitor-type-cell-title);
-      letter-spacing: var(--monitor-tracking-none);
+      font: var(--type-cell-title);
+      letter-spacing: var(--tracking-none);
     }
     .subtle {
-      color: var(--monitor-muted);
-      font: var(--monitor-type-supporting);
+      color: var(--muted);
+      font: var(--type-supporting);
     }
-    .monitor-actions {
+    .actions {
       display: flex;
       align-items: center;
       gap: 10px;

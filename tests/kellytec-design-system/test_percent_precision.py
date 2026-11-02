@@ -5,16 +5,16 @@ import subprocess
 
 import pytest
 from kellytec_design_system.assets import ROOT
-from kellytec_design_system.contracts import display_value
+from kellytec_design_system.contract import display_value
 
 
 def rendered(specs):
     script = (
-        "global.window={MonitorUI:{}};require("
+        "global.window={UI:{}};require("
         + json.dumps(str(ROOT / "static/js/formatters/value.js"))
         + ");console.log(JSON.stringify("
         + json.dumps(specs)
-        + ".map(window.MonitorUI.value)));"
+        + ".map(window.UI.value)));"
     )
     return json.loads(subprocess.check_output(["node", "-e", script], text=True))
 

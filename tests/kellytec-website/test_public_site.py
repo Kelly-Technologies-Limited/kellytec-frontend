@@ -29,7 +29,7 @@ def test_public_artifact_preserves_pages_and_excludes_source(tmp_path):
     build_public_site(destination)
     assert {p.relative_to(destination).as_posix() for p in destination.rglob("*") if p.is_file()} == set(PUBLIC_FILES) | set(GENERATED_FILES)
     # Check every served internal link in the public pages.
-    for name in ("index.html", "gp/index.html"):
+    for name in ("index.html", "login/index.html", "services/index.html"):
         page = destination / name
         links = LocalLinks()
         links.feed(page.read_text(encoding="utf-8"))
@@ -48,16 +48,17 @@ def test_public_artifact_rejects_stale_private_files(tmp_path):
     assert (tmp_path / "factor.py").read_text() == "private"
 
 
-def test_platform_launchpad_and_investor_entry_have_no_project_routes(tmp_path):
+def test_single_login_and_six_initially_empty_service_slots(tmp_path):
     build_public_site(tmp_path)
-    gp = (tmp_path / "gp/index.html").read_text()
+    services = (tmp_path / "services/index.html").read_text()
+    login = (tmp_path / "login/index.html").read_text()
     home = (tmp_path / "index.html").read_text()
-    for href in ("https://data.kellytec.io", "https://research.kellytec.io"):
-        assert f'href="{href}"' in gp
-    for title in ("Data<br>Platform", "Research<br>Platform", "数据<br>平台", "研究<br>平台"):
-        assert title in gp
-    for page in (home, gp):
-        assert 'href="https://investor.kellytec.io"' in page
-        assert "monitor.kellytec.io" not in page
-        assert "aria-disabled" not in page
-    assert not (tmp_path / "gp/monitor").exists()
+    assert services.count('class="service-slot"') == 6
+    assert services.count('<template id="service-') == 4
+    for name in ('data', 'research', 'investor', 'monitor'):
+        assert f'href="https://{name}.kellytec.io"' in services
+    assert 'href="https://auth.kellytec.io/login"' in login
+    assert 'type="password"' not in login
+    assert 'href="/login/"' in home
+    assert 'href="https://investor.kellytec.io"' not in home
+    assert not (tmp_path / "gp").exists()

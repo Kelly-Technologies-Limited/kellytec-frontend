@@ -1,4 +1,4 @@
-"""Deterministic shared monitor design-system assets."""
+"""Deterministic shared design-system assets."""
 
 from __future__ import annotations
 

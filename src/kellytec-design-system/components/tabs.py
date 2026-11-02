@@ -2,10 +2,10 @@
 
 from html import escape
 
-from kellytec_design_system.contracts.tab import MonitorTab
+from kellytec_design_system.contract.tab import Tab
 
 
-def monitor_tabs(*, tabs: tuple[MonitorTab, ...], aria_label: str) -> str:
+def render_tabs(*, tabs: tuple[Tab, ...], aria_label: str) -> str:
     buttons = []
     for index, tab in enumerate(tabs):
         badge = (
@@ -22,12 +22,12 @@ def monitor_tabs(*, tabs: tuple[MonitorTab, ...], aria_label: str) -> str:
             + '<span class="tab-label">' + escape(tab.label) + "</span>" + badge + "</button>"
         )
     return (
-        '<nav class="tabs monitor-container" data-ui="tabs" style="--monitor-tab-count:'
+        '<nav class="tabs page-container" data-ui="tabs" style="--tab-count:'
         + str(len(tabs)) + '" aria-label="' + escape(aria_label, quote=True) + '">' + "".join(buttons) + "</nav>"
     )
 
 
-def _tab_icon(tab: MonitorTab) -> str:
+def _tab_icon(tab: Tab) -> str:
     status = (
         '<span class="tab-icon-status tab-icon-status-'
         + escape(tab.icon_status, quote=True) + '"></span>'
@@ -39,4 +39,4 @@ def _tab_icon(tab: MonitorTab) -> str:
     )
 
 
-__all__ = ["monitor_tabs"]
+__all__ = ["render_tabs"]

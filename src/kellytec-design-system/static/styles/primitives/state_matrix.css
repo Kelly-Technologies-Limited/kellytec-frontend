@@ -3,18 +3,18 @@
   overflow: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
-  border: 1px solid var(--monitor-line);
-  border-radius: var(--monitor-radius);
-  background: var(--monitor-surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
 }
 .state-matrix-viewport:focus {
-  outline: 2px solid var(--monitor-focus-ring);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 .state-matrix-canvas {
   width: max-content;
   min-width: 100%;
-  font: var(--monitor-type-matrix);
+  font: var(--type-matrix);
   font-variant-numeric: tabular-nums;
 }
 .state-matrix-head,
@@ -29,9 +29,9 @@
   min-height: var(--state-matrix-header-height);
   position: sticky;
   top: 0;
-  z-index: var(--monitor-layer-column-header);
+  z-index: var(--layer-column-header);
   border-bottom: 1px solid var(--state-matrix-grid-line);
-  background: var(--monitor-surface-raised);
+  background: var(--surface-raised);
 }
 .state-matrix-row { height: var(--state-matrix-row-height); }
 .state-matrix-no-columns .state-matrix-head,
@@ -42,11 +42,11 @@
   display: grid;
   align-items: center;
   padding: 0 14px;
-  color: var(--monitor-muted);
-  font: var(--monitor-type-matrix);
+  color: var(--muted);
+  font: var(--type-matrix);
 }
 .state-matrix-row-empty {
-  background: var(--monitor-surface-neutral);
+  background: var(--surface-neutral);
   border-bottom: 1px solid var(--state-matrix-grid-line);
 }
 .state-matrix-corner,
@@ -55,11 +55,11 @@
   position: sticky;
   left: 0;
   border-right: 1px solid var(--state-matrix-grid-line);
-  background: var(--monitor-surface-raised);
+  background: var(--surface-raised);
 }
-.state-matrix-corner { z-index: var(--monitor-layer-corner); }
+.state-matrix-corner { z-index: var(--layer-corner); }
 .state-matrix-row-head {
-  z-index: var(--monitor-layer-row-header);
+  z-index: var(--layer-row-header);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -73,9 +73,9 @@
   place-items: center;
   overflow: visible;
   border-right: 1px solid var(--state-matrix-grid-line);
-  background: var(--monitor-surface-raised);
-  color: var(--monitor-muted);
-  font: var(--monitor-type-matrix-header);
+  background: var(--surface-raised);
+  color: var(--muted);
+  font: var(--type-matrix-header);
   text-align: center;
 }
 .state-matrix-column-head:last-child { border-right: 0; }
@@ -88,34 +88,34 @@
   height: 100%;
   border-right: 1px solid var(--state-matrix-grid-line);
   border-bottom: 1px solid var(--state-matrix-grid-line);
-  background: var(--monitor-surface-neutral);
+  background: var(--surface-neutral);
   cursor: help;
 }
 .state-matrix-cell:last-child { border-right: 0; }
 .state-matrix-row:last-child .state-matrix-cell { border-bottom: 0; }
-.state-matrix-cell-tone-positive { background: var(--monitor-status-positive-border); }
-.state-matrix-cell-tone-accent { background: var(--monitor-matrix-accent); }
-.state-matrix-cell-tone-warning { background: var(--monitor-matrix-warning); }
-.state-matrix-cell-tone-critical { background: var(--monitor-status-critical-border); }
-.state-matrix-cell-tone-neutral { background: var(--monitor-surface-neutral); }
+.state-matrix-cell-tone-positive { background: var(--status-positive-border); }
+.state-matrix-cell-tone-accent { background: var(--matrix-accent); }
+.state-matrix-cell-tone-warning { background: var(--matrix-warning); }
+.state-matrix-cell-tone-critical { background: var(--status-critical-border); }
+.state-matrix-cell-tone-neutral { background: var(--surface-neutral); }
 .state-matrix-cell-tone-unknown,
 .state-matrix-cell-tone-integrity {
   background: repeating-linear-gradient(
     135deg,
-    var(--monitor-status-unknown-border) 0 2px,
-    var(--monitor-status-unknown-bg-soft) 2px 4px
+    var(--status-unknown-border) 0 2px,
+    var(--status-unknown-bg-soft) 2px 4px
   );
 }
 .state-matrix-cell:focus {
   position: relative;
-  z-index: var(--monitor-layer-focus);
-  outline: 2px solid var(--monitor-ink);
+  z-index: var(--layer-focus);
+  outline: 2px solid var(--ink);
   outline-offset: -2px;
 }
 .state-matrix-empty {
   min-height: 90px;
   display: grid;
   place-items: center;
-  color: var(--monitor-muted);
-  font: var(--monitor-type-matrix);
+  color: var(--muted);
+  font: var(--type-matrix);
 }

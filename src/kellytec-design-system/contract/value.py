@@ -1,4 +1,4 @@
-"""Typed descriptors for every user-visible monitor value."""
+"""Typed descriptors for every user-visible value."""
 
 from __future__ import annotations
 

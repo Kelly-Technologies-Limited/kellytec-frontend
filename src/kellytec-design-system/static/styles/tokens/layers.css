@@ -1,13 +1,13 @@
 :root {
-  --monitor-layer-table-cell: 1;
-  --monitor-layer-table-header: 2;
-  --monitor-layer-table-corner: 3;
-  --monitor-layer-popover-content: 1;
-  --monitor-layer-sticky: 1;
-  --monitor-layer-row-header: 2;
-  --monitor-layer-focus: 3;
-  --monitor-layer-column-header: 5;
-  --monitor-layer-corner: 7;
-  --monitor-layer-popover: 50;
-  --monitor-layer-tooltip: 100;
+  --layer-table-cell: 1;
+  --layer-table-header: 2;
+  --layer-table-corner: 3;
+  --layer-popover-content: 1;
+  --layer-sticky: 1;
+  --layer-row-header: 2;
+  --layer-focus: 3;
+  --layer-column-header: 5;
+  --layer-corner: 7;
+  --layer-popover: 50;
+  --layer-tooltip: 100;
 }

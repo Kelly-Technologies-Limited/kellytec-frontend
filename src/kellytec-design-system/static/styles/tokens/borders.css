@@ -1,17 +1,17 @@
 :root {
-  --monitor-radius: 6px;
-  --monitor-shadow: 0 18px 40px var(--monitor-border-subtle);
-  --monitor-card-border: 1px solid var(--monitor-line);
-  --monitor-card-title-rule: 1px solid var(--monitor-divider);
-  --monitor-cell-rule: 1px solid var(--monitor-divider-soft);
-  --monitor-table-row-border: 1px solid var(--monitor-border-subtle);
-  --monitor-table-header-border: 1px solid var(--monitor-divider);
+  --radius: 6px;
+  --shadow: 0 18px 40px var(--border-subtle);
+  --card-border: 1px solid var(--line);
+  --card-title-rule: 1px solid var(--divider);
+  --cell-rule: 1px solid var(--divider-soft);
+  --table-row-border: 1px solid var(--border-subtle);
+  --table-header-border: 1px solid var(--divider);
 }
 
 :root {
-  --monitor-radius-icon: 3px;
-  --monitor-radius-control: 4px;
-  --monitor-radius-field: 5px;
-  --monitor-radius-login: 8px;
-  --monitor-radius-pill: 999px;
+  --radius-icon: 3px;
+  --radius-control: 4px;
+  --radius-field: 5px;
+  --radius-login: 8px;
+  --radius-pill: 999px;
 }

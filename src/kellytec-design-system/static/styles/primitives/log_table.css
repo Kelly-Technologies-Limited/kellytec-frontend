@@ -1,59 +1,59 @@
-.monitor-log-table {
+.log-table {
   min-width: 760px;
-  max-height: var(--monitor-table-list-max-height);
+  max-height: var(--table-list-max-height);
   overflow: auto;
-  border: 1px solid var(--monitor-divider);
-  border-radius: var(--monitor-radius);
-  background: var(--monitor-surface-raised);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
 }
 
-.monitor-log-table-row {
+.log-table-row {
   display: grid;
   grid-template-columns: 150px 100px 110px 90px 160px minmax(260px, 1fr);
-  border-bottom: var(--monitor-table-row-border);
+  border-bottom: var(--table-row-border);
 }
 
-.monitor-log-table-row:last-child { border-bottom: 0; }
+.log-table-row:last-child { border-bottom: 0; }
 
-.monitor-log-table-cell {
-  min-height: var(--monitor-table-row-min-height);
+.log-table-cell {
+  min-height: var(--table-row-min-height);
   padding: 7px 8px;
   overflow-wrap: anywhere;
 }
 
-.monitor-log-table--headed {
+.log-table--headed {
   min-width: 0;
 }
 
-.monitor-log-table--headed table {
+.log-table--headed table {
   border-collapse: separate;
   border-spacing: 0;
 }
 
-.monitor-log-table--headed thead {
+.log-table--headed thead {
   position: sticky;
   top: 0;
-  z-index: var(--monitor-layer-sticky);
-  background: var(--monitor-surface-raised);
+  z-index: var(--layer-sticky);
+  background: var(--surface-raised);
 }
 
-.monitor-log-table--headed th {
-  padding: var(--monitor-table-header-padding);
-  border-bottom: var(--monitor-table-header-border);
-  background: var(--monitor-surface-raised);
+.log-table--headed th {
+  padding: var(--table-header-padding);
+  border-bottom: var(--table-header-border);
+  background: var(--surface-raised);
 }
 
-.monitor-log-table--headed .monitor-log-table-controls td {
+.log-table--headed .log-table-controls td {
   padding: 10px 8px;
-  border-bottom: var(--monitor-table-header-border);
-  background: var(--monitor-surface-raised);
+  border-bottom: var(--table-header-border);
+  background: var(--surface-raised);
 }
 
-.monitor-log-table--headed td {
-  padding: var(--monitor-table-row-padding);
-  border-bottom: var(--monitor-table-row-border);
+.log-table--headed td {
+  padding: var(--table-row-padding);
+  border-bottom: var(--table-row-border);
 }
 
-.monitor-log-table--headed tbody tr:last-child td {
+.log-table--headed tbody tr:last-child td {
   border-bottom: 0;
 }

@@ -8,9 +8,9 @@ from kellytec_design_system.assets import ROOT
 
 def test_new_categories_append_without_changing_existing_styles():
     base = ROOT / "static/js"
-    script = "global.window={MonitorUI:{esc:String}};" + "".join("require(" + json.dumps(str(base / path)) + ");" for path in ["charts/series.js", "charts/legend.js"])
+    script = "global.window={UI:{esc:String}};" + "".join("require(" + json.dumps(str(base / path)) + ");" for path in ["charts/series.js", "charts/legend.js"])
     script += """
-    const UI=window.MonitorUI, keys=Array.from({length:13},(_,i)=>'opaque '+i);
+    const UI=window.UI, keys=Array.from({length:13},(_,i)=>'opaque '+i);
     const before=UI.chartSeriesStyle(keys[0], keys.slice(0,4));
     const styles=keys.map(key=>UI.chartSeriesStyle(key,keys));
     const after=UI.chartSeriesStyle(keys[0],['brand-new'].concat(keys));

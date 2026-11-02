@@ -193,4 +193,4 @@
     return UI.value({ kind: "status", value: value });
   };
 
-})(window.MonitorUI);
+})(window.UI);

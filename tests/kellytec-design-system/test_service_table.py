@@ -8,7 +8,7 @@ from kellytec_design_system.assets import shared_ui_script
 def test_service_table_escapes_every_display_value_without_reinterpreting_it():
     script = "global.window={};\n" + shared_ui_script() + r'''
 const assert = require('node:assert/strict');
-const UI = window.MonitorUI;
+const UI = window.UI;
 assert.equal(typeof UI.serviceTable, 'function', 'Shared service table is required');
 global.document={createElement:() => ({set textContent(value) {
   this.innerHTML=String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');

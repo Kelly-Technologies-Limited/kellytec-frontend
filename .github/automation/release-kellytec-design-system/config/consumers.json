@@ -10,7 +10,8 @@
       "repository": "Kelly-Technologies-Limited/kellytec-platforms",
       "products": [
         "kellytec-research-platform",
-        "kellytec-data-platform"
+        "kellytec-data-platform",
+        "kellytec-investor-platform"
       ]
     },
     {

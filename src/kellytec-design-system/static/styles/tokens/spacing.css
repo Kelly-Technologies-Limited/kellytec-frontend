@@ -1,9 +1,9 @@
 :root {
-  --monitor-container: var(--container, 1080px);
-  --monitor-pad: var(--pad, clamp(1.25rem, 4vw, 2.5rem));
-  --monitor-card-gap: 8px;
-  --monitor-space-1: 4px;
-  --monitor-space-2: 8px;
-  --monitor-space-3: 12px;
-  --monitor-space-4: 18px;
+  --page-max-width: var(--container, 1080px);
+  --page-padding: var(--pad, clamp(1.25rem, 4vw, 2.5rem));
+  --card-gap: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 18px;
 }

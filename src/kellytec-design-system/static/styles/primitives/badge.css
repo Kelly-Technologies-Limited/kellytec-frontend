@@ -3,37 +3,37 @@
       align-items: center;
       gap: 6px;
       min-height: 22px;
-      border-radius: var(--monitor-radius-pill);
+      border-radius: var(--radius-pill);
       padding: 3px 9px 3px 8px;
-      font: var(--monitor-type-status);
+      font: var(--type-status);
       text-transform: uppercase;
-      letter-spacing: var(--monitor-tracking-label);
-      background: var(--monitor-unknown-bg);
-      color: var(--monitor-unknown);
-      border: 1px solid var(--monitor-status-unknown-border);
+      letter-spacing: var(--tracking-label);
+      background: var(--unknown-bg);
+      color: var(--unknown);
+      border: 1px solid var(--status-unknown-border);
     }
     .badge::before {
       content: "";
       width: 5px;
       height: 5px;
-      border-radius: var(--monitor-radius-pill);
+      border-radius: var(--radius-pill);
       background: currentColor;
       flex: none;
     }
     .badge.healthy {
-      color: var(--monitor-ok);
-      background: var(--monitor-ok-bg);
-      border-color: var(--monitor-status-positive-border);
+      color: var(--ok);
+      background: var(--ok-bg);
+      border-color: var(--status-positive-border);
     }
     .badge.warning {
-      color: var(--monitor-warn);
-      background: var(--monitor-warn-bg);
-      border-color: var(--monitor-status-warning-border);
+      color: var(--warn);
+      background: var(--warn-bg);
+      border-color: var(--status-warning-border);
     }
     .badge.critical {
-      color: var(--monitor-bad);
-      background: var(--monitor-bad-bg);
-      border-color: var(--monitor-status-critical-border);
+      color: var(--bad);
+      background: var(--bad-bg);
+      border-color: var(--status-critical-border);
     }
     .tab-badge {
       min-width: 18px;
@@ -42,23 +42,23 @@
       padding: 0 5px;
       display: inline-grid;
       place-items: center;
-      border-radius: var(--monitor-radius-pill);
-      background: var(--monitor-accent);
-      color: var(--monitor-surface-raised);
-      font: var(--monitor-type-badge-count);
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: var(--surface-raised);
+      font: var(--type-badge-count);
       font-variant-numeric: tabular-nums;
-      letter-spacing: var(--monitor-tracking-none);
+      letter-spacing: var(--tracking-none);
       text-align: center;
       text-transform: none;
     }
     .tab-badge[hidden] { display: none; }
-    .monitor-bubble-metric {
+    .bubble-metric {
       min-width: 72px;
       min-height: 36px;
       padding: 3px 8px;
-      border: 1px solid var(--monitor-divider);
-      border-radius: var(--monitor-radius);
-      background: var(--monitor-surface-raised);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius);
+      background: var(--surface-raised);
       text-align: center;
 
       font-variant-numeric: tabular-nums;
@@ -66,14 +66,14 @@
       flex-direction: column;
       justify-content: center;
     }
-    .monitor-bubble-metric span {
+    .bubble-metric span {
       display: block;
-      color: var(--monitor-faint);
+      color: var(--faint);
 
       text-transform: uppercase;
 
     }
-    .monitor-bubble-metric strong {
+    .bubble-metric strong {
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -81,11 +81,11 @@
 
     }
 
-.monitor-bubble-compact { flex: 0 0 auto; min-width: 28px; border: 1px solid var(--monitor-status-unknown-border-compact); border-radius: var(--monitor-radius-pill); padding: 1px 5px; text-align: center; text-transform: uppercase; }
-.monitor-bubble-compact[data-tone="neutral"] { background: var(--monitor-status-unknown-bg-soft); color: var(--monitor-faint); }
-.monitor-bubble-compact[data-tone="unknown"] { background: var(--monitor-unknown-bg); color: var(--monitor-unknown); }
-.monitor-bubble-compact[data-tone="healthy"] { background: var(--monitor-ok-bg); color: var(--monitor-ok); border-color: var(--monitor-status-positive-border-compact); }
-.monitor-bubble-compact[data-tone="warning"] { background: var(--monitor-warn-bg); color: var(--monitor-warn); border-color: var(--monitor-status-warning-border); }
-.monitor-bubble-compact[data-tone="critical"] { background: var(--monitor-bad-bg); color: var(--monitor-bad); border-color: var(--monitor-status-critical-border); }
-.monitor-bubble-metric[data-tone="healthy"] strong { color: var(--monitor-ok); }
-.monitor-bubble-metric[data-tone="critical"] strong { color: var(--monitor-bad); }
+.bubble-compact { flex: 0 0 auto; min-width: 28px; border: 1px solid var(--status-unknown-border-compact); border-radius: var(--radius-pill); padding: 1px 5px; text-align: center; text-transform: uppercase; }
+.bubble-compact[data-tone="neutral"] { background: var(--status-unknown-bg-soft); color: var(--faint); }
+.bubble-compact[data-tone="unknown"] { background: var(--unknown-bg); color: var(--unknown); }
+.bubble-compact[data-tone="healthy"] { background: var(--ok-bg); color: var(--ok); border-color: var(--status-positive-border-compact); }
+.bubble-compact[data-tone="warning"] { background: var(--warn-bg); color: var(--warn); border-color: var(--status-warning-border); }
+.bubble-compact[data-tone="critical"] { background: var(--bad-bg); color: var(--bad); border-color: var(--status-critical-border); }
+.bubble-metric[data-tone="healthy"] strong { color: var(--ok); }
+.bubble-metric[data-tone="critical"] strong { color: var(--bad); }

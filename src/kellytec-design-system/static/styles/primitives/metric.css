@@ -1,46 +1,46 @@
     .metric {
       min-height: 60px;
-      border-top: 1px solid var(--monitor-divider);
+      border-top: 1px solid var(--divider);
       padding: 9px 0 6px;
       background: transparent;
     }
     .metric span {
       display: block;
       margin-bottom: 4px;
-      color: var(--monitor-faint);
-      font: var(--monitor-type-field-label);
+      color: var(--faint);
+      font: var(--type-field-label);
       text-transform: uppercase;
-      letter-spacing: var(--monitor-tracking-uppercase);
+      letter-spacing: var(--tracking-uppercase);
     }
     .metric strong {
       display: block;
-      font: var(--monitor-type-field-value);
+      font: var(--type-field-value);
       overflow-wrap: anywhere;
     }
 
-    .monitor-context-card {
+    .context-card {
       min-width: 0;
       margin-bottom: 12px;
-      border: 1px solid var(--monitor-line);
-      border-radius: var(--monitor-radius);
-      background: var(--monitor-panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
       padding: 12px 14px;
     }
-    .monitor-context-grid {
+    .context-grid {
       display: grid;
       grid-template-columns: 1.45fr 1fr 1fr;
       gap: 10px 18px;
       align-items: start;
     }
-    .monitor-card-metrics .monitor-context-grid {
+    .card-metrics .context-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px 18px;
     }
-    .monitor-card-metrics .monitor-context-section:nth-child(-n+2) {
+    .card-metrics .context-section:nth-child(-n+2) {
       grid-column: 1 / -1;
     }
-    .monitor-context-section { min-width: 0; }
-    .monitor-context-section-head {
+    .context-section { min-width: 0; }
+    .context-section-head {
       min-width: 0;
       display: flex;
       align-items: center;
@@ -48,74 +48,74 @@
       gap: 12px;
       margin: 0 0 7px;
       padding-bottom: 7px;
-      border-bottom: 1px solid var(--monitor-divider);
+      border-bottom: 1px solid var(--divider);
     }
-    .monitor-context-section h3 {
+    .context-section h3 {
       min-width: 0;
       margin: 0;
-      color: var(--monitor-faint);
+      color: var(--faint);
       text-transform: uppercase;
     }
-    .monitor-context-metrics {
+    .context-metrics {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px 18px;
     }
-    .monitor-card-metrics .monitor-context-section:nth-child(n+3) .monitor-context-metrics {
+    .card-metrics .context-section:nth-child(n+3) .context-metrics {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .monitor-card-note {
+    .card-note {
       margin: 10px 0 0;
       padding-top: 9px;
-      border-top: 1px solid var(--monitor-divider);
-      color: var(--monitor-faint);
+      border-top: 1px solid var(--divider);
+      color: var(--faint);
     }
-    .monitor-context-metric {
+    .context-metric {
       min-width: 0;
       min-height: 48px;
     }
-    .monitor-context-metric > .monitor-metric-label {
+    .context-metric > .metric-label {
       display: block;
       min-height: 24px;
       margin-bottom: 4px;
-      color: var(--monitor-faint);
+      color: var(--faint);
       text-transform: uppercase;
       white-space: pre-line;
     }
-    .monitor-context-metric .monitor-metric-label-mobile { display: none; }
-    .monitor-context-metric strong,
-    .monitor-context-metric .monitor-metric-value {
+    .context-metric .metric-label-mobile { display: none; }
+    .context-metric strong,
+    .context-metric .metric-value {
       display: block;
       min-width: 0;
       min-height: 18px;
-      color: var(--monitor-ink);
+      color: var(--ink);
       overflow-wrap: anywhere;
       font-variant-numeric: tabular-nums;
       text-decoration: none;
     }
-    .monitor-metric-value-alert {
+    .metric-value-alert {
       width: fit-content;
       min-width: 22px;
       padding: 1px 6px;
-      border: 1px solid var(--monitor-status-critical-border-strong);
-      border-radius: var(--monitor-radius-pill);
-      background: var(--monitor-bad-bg);
-      color: var(--monitor-bad) !important;
+      border: 1px solid var(--status-critical-border-strong);
+      border-radius: var(--radius-pill);
+      background: var(--bad-bg);
+      color: var(--bad) !important;
       text-align: center;
     }
-    .monitor-metric-value-positive { color: var(--monitor-ok) !important; }
-    .monitor-metric-value-negative { color: var(--monitor-bad) !important; }
-    .monitor-metric-value-loading { color: var(--monitor-muted) !important; }
-    .monitor-metric-value-multiline {
+    .metric-value-positive { color: var(--ok) !important; }
+    .metric-value-negative { color: var(--bad) !important; }
+    .metric-value-loading { color: var(--muted) !important; }
+    .metric-value-multiline {
       white-space: pre-line;
       overflow-wrap: normal;
     }
-    .monitor-metric-value-lines {
+    .metric-value-lines {
       display: grid !important;
       gap: 1px;
       white-space: normal;
     }
-    .monitor-metric-value-lines span {
+    .metric-value-lines span {
       display: block;
       min-width: 0;
       min-height: 0;
@@ -126,7 +126,7 @@
       text-transform: none;
       white-space: nowrap;
     }
-    .monitor-context-metric-wide { grid-column: 1 / -1; }
-    .monitor-context-metric-span-2 { grid-column: span 2; }
-    .monitor-context-metric-span-3 { grid-column: span 3; }
-    .monitor-context-metric-span-4 { grid-column: 1 / -1; }
+    .context-metric-wide { grid-column: 1 / -1; }
+    .context-metric-span-2 { grid-column: span 2; }
+    .context-metric-span-3 { grid-column: span 3; }
+    .context-metric-span-4 { grid-column: 1 / -1; }

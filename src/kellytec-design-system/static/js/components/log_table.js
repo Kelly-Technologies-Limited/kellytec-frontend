@@ -1,4 +1,4 @@
-/* Generic log-table shell; each monitor owns its field mapping. */
+/* Generic log-table shell; each application owns its field mapping. */
 (function (UI) {
   function attribute(value) {
     return UI.esc(value).replace(/"/g, "&quot;");
@@ -14,7 +14,7 @@
     }).join("");
     if (headers.length) {
       const controls = config.headerControls || [];
-      const controlRow = controls.length ? '<tr class="monitor-log-table-controls' +
+      const controlRow = controls.length ? '<tr class="log-table-controls' +
         (config.controlsClassName ? ' ' + attribute(config.controlsClassName) : '') + '">' +
         controls.map(function (control) {
           const span = control.span || 1;
@@ -27,7 +27,7 @@
         }).join("") + '</tr>';
       }).join("") : '<tr><td colspan="' + headers.length + '"><div class="empty">' +
         UI.esc(config.emptyText || "No logs") + '</div></td></tr>';
-      return '<div class="monitor-log-table monitor-log-table--headed' +
+      return '<div class="log-table log-table--headed' +
         (config.className ? " " + attribute(config.className) : "") +
         '" data-ui="log-table" role="region" aria-label="' + attribute(config.label || "Logs") +
         '" tabindex="0"' + attributes + '><table data-ui="table"><colgroup>' +
@@ -36,11 +36,11 @@
           return '<th scope="col" data-ui-type="' + attribute(config.headerTypography || "table-header") + '">' + UI.esc(heading) + '</th>';
         }).join("") + '</tr></thead><tbody>' + body + '</tbody></table></div>';
     }
-    return '<div class="monitor-log-table' + (config.className ? " " + attribute(config.className) : "") + '" data-ui="log-table" role="table" tabindex="0"' + attributes + '>' +
+    return '<div class="log-table' + (config.className ? " " + attribute(config.className) : "") + '" data-ui="log-table" role="table" tabindex="0"' + attributes + '>' +
       rows.map(function (cells) {
-        return '<div class="monitor-log-table-row" role="row">' + cells.map(function (body) {
-          return UI.cell(body, { className: "monitor-log-table-cell", role: "cell", typography: "table-cell" });
+        return '<div class="log-table-row" role="row">' + cells.map(function (body) {
+          return UI.cell(body, { className: "log-table-cell", role: "cell", typography: "table-cell" });
         }).join("") + "</div>";
       }).join("") + "</div>";
   };
-})(window.MonitorUI);
+})(window.UI);
