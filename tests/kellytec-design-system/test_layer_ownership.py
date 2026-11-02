@@ -5,7 +5,24 @@ import re
 
 from playwright.sync_api import sync_playwright
 
-from kellytec_design_system.assets import ROOT
+from kellytec_design_system.assets import ROOT, design_system_css
+
+
+def test_footer_keeps_its_surface_when_page_canvas_is_applied():
+    with sync_playwright() as playwright:
+        with playwright.chromium.launch(
+            executable_path=os.environ.get("KELLYTEC_UI_BROWSER_PATH"),
+        ) as browser:
+            page = browser.new_page()
+            page.route("**/*", lambda route: route.abort())
+            page.set_content(
+                "<style>" + design_system_css() + "</style>"
+                '<main>Content</main><footer class="site-footer">Footer</footer>'
+            )
+            colors = page.evaluate("""() => [document.body,
+                document.querySelector('.site-footer')].map(element =>
+                    getComputedStyle(element).backgroundColor)""")
+    assert colors == ["rgb(247, 248, 244)", "rgb(252, 252, 252)"]
 
 
 def test_every_component_layer_uses_a_defined_semantic_token():

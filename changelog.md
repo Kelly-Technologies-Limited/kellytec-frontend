@@ -1,3 +1,8 @@
+## 2026-11-03 - Preserve the shared footer surface in Design System 2.0.1
+
+- Bind the shared page footer to the surface token, preserving its original color after neutral token names replaced service prefixes.
+- Verify the computed footer and canvas colors independently in the installed stylesheet browser check.
+
 ## 2026-11-03 - Install the website browser check runtime
 
 - Provision Playwright and Chromium for the mandatory Login/Services browser tests in the website Check job.

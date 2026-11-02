@@ -26,7 +26,7 @@
       padding-left: var(--page-padding);
       padding-right: var(--page-padding);
     }
-    .site-footer { margin-top: auto; }
+    .site-footer { margin-top: auto; background: var(--surface); }
     .page-shell {
       flex: 1 0 auto;
       width: 100%;
