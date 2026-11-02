@@ -1,9 +1,9 @@
-## 2026-11-01 - Link the company platforms from the website
-
 ## 2026-11-03 - Release local LEAN research and unified service access
 
 - Prepare Design System 2.0.0 with neutral shared primitives, singular contracts and no service-specific or brand-prefixed component APIs.
 - Replace GP/LP entry points with Google Login and six-slot Services navigation; retain blank unauthorized slots.
+
+## 2026-11-01 - Link the company platforms from the website
 
 - Replace GP project monitor links with Data Platform and Research Platform, retaining the existing bilingual one-word-per-line card layout.
 - Point LP to Investor Platform and remove the old GP monitor compatibility route from the public artifact.
