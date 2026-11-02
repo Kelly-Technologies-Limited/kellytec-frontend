@@ -148,7 +148,8 @@ jobs:
       with:
         name: snapshot-kellytec-website
         path: .automation/kellytec-website
-    - run: python -m pip install pytest build
+    - run: python -m pip install pytest build playwright==1.64.1
+    - run: python -m playwright install --with-deps chromium
     - run: python .github/automation/check-kellytec-website/scripts/check_website.py
     if: ${{ needs.resolve_source_and_dependencies.outputs.qualified_restored != 'true' }}
   build_website:

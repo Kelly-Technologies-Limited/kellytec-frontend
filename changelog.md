@@ -1,3 +1,7 @@
+## 2026-11-03 - Install the website browser check runtime
+
+- Provision Playwright and Chromium for the mandatory Login/Services browser tests in the website Check job.
+
 ## 2026-11-03 - Release local LEAN research and unified service access
 
 - Prepare Design System 2.0.0 with neutral shared primitives, singular contracts and no service-specific or brand-prefixed component APIs.
