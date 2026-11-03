@@ -61,6 +61,7 @@ def test_authorized_cards_keep_six_slots_and_empty_cards_have_no_content(website
     page.set_viewport_size({"width": width, "height": 1000})
     identity(page, list(grants))
     page.goto("https://kellytec.io/services/")
+    expect(page.locator("body")).to_have_css("opacity", "1")
     expect(page.locator("#account-name")).to_have_text("Researcher <safe>")
     expect(page.locator(".service-slot")).to_have_count(6)
     expect(page.locator(".service-slot a")).to_have_count(len(grants))
@@ -79,6 +80,7 @@ def test_anonymous_visitors_return_to_single_google_login(website):
     identity(website, [], status=401)
     website.goto("https://kellytec.io/services/")
     expect(website).to_have_url("https://kellytec.io/login/")
+    expect(website.locator("body")).to_have_css("opacity", "1")
     expect(website.locator(".login-google")).to_have_attribute("href", "https://auth.kellytec.io/login")
     expect(website.locator('input[type="password"]')).to_have_count(0)
 

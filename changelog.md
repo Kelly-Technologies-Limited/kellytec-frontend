@@ -1,3 +1,8 @@
+## 2026-11-03 - Restore the visible Google login page
+
+- Load the existing page reveal script on Login so the shared initial opacity no longer leaves the page blank.
+- Check actual browser opacity on Login and Services, including the anonymous redirect to Login.
+
 ## 2026-11-03 - Preserve the shared footer surface in Design System 2.0.1
 
 - Bind the shared page footer to the surface token, preserving its original color after neutral token names replaced service prefixes.
