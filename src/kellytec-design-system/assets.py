@@ -43,6 +43,7 @@ _STYLE_FILES = (
 )
 _SCRIPT_FILES = (
     "runtime/dom.js",
+    "runtime/refresh.js",
     "formatters/value.js",
     "components/badge.js",
     "components/summary.js",
