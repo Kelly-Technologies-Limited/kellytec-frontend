@@ -1,3 +1,8 @@
+## 2026-11-06 — Share explicit page refresh control
+
+- Add a validated manual/interval policy and one browser lifecycle controller. Coalesce concurrent refreshes, pause hidden pages, and stop queued timers when disabled or closed.
+- Release Design System 2.1.0 with the verified Automation 2.0.1 executor.
+
 ## 2026-11-03 - Restore the visible Google login page
 
 - Load the existing page reveal script on Login so the shared initial opacity no longer leaves the page blank.
@@ -200,4 +205,4 @@
 
 ## Automation 2.0 adoption
 
-- Adopt the verified Automation 2.0.0 wheel together with all workflow, script and test call sites; retain existing product versions and deployment gates.
+- Adopt the verified Automation 2.0.1 wheel together with all workflow, script and test call sites; retain existing product versions and deployment gates.
