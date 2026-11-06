@@ -201,3 +201,7 @@
 ## Automation 2.0 adoption
 
 - Adopt the verified Automation 2.0.0 wheel together with all workflow, script and test call sites; retain existing product versions and deployment gates.
+
+## Update kellytec-automation 2.0.1
+
+- Align the accepted dependency and generated contracts with source f9d81ca095e0559d9c4e925f1a1a8cea29ad4241; review and merge this upgrade before main uses it.
