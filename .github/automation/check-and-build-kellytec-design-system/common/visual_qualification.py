@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.io.library.integrity import file_sha256
-from kellytec_automation.common.io.library.local_files import read_json
+from kellytec_automation.runtime.files.integrity import file_sha256
+from kellytec_automation.runtime.files.local_files import read_json
 
 
 CHECK = "services-ui-v1"

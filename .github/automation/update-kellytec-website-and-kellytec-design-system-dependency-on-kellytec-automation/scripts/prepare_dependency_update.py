@@ -4,14 +4,10 @@ import importlib.util
 import os
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import output
-from kellytec_automation.common.dependencies.read_declarations import (
-    dependency_declaration,
-)
-from kellytec_automation.common.dependencies.update_dependency_pull_request import (
-    prepare_update,
-)
-from kellytec_automation.common.io.library.local_files import read_json
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.inputs.dependencies.declarations import dependency_declaration
+from kellytec_automation.release.adoption.update_pull_request import prepare_update
+from kellytec_automation.runtime.files.local_files import read_json
 
 if __name__ == "__main__":
     root = Path.cwd()

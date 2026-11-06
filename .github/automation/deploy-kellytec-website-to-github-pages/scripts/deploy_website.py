@@ -4,7 +4,7 @@ import os
 import sys
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import output
+from kellytec_automation.integrations.github.context import output
 
 ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / ".github/automation/common/deployment"))

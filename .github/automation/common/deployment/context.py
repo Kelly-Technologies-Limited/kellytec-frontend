@@ -2,10 +2,8 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.artifacts.verify_qualified_artifacts import (
-    verify_qualified,
-)
-from kellytec_automation.common.io.library.local_files import read_json
+from kellytec_automation.qualification.evidence.verify import verify_qualified
+from kellytec_automation.runtime.files.local_files import read_json
 
 
 def website_context(root: Path) -> tuple[dict, dict]:

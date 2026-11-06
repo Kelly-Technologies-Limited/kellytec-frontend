@@ -261,7 +261,7 @@ jobs:
         workload_identity_provider: ${{ vars.QUALIFICATION_PUBLISH_PROVIDER }}
         service_account: ${{ vars.QUALIFICATION_PUBLISH_ACCOUNT }}
     - name: Persist original qualification
-      run: python -m kellytec_automation.common.artifacts.persist_qualification --product kellytec-website
+      run: python -m kellytec_automation.qualification.evidence.persist --product kellytec-website
       env:
         GH_TOKEN: ${{ github.token }}
 env:

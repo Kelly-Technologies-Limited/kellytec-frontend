@@ -4,13 +4,12 @@ import runpy
 import sys
 from pathlib import Path
 
-from kellytec_automation.common.artifacts.record_qualified_artifacts import (
-    record_qualified,
-)
-from kellytec_automation.common.artifacts.restore_artifacts import restore_qualification
-from kellytec_automation.common.io.library.integrity import file_sha256
-from kellytec_automation.common.io.library.local_files import read_json, write_json
-from kellytec_automation.common.process.run_command import command
+from kellytec_automation.qualification.evidence.record import record_qualified
+from kellytec_automation.qualification.evidence.restore import restore_qualification
+from kellytec_automation.runtime.files.integrity import file_sha256
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.runtime.files.local_files import write_json
+from kellytec_automation.runtime.process.run_command import command
 
 VISUAL = runpy.run_path(str(Path(__file__).resolve().parents[1] / "common/visual_qualification.py"))
 

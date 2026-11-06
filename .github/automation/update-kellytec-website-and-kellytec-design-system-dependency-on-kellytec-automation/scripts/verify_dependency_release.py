@@ -2,11 +2,9 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import event_payload
-from kellytec_automation.release.verify_dependency_notification import (
-    verify_dependency_notification,
-)
-from kellytec_automation.release.verify_engine_notification import verify_engine_release
+from kellytec_automation.integrations.github.context import event_payload
+from kellytec_automation.release.adoption.verify_notification import verify_dependency_notification
+from kellytec_automation.release.adoption.verify_engine_notification import verify_engine_release
 
 if __name__ == "__main__":
     root = Path.cwd()

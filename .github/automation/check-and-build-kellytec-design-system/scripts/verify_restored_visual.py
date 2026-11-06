@@ -3,7 +3,7 @@
 import runpy
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import read_json
+from kellytec_automation.runtime.files.local_files import read_json
 
 
 if __name__ == "__main__":

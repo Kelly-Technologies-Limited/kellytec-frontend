@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import read_json
-from kellytec_automation.release.prepare_release import prepare_package
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.release.packages.prepare import prepare_package
 
 if __name__ == "__main__":
     root = Path.cwd()
