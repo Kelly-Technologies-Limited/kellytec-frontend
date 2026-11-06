@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import write_json
+from kellytec_automation.runtime.files.local_files import write_json
 
 
 def record_pages_result(root: Path, snapshot: dict, url: str) -> None:

@@ -3,11 +3,12 @@
 import sys
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import output
-from kellytec_automation.common.artifacts.restore_artifacts import restore_run_artifact
-from kellytec_automation.common.io.library.integrity import file_sha256 as digest
-from kellytec_automation.common.io.library.local_files import read_json, write_json
-from kellytec_automation.common.process.run_command import command
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.qualification.evidence.restore import restore_run_artifact
+from kellytec_automation.runtime.files.integrity import file_sha256 as digest
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.runtime.files.local_files import write_json
+from kellytec_automation.runtime.process.run_command import command
 
 ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / ".github/automation/common/helpers"))

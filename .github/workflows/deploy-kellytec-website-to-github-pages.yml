@@ -101,7 +101,7 @@ jobs:
       id: bootstrap
       run: python .github/automation/common/scripts/install_automation.py
     - name: Restore original qualified artifacts
-      run: python -m kellytec_automation.common.artifacts.verify_qualified_artifacts --require-available --product
+      run: python -m kellytec_automation.qualification.evidence.verify --require-available --product
         kellytec-website
     - id: prepare
       run: python .github/automation/deploy-kellytec-website-to-github-pages/scripts/deploy_website.py

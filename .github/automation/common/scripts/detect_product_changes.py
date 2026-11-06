@@ -4,9 +4,11 @@ import json
 import os
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import event_payload, output
-from kellytec_automation.common.changes.detect_changes import detect_changes
-from kellytec_automation.common.io.library.local_files import read_json, write_json
+from kellytec_automation.integrations.github.context import event_payload
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.inputs.changes.detect import detect_changes
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.runtime.files.local_files import write_json
 
 
 def detect_product_changes() -> None:

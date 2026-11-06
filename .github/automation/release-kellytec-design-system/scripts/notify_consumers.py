@@ -3,9 +3,9 @@
 import os
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import read_json
-from kellytec_automation.release.notify_consumers import notify_consumers
-from kellytec_automation.release.verify_release import verify_release
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.release.notify import notify_consumers
+from kellytec_automation.release.verify import verify_release
 
 if __name__ == "__main__":
     root = Path.cwd()

@@ -3,18 +3,13 @@
 import os
 from pathlib import Path
 
-from kellytec_automation.common.adapter.github.context import event_payload, output
-from kellytec_automation.common.dependencies.read_declarations import (
-    dependency_declaration,
-)
-from kellytec_automation.common.dependencies.update_dependency_pull_request import (
-    update_dependency_pull_request,
-)
-from kellytec_automation.common.io.library.local_files import read_json
-from kellytec_automation.release.verify_dependency_notification import (
-    verify_dependency_notification,
-)
-from kellytec_automation.release.verify_engine_notification import verify_engine_release
+from kellytec_automation.integrations.github.context import event_payload
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.inputs.dependencies.declarations import dependency_declaration
+from kellytec_automation.release.adoption.update_pull_request import update_dependency_pull_request
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.release.adoption.verify_notification import verify_dependency_notification
+from kellytec_automation.release.adoption.verify_engine_notification import verify_engine_release
 
 if __name__ == "__main__":
     root = Path.cwd()

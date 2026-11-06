@@ -2,9 +2,9 @@
 
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import read_json
-from kellytec_automation.publish.publish_packages import publish_files
-from kellytec_automation.release.contract import read_manifest
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.release.packages.publish import publish_files
+from kellytec_automation.release.contract.release_manifest import read_manifest
 
 if __name__ == "__main__":
     root = Path.cwd()

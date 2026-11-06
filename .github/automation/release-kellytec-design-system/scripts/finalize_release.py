@@ -4,9 +4,9 @@ import json
 import os
 from pathlib import Path
 
-from kellytec_automation.common.io.library.local_files import read_json
-from kellytec_automation.release.contract import read_manifest
-from kellytec_automation.release.finalize_release import finalize_package_release
+from kellytec_automation.runtime.files.local_files import read_json
+from kellytec_automation.release.contract.release_manifest import read_manifest
+from kellytec_automation.release.packages.finalize import finalize_package_release
 
 if __name__ == "__main__":
     root = Path.cwd()

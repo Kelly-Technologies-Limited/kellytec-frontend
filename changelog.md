@@ -193,3 +193,11 @@
 ## Update kellytec-automation 1.1.3
 
 - Align the accepted dependency and generated contracts with source f30180438c4db69624987c45cf32899209d544ec; review and merge this upgrade before main uses it.
+
+## Update kellytec-automation 2.0.0
+
+- Align the accepted dependency and generated contracts with source c41a7b0c3cba1206c1b54180cbe6883d6a0f6161; review and merge this upgrade before main uses it.
+
+## Automation 2.0 adoption
+
+- Adopt the verified Automation 2.0.0 wheel together with all workflow, script and test call sites; retain existing product versions and deployment gates.

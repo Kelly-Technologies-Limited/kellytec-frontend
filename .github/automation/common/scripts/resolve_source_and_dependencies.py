@@ -2,10 +2,8 @@
 
 import argparse
 
-from kellytec_automation.common.adapter.github.context import output
-from kellytec_automation.common.dependencies.resolve_source_and_dependencies import (
-    resolve_source_and_dependencies,
-)
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.inputs.snapshot import resolve_source_and_dependencies
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

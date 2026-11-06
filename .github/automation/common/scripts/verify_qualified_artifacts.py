@@ -2,10 +2,8 @@
 
 import argparse
 
-from kellytec_automation.common.adapter.github.context import output
-from kellytec_automation.common.artifacts.verify_qualified_artifacts import (
-    verify_qualified_artifacts,
-)
+from kellytec_automation.integrations.github.context import output
+from kellytec_automation.qualification.evidence.verify import verify_qualified_artifacts
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
