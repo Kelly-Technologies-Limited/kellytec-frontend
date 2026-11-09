@@ -218,3 +218,7 @@
 ## Update kellytec-automation 2.0.2
 
 - Align the accepted dependency and generated contracts with source e1bb7ebcf736b5db4245bfb5264184d1dd0df918; review and merge this upgrade before main uses it.
+
+## Update kellytec-automation 2.0.3
+
+- Align the accepted dependency and generated contracts with source 8d1b1456bd49930a29158eb2b605b3cfdb53e8c3; review and merge this upgrade before main uses it.
