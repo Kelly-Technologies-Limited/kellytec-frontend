@@ -1,3 +1,7 @@
+## 2026-11-09 — Checkpoint website login continuation
+
+- Carry valid platform login flow tokens and URL fragments through the Google login link; resume the flow for signed-in users and cover invalid tokens in browser tests.
+
 ## 2026-11-06 — Share explicit page refresh control
 
 - Add a validated manual/interval policy and one browser lifecycle controller. Coalesce concurrent refreshes, pause hidden pages, and stop queued timers when disabled or closed.

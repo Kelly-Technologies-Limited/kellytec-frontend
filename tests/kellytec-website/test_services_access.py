@@ -91,3 +91,27 @@ def test_identity_failure_leaves_all_cards_blank(website):
     expect(website.locator("#access-status")).not_to_be_empty()
     expect(website.locator(".service-slot:empty")).to_have_count(6)
     expect(website.locator(".service-slot a")).to_have_count(0)
+
+
+def test_platform_login_passes_flow_and_fragment_to_google_link(website):
+    identity(website, [], status=401)
+    flow = 'a' * 43
+    website.goto('https://kellytec.io/login/?flow=' + flow + '#nodes')
+    expect(website.locator('.login-google')).to_have_attribute(
+        'href', 'https://auth.kellytec.io/login?flow=' + flow + '#nodes')
+    website.locator('.login-google').click()
+    expect(website).to_have_url('https://auth.kellytec.io/login?flow=' + flow + '#nodes')
+
+
+def test_signed_in_platform_login_resumes_flow_instead_of_services(website):
+    identity(website, ['research'])
+    flow = 'b' * 43
+    website.goto('https://kellytec.io/login/?flow=' + flow)
+    expect(website).to_have_url('https://auth.kellytec.io/login?flow=' + flow)
+
+
+@pytest.mark.parametrize('flow', ['https://attacker.example/', '//attacker.example/', 'short'])
+def test_login_ignores_invalid_flow(website, flow):
+    identity(website, [], status=401)
+    website.goto('https://kellytec.io/login/?flow=' + flow)
+    expect(website.locator('.login-google')).to_have_attribute('href', 'https://auth.kellytec.io/login')

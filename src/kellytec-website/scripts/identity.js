@@ -19,7 +19,18 @@
     },
   });
   if (document.querySelector('[data-page="login"]')) {
-    Identity.session().then(value => { if (value) location.replace('/services/'); }).catch(() => {
+    const flow = new URLSearchParams(location.search).get('flow');
+    const login = document.querySelector('.login-google');
+    const continuation = /^[A-Za-z0-9_-]{43}$/.test(flow || '');
+    if (continuation) {
+      const destination = new URL(login.href);
+      destination.searchParams.set('flow', flow);
+      destination.hash = location.hash;
+      login.href = destination.href;
+    }
+    Identity.session().then(value => {
+      if (value) location.replace(continuation ? login.href : '/services/');
+    }).catch(() => {
       const status = document.querySelector('#login-status');
       status.dataset.en = 'Login is temporarily unavailable. Please try again.';
       status.dataset.zh = '登录暂时不可用，请稍后重试。';
