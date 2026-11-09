@@ -1,3 +1,7 @@
+## 2026-11-09 — Resume service login continuations (unreleased)
+
+- Forward validated continuation state and browser fragments to central login, and resume existing central sessions to their pending service authorization.
+
 ## 2026-11-09 — Checkpoint website login continuation
 
 - Carry valid platform login flow tokens and URL fragments through the Google login link; resume the flow for signed-in users and cover invalid tokens in browser tests.
