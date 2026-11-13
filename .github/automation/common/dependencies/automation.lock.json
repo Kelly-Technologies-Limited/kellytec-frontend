@@ -1,7 +1,7 @@
 {
   "artifacts": {
-    "kellytec_automation-2.2.0-py3-none-any.whl": "0d9fd5c64f4a836b7bd11525c4ef2f10d088b34d7ed82991dd5ff24683c41fc7"
+    "kellytec_automation-2.2.1-py3-none-any.whl": "ac678bc1be156ac4c6f3c6920872e761d88ce6acf58353ab0de25c4ed72bec2a"
   },
-  "commit": "1e588d5a551e4c6e3d4e8f37eff7f439f52aaeca",
-  "version": "2.2.0"
+  "commit": "d4134152e8f108f9dfc6ac005b1e15bd01386c58",
+  "version": "2.2.1"
 }
